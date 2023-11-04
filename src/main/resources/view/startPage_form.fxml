@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,15 +24,15 @@
             <Font name="Dyuthi Regular" size="96.0" />
          </font>
       </Label>
-      <Button layoutX="247.0" layoutY="641.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="58.0" prefWidth="126.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="GET START">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="791.0" fitWidth="536.0" layoutX="605.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/firstpage.jpg" />
          </image>
       </ImageView>
+      <JFXButton layoutX="237.0" layoutY="636.0" onAction="#btnStartOnAction" prefHeight="58.0" prefWidth="126.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="GET START">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

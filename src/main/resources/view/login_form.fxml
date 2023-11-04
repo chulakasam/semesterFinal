@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -35,17 +35,11 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button layoutX="129.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnLogInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-radius: 30; -fx-background-color: lightgrey;" text="Log In">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <Label layoutX="130.0" layoutY="560.0" text="Do you haven't an account ? Sign in here">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="433.0" layoutY="557.0" mnemonicParsing="false" onAction="#btnSignOnAction" style="-fx-background-color: lightgrey; -fx-background-radius: 25;" text="Sign in" />
             <ImageView fitHeight="50.0" fitWidth="46.0" layoutX="368.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/username.png" />
@@ -56,6 +50,12 @@
                   <Image url="@../Assests/password.png" />
                </image>
             </ImageView>
+            <JFXButton layoutX="130.0" layoutY="460.0" onAction="#btnLogInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Log In">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="437.0" layoutY="557.0" onAction="#btnSignOnAction" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign In" />
          </children>
       </AnchorPane>
    </children>

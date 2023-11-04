@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,58 +11,58 @@
    <children>
       <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #948e99; -fx-background-radius: 30;">
          <children>
+            <JFXButton layoutX="14.0" layoutY="432.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="  Manage Orders ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="359.0" onAction="#btnStockOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="Manage Stock ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="279.0" onAction="#btnManageTrainerAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="   Manage Trainer ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="197.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text=" Manage Client ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
             <Label layoutX="32.0" layoutY="28.0" prefHeight="83.0" prefWidth="239.0" text="DashBoard">
                <font>
                   <Font name="Dyuthi Regular" size="50.0" />
                </font>
             </Label>
-            <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="255.0" style="-fx-background-radius: 20; -fx-background-color: #8395a7;" text="Manage Client">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="11.0" layoutY="309.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="255.0" style="-fx-background-radius: 20; -fx-background-color: #8395a7;" text=" Manage Trainer">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="410.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="255.0" style="-fx-background-radius: 20; -fx-background-color: #8395a7;" text="Manage Stock">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="17.0" layoutY="513.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="248.0" style="-fx-background-radius: 20; -fx-background-color: #8395a7;" text="  Manage Payment">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="32.0" layoutY="693.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="48.0" prefWidth="118.0" style="-fx-background-radius: 20; -fx-background-color: #8395a7;" text="Back">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/employee.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="25.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="27.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/client.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/stock.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="25.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="24.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/payment.png" />
                </image>
             </ImageView>
+            <JFXButton layoutX="26.0" layoutY="653.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="Back">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #e2ddd9; -fx-background-radius: 30;" />
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #e2ddd9; -fx-background-radius: 30;" />
    </children>
 </AnchorPane>

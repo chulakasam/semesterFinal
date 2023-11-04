@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -23,14 +23,16 @@
                </font>
             </TextField>
             <TextField layoutX="106.0" layoutY="366.0" prefHeight="50.0" prefWidth="287.0" promptText="Re-Enter password" style="-fx-background-radius: 20;" />
-            <Button layoutX="113.0" layoutY="543.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="120.0" style="-fx-background-radius: 30; -fx-background-color: lightgrey;" text="Sign Up">
+            <JFXButton layoutX="114.0" layoutY="543.0" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign Up">
                <font>
                   <Font name="System Bold" size="13.0" />
-               </font></Button>
-            <Button layoutX="292.0" layoutY="543.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-radius: 30; -fx-background-color: lightgrey;" text="Sign In">
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="282.0" layoutY="543.0" onAction="#btnSignInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign In">
                <font>
                   <Font name="System Bold" size="13.0" />
-               </font></Button>
+               </font>
+            </JFXButton>
          </children></AnchorPane>
       <AnchorPane layoutX="602.0" prefHeight="781.0" prefWidth="536.0">
          <children>
