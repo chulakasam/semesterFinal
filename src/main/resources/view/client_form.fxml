@@ -6,14 +6,14 @@
 
 <AnchorPane fx:id="cleintPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
    <children>
-      <TextField layoutX="464.0" layoutY="60.0" prefHeight="35.0" prefWidth="199.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtsearchId" layoutX="464.0" layoutY="60.0" prefHeight="35.0" prefWidth="199.0" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtid" layoutX="190.0" layoutY="201.0" prefHeight="42.0" prefWidth="286.0" promptText="Client ID" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtname" layoutX="190.0" layoutY="252.0" prefHeight="42.0" prefWidth="286.0" promptText="Name" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtaddress" layoutX="190.0" layoutY="304.0" prefHeight="42.0" prefWidth="286.0" promptText="Address" style="-fx-background-radius: 30;" />
       <TextField fx:id="txttel" layoutX="190.0" layoutY="356.0" prefHeight="42.0" prefWidth="286.0" promptText="Tel No" style="-fx-background-radius: 30;" />
       <JFXButton layoutX="161.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="107.0" text="ADD" />
-      <JFXButton layoutX="342.0" layoutY="113.0" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
+      <JFXButton layoutX="342.0" layoutY="113.0" onAction="#btnUpdateOnAction" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
       <JFXButton layoutX="519.0" layoutY="113.0" onAction="#btnDeleteOnAction" prefHeight="48.0" prefWidth="107.0" text="DELETE" />
-      <JFXButton layoutX="680.0" layoutY="60.0" prefHeight="42.0" prefWidth="96.0" text="Search" />
+      <JFXButton layoutX="680.0" layoutY="60.0" onAction="#btnSearchOnAction" prefHeight="42.0" prefWidth="96.0" text="Search" />
    </children>
 </AnchorPane>

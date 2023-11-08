@@ -16,7 +16,7 @@ public class clientController {
     public TextField txtname;
     public TextField txtaddress;
     public TextField txttel;
-
+    public TextField txtsearchId;
 
 
     public void btnAddOnAction(ActionEvent actionEvent) {
@@ -56,6 +56,44 @@ public class clientController {
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+        String searchId = txtsearchId.getText();
+
+        var clientModel = new ClientModel();
+        try {
+            ClientDto clientDto=clientModel.searchClient(searchId);
+            if(clientDto!=null){
+                txtid.setText(clientDto.getId());
+                txtname.setText(clientDto.getName());
+                txtaddress.setText(clientDto.getAddress());
+                txttel.setText(String.valueOf(clientDto.getTel()));
+            }else {
+                new Alert(Alert.AlertType.INFORMATION,"client not found").show();
+            }
+        }catch (SQLException e){
+             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+
+    public void btnUpdateOnAction(ActionEvent actionEvent) {
+        String Id = txtid.getText();
+        String Name = txtname.getText();
+        String Address = txtaddress.getText();
+        int Tel = Integer.parseInt(txttel.getText());
+
+        try{
+            var dto = new ClientDto(Id, Name, Address, Tel);
+            var clientModel = new ClientModel();
+            boolean isUpdated=clientModel.updateClient(dto);
+            if (isUpdated){
+                new Alert(Alert.AlertType.CONFIRMATION,"Client Updated successfully!!!").show();
+                clearField();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage());
         }
     }
 }
