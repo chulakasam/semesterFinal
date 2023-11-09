@@ -11,7 +11,7 @@
       <TextField fx:id="txtName" layoutX="221.0" layoutY="253.0" prefHeight="34.0" prefWidth="262.0" promptText="Trainer Name" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtAddress" layoutX="219.0" layoutY="308.0" prefHeight="34.0" prefWidth="262.0" promptText="Address" style="-fx-background-radius: 30;" />
       <TextField fx:id="txtTel" layoutX="219.0" layoutY="363.0" prefHeight="34.0" prefWidth="262.0" promptText="Tel No" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="161.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="107.0" text="ADD" />
+      <JFXButton layoutX="161.0" layoutY="116.0" prefHeight="48.0" prefWidth="107.0" text="ADD" />
       <JFXButton layoutX="342.0" layoutY="113.0" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
       <JFXButton layoutX="519.0" layoutY="113.0" prefHeight="48.0" prefWidth="107.0" text="DELETE" />
       <JFXButton layoutX="683.0" layoutY="47.0" prefHeight="42.0" prefWidth="96.0" text="Search" />

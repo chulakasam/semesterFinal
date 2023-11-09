@@ -13,11 +13,11 @@ public class loginController {
 
 
     public void btnSignOnAction(ActionEvent actionEvent) throws IOException {
-
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/signUp_form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) LoginPanel.getScene().getWindow();
-        stage.setScene(scene);
+       Scene scene = new Scene(anchorPane);
+       Stage stage = (Stage) LoginPanel.getScene().getWindow();
+       stage.setScene(scene);
+
     }
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {

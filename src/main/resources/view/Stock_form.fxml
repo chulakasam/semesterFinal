@@ -6,14 +6,14 @@
 
 <AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
    <children>
-      <TextField layoutX="455.0" layoutY="49.0" prefHeight="31.0" prefWidth="223.0" style="-fx-background-radius: 30;" />
-      <TextField layoutX="229.0" layoutY="196.0" prefHeight="31.0" prefWidth="253.0" promptText="Item Code" style="-fx-background-radius: 30;" />
-      <TextField layoutX="229.0" layoutY="246.0" prefHeight="31.0" prefWidth="253.0" promptText="Item Name" style="-fx-background-radius: 30;" />
-      <TextField layoutX="229.0" layoutY="298.0" prefHeight="31.0" prefWidth="253.0" promptText="Unit Price" style="-fx-background-radius: 30;" />
-      <TextField layoutX="229.0" layoutY="348.0" prefHeight="31.0" prefWidth="253.0" promptText="Quantity " style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="200.0" layoutY="116.0" prefHeight="48.0" prefWidth="107.0" text="ADD" />
-      <JFXButton layoutX="375.0" layoutY="113.0" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
-      <JFXButton layoutX="581.0" layoutY="113.0" prefHeight="48.0" prefWidth="107.0" text="DELETE" />
-      <JFXButton layoutX="688.0" layoutY="49.0" prefHeight="42.0" prefWidth="96.0" text="Search" />
+      <TextField fx:id="txtSearchId" layoutX="455.0" layoutY="49.0" prefHeight="31.0" prefWidth="223.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtItemCode" layoutX="229.0" layoutY="196.0" prefHeight="31.0" prefWidth="253.0" promptText="Item Code" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtItemName" layoutX="229.0" layoutY="246.0" prefHeight="31.0" prefWidth="253.0" promptText="Item Name" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtPrice" layoutX="229.0" layoutY="298.0" prefHeight="31.0" prefWidth="253.0" promptText="Unit Price" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtQty" layoutX="229.0" layoutY="348.0" prefHeight="31.0" prefWidth="253.0" promptText="Quantity " style="-fx-background-radius: 30;" />
+      <JFXButton layoutX="200.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="107.0" text="ADD" />
+      <JFXButton layoutX="375.0" layoutY="113.0" onAction="#btnUpdateOnAction" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
+      <JFXButton layoutX="581.0" layoutY="113.0" onAction="#btnDeleteOnAction" prefHeight="48.0" prefWidth="107.0" text="DELETE" />
+      <JFXButton layoutX="688.0" layoutY="45.0" onAction="#btnSearchOnAction" prefHeight="42.0" prefWidth="96.0" text="Search" />
    </children>
 </AnchorPane>
