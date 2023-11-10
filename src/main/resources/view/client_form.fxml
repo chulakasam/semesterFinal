@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="cleintPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
    <children>
-      <TextField fx:id="txtsearchId" layoutX="464.0" layoutY="60.0" prefHeight="35.0" prefWidth="199.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtid" layoutX="190.0" layoutY="201.0" prefHeight="42.0" prefWidth="286.0" promptText="Client ID" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtname" layoutX="190.0" layoutY="252.0" prefHeight="42.0" prefWidth="286.0" promptText="Name" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtaddress" layoutX="190.0" layoutY="304.0" prefHeight="42.0" prefWidth="286.0" promptText="Address" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txttel" layoutX="190.0" layoutY="356.0" prefHeight="42.0" prefWidth="286.0" promptText="Tel No" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="161.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="107.0" text="ADD" />
-      <JFXButton layoutX="342.0" layoutY="113.0" onAction="#btnUpdateOnAction" prefHeight="48.0" prefWidth="107.0" text="UPDATE" />
-      <JFXButton layoutX="519.0" layoutY="113.0" onAction="#btnDeleteOnAction" prefHeight="48.0" prefWidth="107.0" text="DELETE" />
-      <JFXButton layoutX="680.0" layoutY="60.0" onAction="#btnSearchOnAction" prefHeight="42.0" prefWidth="96.0" text="Search" />
+      <AnchorPane layoutX="153.0" layoutY="168.0" prefHeight="144.0" prefWidth="485.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
+         <children>
+            <TextField fx:id="txtaddress" layoutX="241.0" layoutY="31.0" prefHeight="35.0" prefWidth="199.0" promptText="Address" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txttel" layoutX="245.0" layoutY="78.0" prefHeight="35.0" prefWidth="199.0" promptText="Tel No" style="-fx-background-radius: 30;" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtid" layoutX="172.0" layoutY="199.0" prefHeight="35.0" prefWidth="199.0" promptText="Client ID" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtname" layoutX="172.0" layoutY="244.0" prefHeight="35.0" prefWidth="199.0" promptText="Name" style="-fx-background-radius: 30;" />
+      <JFXButton layoutX="155.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="ADD">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="347.0" layoutY="116.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="560.0" layoutY="116.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: red;" text="DELETE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="682.0" layoutY="61.0" onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="78.0" text="Search">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <Label layoutX="28.0" layoutY="6.0" prefHeight="58.0" prefWidth="206.0" text="Client Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

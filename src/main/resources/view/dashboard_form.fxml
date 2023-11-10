@@ -11,54 +11,59 @@
    <children>
       <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #948e99; -fx-background-radius: 30;">
          <children>
-            <JFXButton layoutX="14.0" layoutY="432.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="  Manage Orders ">
+            <JFXButton layoutX="14.0" layoutY="510.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="  Manage Orders ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="359.0" onAction="#btnStockOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="Manage Stock ">
+            <JFXButton layoutX="14.0" layoutY="429.0" onAction="#btnStockOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="Manage Stock ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="279.0" onAction="#btnManageTrainerAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="   Manage Trainer ">
+            <JFXButton layoutX="14.0" layoutY="279.0" onAction="#btnManageTrainerAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="   Manage Trainer ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="197.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text=" Manage Client ">
+            <JFXButton layoutX="14.0" layoutY="197.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 0;" text=" Manage Client ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <Label layoutX="32.0" layoutY="28.0" prefHeight="83.0" prefWidth="239.0" text="DashBoard">
+            <Label layoutX="81.0" layoutY="38.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
                <font>
-                  <Font name="Dyuthi Regular" size="50.0" />
+                  <Font name="Dyuthi Regular" size="37.0" />
                </font>
             </Label>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="19.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/employee.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="27.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="19.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/client.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="19.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/stock.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="24.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="31.0" layoutX="20.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/payment.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="26.0" layoutY="653.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #8395a7; -fx-background-radius: 20;" text="Back">
+            <JFXButton layoutX="26.0" layoutY="653.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #8395a7;" text="Back">
                <font>
                   <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="12.0" layoutY="355.0" onAction="#btnManageSuppliersOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="   Manage Supplier">
+               <font>
+                  <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
          </children>

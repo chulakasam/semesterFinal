@@ -45,4 +45,10 @@ public class dashboardController {
         dashSubPanel.getChildren().clear();
         dashSubPanel.getChildren().add(anchorPane);
     }
+
+    public void btnManageSuppliersOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"));
+        dashSubPanel.getChildren().clear();
+        dashSubPanel.getChildren().add(anchorPane);
+    }
 }
