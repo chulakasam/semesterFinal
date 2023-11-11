@@ -12,27 +12,32 @@
    <children>
       <AnchorPane prefHeight="781.0" prefWidth="603.0" style="-fx-background-color: darkgrey;">
          <children>
-            <TextField layoutX="106.0" layoutY="190.0" prefHeight="50.0" prefWidth="287.0" promptText="UserName" style="-fx-background-radius: 20;">
+            <TextField fx:id="txtusername" layoutX="106.0" layoutY="190.0" prefHeight="37.0" prefWidth="287.0" promptText="UserName" style="-fx-background-radius: 20;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="106.0" layoutY="276.0" prefHeight="50.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
+            <TextField fx:id="txtpassword" layoutX="106.0" layoutY="276.0" prefHeight="37.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="106.0" layoutY="366.0" prefHeight="50.0" prefWidth="287.0" promptText="Re-Enter password" style="-fx-background-radius: 20;" />
-            <JFXButton layoutX="114.0" layoutY="543.0" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign Up">
+            <TextField fx:id="txtEmail" layoutX="106.0" layoutY="362.0" prefHeight="37.0" prefWidth="287.0" promptText="Email" style="-fx-background-radius: 20;" />
+            <JFXButton layoutX="167.0" layoutY="466.0" onAction="#btnCreateAccountOnAction" prefHeight="37.0" prefWidth="163.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Create an account">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="282.0" layoutY="543.0" onAction="#btnSignInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign In">
+            <JFXButton layoutX="402.0" layoutY="543.0" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Log in">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
+            <Label layoutX="115.0" layoutY="548.0" prefHeight="16.0" prefWidth="287.0" text="Already have an account ? Log in here">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <AnchorPane layoutX="602.0" prefHeight="781.0" prefWidth="536.0">
          <children>

@@ -1,6 +1,6 @@
 CREATE TABLE user (useName VARCHAR(5)PRIMARY KEY,
                     password VARCHAR(12),
-                    type VARCHAR(10));
+                    email VARCHAR(30)NOT NULL );
 
 CREATE TABLE staff(staffId VARCHAR(5)PRIMARY KEY,
                     name VARCHAR(20),

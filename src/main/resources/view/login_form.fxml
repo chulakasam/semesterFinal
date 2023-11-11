@@ -26,11 +26,11 @@
                   <Font name="Dyuthi Regular" size="53.0" />
                </font>
             </Label>
-            <TextField layoutX="130.0" layoutY="264.0" prefHeight="50.0" prefWidth="287.0" promptText="User Name" style="-fx-background-radius: 20;">
+            <TextField fx:id="txtUserName" layoutX="130.0" layoutY="264.0" prefHeight="50.0" prefWidth="287.0" promptText="User Name" style="-fx-background-radius: 20;">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField layoutX="130.0" layoutY="363.0" prefHeight="50.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
+            <TextField fx:id="txtPassword" layoutX="130.0" layoutY="363.0" prefHeight="50.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
                <font>
                   <Font size="14.0" />
                </font>
