@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <Label layoutX="81.0" layoutY="38.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
+            <Label layoutX="12.0" layoutY="26.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
                <font>
                   <Font name="Dyuthi Regular" size="37.0" />
                </font>
@@ -66,6 +66,26 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
+            <Label fx:id="lblDate" layoutX="101.0" layoutY="87.0" prefHeight="40.0" prefWidth="188.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="87.0" prefHeight="40.0" prefWidth="71.0" text="Date  ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="128.0" prefHeight="40.0" prefWidth="71.0" text="Time">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIme" layoutX="101.0" layoutY="128.0" prefHeight="40.0" prefWidth="188.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #e2ddd9; -fx-background-radius: 30;" />

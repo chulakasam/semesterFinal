@@ -8,11 +8,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 public class dashboardController {
     public AnchorPane dashPanel;
     public AnchorPane dashSubPanel;
+    public Label lblDate;
+    public Label lblIme;
 
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
@@ -50,5 +55,12 @@ public class dashboardController {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"));
         dashSubPanel.getChildren().clear();
         dashSubPanel.getChildren().add(anchorPane);
+    }
+    public void setDate(){
+        lblDate.setText(String.valueOf(LocalDate.now()));
+        lblIme.setText(String.valueOf(LocalTime.now()));
+    }
+    public void initialize(){
+        setDate();
     }
 }

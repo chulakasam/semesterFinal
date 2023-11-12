@@ -23,7 +23,7 @@
          <children>
             <Label layoutX="129.0" layoutY="62.0" prefHeight="87.0" prefWidth="152.0" text="Log In">
                <font>
-                  <Font name="Dyuthi Regular" size="53.0" />
+                  <Font name="Dyuthi Regular" size="55.0" />
                </font>
             </Label>
             <TextField fx:id="txtUserName" layoutX="130.0" layoutY="264.0" prefHeight="50.0" prefWidth="287.0" promptText="User Name" style="-fx-background-radius: 20;">
