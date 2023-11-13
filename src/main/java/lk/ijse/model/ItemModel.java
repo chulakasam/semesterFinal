@@ -7,8 +7,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemModel {
+    public static List<ItemDto> getAllItems() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM item";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<ItemDto> list = new ArrayList<>();
+        while (resultSet.next()){
+
+            list.add(
+                    new ItemDto(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getDouble(3),
+                            resultSet.getInt(4)
+                    )
+            );
+        }
+        return list;
+    }
     public boolean saveItem(ItemDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO item VALUES(?,?,?,?)";
@@ -43,7 +65,6 @@ public class ItemModel {
 
         return pstm.executeUpdate()>0;
     }
-
     public ItemDto searchItem(String searchId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT *FROM item WHERE itemCode=?";

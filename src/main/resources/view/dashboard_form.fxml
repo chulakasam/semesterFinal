@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <Label layoutX="12.0" layoutY="26.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
+            <Label layoutX="66.0" layoutY="26.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
                <font>
                   <Font name="Dyuthi Regular" size="37.0" />
                </font>
@@ -86,6 +86,16 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="20.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assests/supplier.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="15.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assests/home.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #e2ddd9; -fx-background-radius: 30;" />
