@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.ItemDto;
@@ -17,6 +18,9 @@ public class OrderController {
     public Label lblDate;
     public JFXComboBox <String> cmbClient;
     public JFXComboBox <String> cmbItem;
+    public Label txtClientname;
+    public Label lblItemName;
+    public Label lblPrice;
 
     public void setDate(){
        lblDate.setText(String.valueOf(LocalDate.now()));
@@ -57,4 +61,27 @@ public class OrderController {
 
     }
 
+    public void cmbClientOnAction(ActionEvent actionEvent) throws SQLException {
+        String Id = cmbClient.getValue();
+        try{
+           var model = new ClientModel();
+           ClientDto dto=model.searchClient(Id);
+           txtClientname.setText(dto.getName());
+        }catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
+
+    public void cmbItemOnAction(ActionEvent actionEvent) {
+        String code = cmbItem.getValue();
+
+        try{
+            var model = new ItemModel();
+            ItemDto dto=model.searchItem(code);
+            lblItemName.setText(dto.getName());
+            lblPrice.setText(String.valueOf(dto.getUnitPrice()));
+        }catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+    }
 }

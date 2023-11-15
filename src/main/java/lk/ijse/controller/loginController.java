@@ -26,29 +26,34 @@ public class loginController {
        stage.setScene(scene);
 
     }
-
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException, SQLException {
         String username = txtUserName.getText();
         String password = txtPassword.getText();
 
         if(username.isEmpty() || password.isEmpty()){
             new Alert(Alert.AlertType.ERROR,"Please enter your username and password").show();
-            return;
-        }
-        var model = new UserModel();
 
-        try {
-            UserDto dto= model.checkcredential(username,password);
-            if(username.equals(dto.getUsername()) && password.equals(dto.getPassword())){
-                navigateToDashBoard();
-            }else{
-                new Alert(Alert.AlertType.INFORMATION,"Invalid username or password").show();
+        } else {
+            var model = new UserModel();
+
+            try {
+                UserDto dto = model.checkcredential(username, password);
+                if (dto != null) {
+                    if (username.equals(dto.getUsername()) && password.equals(dto.getPassword())) {
+                        navigateToDashBoard();
+                    } else {
+                        new Alert(Alert.AlertType.INFORMATION, "Invalid username or password").show();
+                    }
+                }
+                    else {
+                        new Alert(Alert.AlertType.INFORMATION, "Invalid username or password").show();
+                }
+                } catch(SQLException e){
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                }
+
             }
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-        }
     }
-
     public void  navigateToDashBoard() throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
         Scene scene = new Scene(anchorPane);

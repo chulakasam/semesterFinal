@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="cleintPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
    <children>
-      <AnchorPane layoutX="153.0" layoutY="168.0" prefHeight="144.0" prefWidth="485.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
+      <AnchorPane layoutX="155.0" layoutY="165.0" prefHeight="109.0" prefWidth="485.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
          <children>
-            <TextField fx:id="txtaddress" layoutX="241.0" layoutY="31.0" prefHeight="35.0" prefWidth="199.0" promptText="Address" style="-fx-background-radius: 30;" />
-            <TextField fx:id="txttel" layoutX="245.0" layoutY="78.0" prefHeight="35.0" prefWidth="199.0" promptText="Tel No" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtaddress" layoutX="259.0" layoutY="12.0" prefHeight="35.0" prefWidth="199.0" promptText="Address" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txttel" layoutX="261.0" layoutY="61.0" prefHeight="35.0" prefWidth="199.0" promptText="Tel No" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtname" layoutX="25.0" layoutY="60.0" prefHeight="35.0" prefWidth="199.0" promptText="Name" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtid" layoutX="25.0" layoutY="12.0" prefHeight="35.0" prefWidth="199.0" promptText="Client ID" style="-fx-background-radius: 30;" />
          </children>
       </AnchorPane>
       <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtid" layoutX="172.0" layoutY="199.0" prefHeight="35.0" prefWidth="199.0" promptText="Client ID" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtname" layoutX="172.0" layoutY="244.0" prefHeight="35.0" prefWidth="199.0" promptText="Name" style="-fx-background-radius: 30;" />
       <JFXButton layoutX="155.0" layoutY="116.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="ADD">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -38,5 +41,16 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="35.0" fitWidth="43.0" layoutX="220.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/clienr%20n.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="155.0" layoutY="288.0" prefHeight="26.0" prefWidth="257.0" text="Please Do your Payments Here  -&gt;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="412.0" layoutY="290.0" onAction="#hypelinkOnAction" prefHeight="22.0" prefWidth="137.0" text="Click Here to pay.." />
    </children>
 </AnchorPane>

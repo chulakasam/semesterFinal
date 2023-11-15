@@ -22,11 +22,12 @@ public class UserModel {
 
     public UserDto checkcredential(String username, String password) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        String sql="SELECT * FROM user WHERE useName=? AND password=?";
+     //   String sql="SELECT * FROM user WHERE useName=? AND password=?";
+        String sql = "SELECT * FROM user WHERE useName = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1,username);
-        pstm.setString(2,password);
+     //   pstm.setString(2,password);
 
         ResultSet resultSet = pstm.executeQuery();
         UserDto dto=null;

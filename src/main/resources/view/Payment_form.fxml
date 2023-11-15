@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="757.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentController">
+   <children>
+      <Label layoutX="23.0" layoutY="18.0" prefHeight="36.0" prefWidth="225.0" text="Payment Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="94.0" text="Payment ID -">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPayId" layoutX="117.0" layoutY="84.0" prefHeight="36.0" prefWidth="88.0" />
+      <Label layoutX="521.0" layoutY="94.0" text="Date -">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="569.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" textFill="#0d809a">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

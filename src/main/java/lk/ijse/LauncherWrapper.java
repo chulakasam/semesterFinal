@@ -12,6 +12,7 @@ public class LauncherWrapper extends Application {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/startPage_form.fxml"));
         Scene scene = new Scene(rootNode);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

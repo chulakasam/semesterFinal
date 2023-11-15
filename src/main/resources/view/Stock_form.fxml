@@ -3,28 +3,30 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
    <children>
-      <AnchorPane layoutX="151.0" layoutY="179.0" prefHeight="153.0" prefWidth="488.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
+      <AnchorPane layoutX="156.0" layoutY="161.0" prefHeight="111.0" prefWidth="488.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
          <children>
-            <TextField fx:id="txtItemName" layoutX="30.0" layoutY="91.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Name" style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtItemCode" layoutX="30.0" layoutY="30.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Code" style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtQty" layoutX="255.0" layoutY="91.0" prefHeight="31.0" prefWidth="201.0" promptText="Quantity " style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtPrice" layoutX="255.0" layoutY="30.0" prefHeight="31.0" prefWidth="201.0" promptText="Unit Price" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtItemName" layoutX="23.0" layoutY="65.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Name" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtItemCode" layoutX="23.0" layoutY="17.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Code" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtQty" layoutX="268.0" layoutY="64.0" prefHeight="31.0" prefWidth="201.0" promptText="Quantity " style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtPrice" layoutX="268.0" layoutY="16.0" prefHeight="31.0" prefWidth="201.0" promptText="Unit Price" style="-fx-background-radius: 30;" />
          </children></AnchorPane>
       <TextField fx:id="txtSearchId" layoutX="457.0" layoutY="72.0" prefHeight="31.0" prefWidth="223.0" promptText="Enter the Item ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="152.0" layoutY="126.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: lightblue;" text="ADD">
+      <JFXButton layoutX="157.0" layoutY="113.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: lightblue;" text="ADD">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="347.0" layoutY="126.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: yellow;" text="UPDATE">
+      <JFXButton layoutX="352.0" layoutY="113.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: yellow;" text="UPDATE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="556.0" layoutY="124.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: red;" text="DELETE">
+      <JFXButton layoutX="561.0" layoutY="114.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: red;" text="DELETE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
@@ -37,5 +39,10 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="203.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/items%20n.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

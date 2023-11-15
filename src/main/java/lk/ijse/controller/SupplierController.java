@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.dto.SupplierDto;
+import lk.ijse.dto.TrainerDto;
 import lk.ijse.model.SupplierModel;
+import lk.ijse.model.TrainerModel;
 
 import java.sql.SQLException;
 
@@ -14,6 +16,7 @@ public class SupplierController {
     public TextField txtName;
     public TextField txtAddress;
     public TextField txtTel;
+    public TextField txtSuppId;
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         String Id = txtId.getText();
@@ -57,7 +60,6 @@ public class SupplierController {
             new  Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         String Id = txtId.getText();
 
@@ -71,5 +73,24 @@ public class SupplierController {
         }catch(SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+        String suppId = txtSuppId.getText();
+
+        var model = new SupplierModel();
+        try {
+            SupplierDto dto=model.searchSupplier(suppId);
+            if(dto!=null){
+                txtId.setText(dto.getSupplierId());
+                txtName.setText(dto.getName());
+                txtName.setText(dto.getAddress());
+                txtTel.setText(String.valueOf(dto.getContactNo()));
+            }else {
+                new Alert(Alert.AlertType.INFORMATION,"Supplier not found!!!").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
     }
 }

@@ -3,73 +3,103 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OrderController">
    <children>
+      <AnchorPane layoutX="408.0" layoutY="114.0" prefHeight="203.0" prefWidth="301.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;">
+         <children>
+            <Label fx:id="txtClientname1" layoutX="112.0" layoutY="58.0" prefHeight="40.0" prefWidth="127.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="22.0" layoutY="118.0" prefHeight="148.0" prefWidth="284.0" style="-fx-background-color: lightblue; -fx-background-radius: 20;">
+         <children>
+            <Label fx:id="txtClientname" layoutX="112.0" layoutY="58.0" prefHeight="40.0" prefWidth="127.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <Label layoutX="536.0" layoutY="64.0" prefHeight="40.0" prefWidth="50.0" text="Date">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="587.0" layoutY="64.0" prefHeight="40.0" prefWidth="190.0">
+      <Label fx:id="lblDate" layoutX="596.0" layoutY="64.0" prefHeight="40.0" prefWidth="190.0" textFill="#14a2b2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="64.0" prefHeight="40.0" prefWidth="88.0" text="Order ID">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="136.0" layoutY="64.0" prefHeight="40.0" prefWidth="142.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="94.0" layoutY="64.0" prefHeight="40.0" prefWidth="88.0" text="Order ID">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="209.0" layoutY="64.0" prefHeight="40.0" prefWidth="142.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="94.0" layoutY="203.0" prefHeight="40.0" prefWidth="88.0" text="Client ID">
+      <Label layoutX="33.0" layoutY="144.0" prefHeight="40.0" prefWidth="88.0" text="Client ID">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="203.0" prefHeight="40.0" prefWidth="62.0" text="Name">
+      <Label layoutX="34.0" layoutY="196.0" prefHeight="40.0" prefWidth="62.0" text="Name">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="203.0" prefHeight="40.0" prefWidth="127.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="94.0" layoutY="274.0" prefHeight="40.0" prefWidth="96.0" text="Item Code">
+      <Label layoutX="418.0" layoutY="127.0" prefHeight="40.0" prefWidth="96.0" text="Item Code">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="274.0" prefHeight="40.0" prefWidth="113.0" text="Description">
+      <Label layoutX="417.0" layoutY="176.0" prefHeight="40.0" prefWidth="88.0" text="Description">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="474.0" layoutY="274.0" prefHeight="40.0" prefWidth="113.0">
+      <Label fx:id="lblItemName" layoutX="518.0" layoutY="172.0" prefHeight="40.0" prefWidth="113.0">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="380.0" layoutY="327.0" prefHeight="40.0" prefWidth="36.0" text="Qty">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField layoutX="474.0" layoutY="327.0" prefHeight="40.0" prefWidth="62.0" />
-      <Label layoutX="601.0" layoutY="274.0" prefHeight="40.0" prefWidth="72.0" text="Unit Price">
+      <Label layoutX="418.0" layoutY="266.0" prefHeight="40.0" prefWidth="36.0" text="Qty">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbClient" layoutX="190.0" layoutY="210.0" prefHeight="24.0" prefWidth="156.0" />
-      <JFXComboBox fx:id="cmbItem" layoutX="191.0" layoutY="277.0" prefHeight="24.0" prefWidth="156.0" />
+      <TextField layoutX="519.0" layoutY="269.0" prefHeight="40.0" prefWidth="62.0" />
+      <Label layoutX="417.0" layoutY="223.0" prefHeight="40.0" prefWidth="72.0" text="Unit Price">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbClient" layoutX="129.0" layoutY="151.0" onAction="#cmbClientOnAction" prefHeight="24.0" prefWidth="156.0" />
+      <JFXComboBox fx:id="cmbItem" layoutX="520.0" layoutY="130.0" onAction="#cmbItemOnAction" prefHeight="24.0" prefWidth="156.0" />
+      <Label layoutX="32.0" layoutY="19.0" prefHeight="32.0" prefWidth="190.0" text="Order Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="224.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/order%20n.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblPrice" layoutX="518.0" layoutY="223.0" prefHeight="40.0" prefWidth="96.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

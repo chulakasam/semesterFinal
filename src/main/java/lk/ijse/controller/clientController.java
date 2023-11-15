@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -8,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.model.ClientModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class clientController {
@@ -95,5 +97,11 @@ public class clientController {
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage());
         }
+    }
+
+    public void hypelinkOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Payment_form.fxml"));
+        cleintPanel.getChildren().clear();
+        cleintPanel.getChildren().add(anchorPane);
     }
 }

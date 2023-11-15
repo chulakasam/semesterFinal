@@ -5,6 +5,7 @@ import lk.ijse.dto.SupplierDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SupplierModel {
@@ -39,5 +40,22 @@ public class SupplierModel {
         pstm.setString(1,id);
         return pstm.executeUpdate()>0;
 
+    }
+    public SupplierDto searchSupplier(String suppId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT * FROM supplier WHERE supplierId=?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,suppId);
+        ResultSet resultSet = pstm.executeQuery();
+        SupplierDto dto=null;
+        if(resultSet.next()){
+            String Id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            int tel = resultSet.getInt(4);
+
+            dto=new SupplierDto(Id,name,address,tel);
+        }
+       return dto;
     }
 }
