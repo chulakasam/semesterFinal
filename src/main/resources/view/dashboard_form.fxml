@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashPanel" prefHeight="781.0" prefWidth="1138.0" style="-fx-background-color: #a8a39d;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
+<AnchorPane fx:id="dashPanel" prefHeight="781.0" prefWidth="1138.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
    <children>
-      <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #948e99; -fx-background-radius: 30;">
+      <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #B7B6B6; -fx-background-radius: 30;">
          <children>
             <JFXButton layoutX="14.0" layoutY="510.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="  Manage Orders ">
                <font>
@@ -102,7 +102,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #e2ddd9; -fx-background-radius: 30;">
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #B7B6B6; -fx-background-radius: 30;">
          <children>
             <BarChart layoutX="46.0" layoutY="213.0" prefHeight="365.0" prefWidth="482.0">
               <xAxis>
