@@ -10,9 +10,7 @@ CREATE TABLE staff(staffId VARCHAR(5)PRIMARY KEY,
 
 CREATE TABLE trainer(trainerId VARCHAR(5)PRIMARY KEY,
                     name VARCHAR(20),
-                    telephone INT(11),
-                    staffID VARCHAR(5),
-                    FOREIGN KEY (staffID)REFERENCES staff(staffId)ON UPDATE CASCADE ON DELETE CASCADE);
+                    telephone INT(11));
 
 CREATE TABLE workoutPlan(workPlanId VARCHAR(5)PRIMARY KEY,
                         description VARCHAR(100),
@@ -22,7 +20,7 @@ CREATE TABLE workoutPlan(workPlanId VARCHAR(5)PRIMARY KEY,
 CREATE TABLE client(clientId VARCHAR(5)PRIMARY KEY ,
                     name VARCHAR(20),
                     Address VARCHAR(30),
-                    contactNo INT(11));
+                    contactNo INT(11),email VARCHAR(30),height DECIMAL(4,3),weight DECIMAL(4,3),gender VARCHAR(10),dob DATE);
 
 CREATE TABLE orders(orderId  VARCHAR(5)PRIMARY KEY,
                     date DATE,

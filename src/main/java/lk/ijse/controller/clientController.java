@@ -1,8 +1,12 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -11,6 +15,7 @@ import lk.ijse.model.ClientModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class clientController {
     public AnchorPane cleintPanel;
@@ -19,6 +24,21 @@ public class clientController {
     public TextField txtaddress;
     public TextField txttel;
     public TextField txtsearchId;
+    public TextField txtEmail;
+    public DatePicker datePickerDOB;
+    public TextField txtHeight;
+    public TextField txtWeight;
+    public JFXComboBox cmbGender;
+    public void initialize(){
+        loadGender();
+    }
+
+    private void loadGender() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        obList.add("Male");
+        obList.add("Female");
+        cmbGender.setItems(obList);
+    }
 
 
     public void btnAddOnAction(ActionEvent actionEvent) {
@@ -26,8 +46,14 @@ public class clientController {
         String name = txtname.getText();
         String address = txtaddress.getText();
         int tel= Integer.parseInt(txttel.getText());
+        String email = txtEmail.getText();
+        int height = (int) Double.parseDouble(txtHeight.getText());
+        int weight = (int) Double.parseDouble(txtWeight.getText());
+        String gender = (String) cmbGender.getValue();
+        String dob = String.valueOf(datePickerDOB.getValue());
 
-        var dto = new ClientDto(id, name, address, tel);
+
+        var dto = new ClientDto(id, name, address, tel,email,height,weight,gender,dob);
         try {
            var clientModel=new ClientModel();
             boolean isAdded=clientModel.saveClient(dto);
@@ -45,6 +71,11 @@ public class clientController {
         txtname.setText("");
         txtaddress.setText("");
         txttel.setText("");
+        txtEmail.setText("");
+        txtHeight.setText("");
+        txtWeight.setText("");
+        datePickerDOB.setValue(null);
+        cmbGender.setValue(null);
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
@@ -72,6 +103,12 @@ public class clientController {
                 txtname.setText(clientDto.getName());
                 txtaddress.setText(clientDto.getAddress());
                 txttel.setText(String.valueOf(clientDto.getTel()));
+                txtEmail.setText(clientDto.getEmail());
+                txtHeight.setText(String.valueOf(clientDto.getHeight()));
+                txtWeight.setText(String.valueOf(clientDto.getWeight()));
+                cmbGender.setValue(clientDto.getGender());
+                datePickerDOB.setValue(LocalDate.parse(clientDto.getDob()));
+
             }else {
                 new Alert(Alert.AlertType.INFORMATION,"client not found").show();
             }
@@ -85,9 +122,14 @@ public class clientController {
         String Name = txtname.getText();
         String Address = txtaddress.getText();
         int Tel = Integer.parseInt(txttel.getText());
+        String Email = txtEmail.getText();
+        int Height = (int) Double.parseDouble(txtHeight.getText());
+        int Weight = (int) Double.parseDouble(txtWeight.getText());
+        String Gender = (String) cmbGender.getValue();
+        String DOB = String.valueOf(datePickerDOB.getValue());
 
         try{
-            var dto = new ClientDto(Id, Name, Address, Tel);
+            var dto = new ClientDto(Id, Name, Address, Tel,Email,Height,Weight,Gender,DOB);
             var clientModel = new ClientModel();
             boolean isUpdated=clientModel.updateClient(dto);
             if (isUpdated){

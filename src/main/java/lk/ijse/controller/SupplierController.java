@@ -83,7 +83,7 @@ public class SupplierController {
             if(dto!=null){
                 txtId.setText(dto.getSupplierId());
                 txtName.setText(dto.getName());
-                txtName.setText(dto.getAddress());
+                txtAddress.setText(dto.getAddress());
                 txtTel.setText(String.valueOf(dto.getContactNo()));
             }else {
                 new Alert(Alert.AlertType.INFORMATION,"Supplier not found!!!").show();
