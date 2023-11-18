@@ -5,11 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.stage.Stage;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.model.ClientModel;
 
@@ -32,15 +35,12 @@ public class clientController {
     public void initialize(){
         loadGender();
     }
-
     private void loadGender() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Male");
         obList.add("Female");
         cmbGender.setItems(obList);
     }
-
-
     public void btnAddOnAction(ActionEvent actionEvent) {
         String id = txtid.getText();
         String name = txtname.getText();
@@ -65,7 +65,6 @@ public class clientController {
            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
-
     private void clearField() {
         txtid.setText("");
         txtname.setText("");
@@ -77,7 +76,6 @@ public class clientController {
         datePickerDOB.setValue(null);
         cmbGender.setValue(null);
     }
-
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         String id = txtid.getText();
         var clientModel = new ClientModel();
@@ -91,7 +89,6 @@ public class clientController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String searchId = txtsearchId.getText();
 
@@ -116,7 +113,6 @@ public class clientController {
              new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
-
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String Id = txtid.getText();
         String Name = txtname.getText();
@@ -140,10 +136,16 @@ public class clientController {
             new Alert(Alert.AlertType.ERROR, e.getMessage());
         }
     }
-
     public void hypelinkOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Payment_form.fxml"));
         cleintPanel.getChildren().clear();
         cleintPanel.getChildren().add(anchorPane);
+    }
+    public void btnViewClientsOnAction(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/viewClientDetails_form.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 }

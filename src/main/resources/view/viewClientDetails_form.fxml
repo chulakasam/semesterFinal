@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.viewClientController">
+   <children>
+      <TableView fx:id="tblClientTm" layoutX="47.0" layoutY="96.0" prefHeight="533.0" prefWidth="852.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="75.0" text="Client ID" />
+          <TableColumn fx:id="colName" prefWidth="99.0" text="Client Name" />
+            <TableColumn fx:id="colAddress" prefWidth="99.0" text="Address" />
+            <TableColumn fx:id="colTel" prefWidth="106.0" text="Tel" />
+            <TableColumn fx:id="colEmail" prefWidth="180.0" text="Email" />
+            <TableColumn fx:id="colHeight" prefWidth="58.0" text="Height" />
+            <TableColumn fx:id="colGen" minWidth="0.0" prefWidth="64.0" text="Gender" />
+            <TableColumn fx:id="colWei" minWidth="5.0" prefWidth="58.0" text="Weight" />
+            <TableColumn fx:id="colDOB" prefWidth="111.0" text="Date of Birth" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="811.0" layoutY="679.0" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: lightgrey;" text="Back">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="47.0" layoutY="43.0" prefHeight="42.0" prefWidth="261.0" text="Clients Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

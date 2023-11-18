@@ -10,7 +10,7 @@ CREATE TABLE staff(staffId VARCHAR(5)PRIMARY KEY,
 
 CREATE TABLE trainer(trainerId VARCHAR(5)PRIMARY KEY,
                     name VARCHAR(20),
-                    telephone INT(11));
+                    telephone INT(11),nic VARCHAR(15)unique,email VARCHAR(30),gender VARCHAR(7),dob DATE,description VARCHAR(30));
 
 CREATE TABLE workoutPlan(workPlanId VARCHAR(5)PRIMARY KEY,
                         description VARCHAR(100),

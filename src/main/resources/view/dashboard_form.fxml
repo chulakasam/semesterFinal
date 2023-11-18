@@ -13,29 +13,29 @@
 
 <AnchorPane fx:id="dashPanel" prefHeight="781.0" prefWidth="1138.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
    <children>
-      <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #B7B6B6; -fx-background-radius: 30;">
+      <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #99d1ff; -fx-background-radius: 30;">
          <children>
-            <JFXButton layoutX="14.0" layoutY="510.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="  Manage Orders ">
+            <JFXButton layoutX="14.0" layoutY="510.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff;" text="  Manage Orders ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="429.0" onAction="#btnStockOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="Manage Stock ">
+            <JFXButton layoutX="14.0" layoutY="433.0" onAction="#btnStockOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff #b3ddff;" text="Manage Stock ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="279.0" onAction="#btnManageTrainerAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="   Manage Trainer ">
+            <JFXButton layoutX="14.0" layoutY="279.0" onAction="#btnManageTrainerAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff #b3ddff;" text="   Manage Trainer ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="197.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7; -fx-background-radius: 0;" text=" Manage Client ">
+            <JFXButton layoutX="14.0" layoutY="201.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff; -fx-background-radius: 0;" text=" Manage Client ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <Label layoutX="66.0" layoutY="26.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
+            <Label layoutX="66.0" layoutY="18.0" prefHeight="61.0" prefWidth="178.0" text="DashBoard">
                <font>
                   <Font name="Dyuthi Regular" size="37.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Image url="@../Assests/employee.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="19.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="19.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/client.png" />
                </image>
@@ -65,7 +65,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="12.0" layoutY="355.0" onAction="#btnManageSuppliersOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #8395a7;" text="   Manage Supplier">
+            <JFXButton layoutX="12.0" layoutY="355.0" onAction="#btnManageSuppliersOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff #b3ddff;" text="   Manage Supplier">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Image url="@../Assests/supplier.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="15.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="15.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/home.png" />
                </image>

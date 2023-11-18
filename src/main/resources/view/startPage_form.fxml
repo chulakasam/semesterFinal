@@ -2,11 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="781.0" prefWidth="1138.0" style="-fx-background-color: darkgrey;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.startPageController">
    <children>
+      <ImageView fitHeight="781.0" fitWidth="1138.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="339.0" layoutY="86.0" prefHeight="166.0" prefWidth="423.0" text="WELCOME ">
          <font>
             <Font name="Dyuthi Regular" size="92.0" />

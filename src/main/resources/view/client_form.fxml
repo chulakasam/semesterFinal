@@ -63,18 +63,27 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <JFXButton layoutX="215.0" layoutY="426.0" onAction="#btnViewClientsOnAction" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #12CBC4;" text="View Client Details">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="29.0" layoutY="435.0" prefHeight="16.0" prefWidth="234.0" text="Show All Clients Details">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="30.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="ADD">
+      <JFXButton layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="ADD">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="318.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="UPDATE">
+      <JFXButton layoutX="358.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="UPDATE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="556.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: red;" text="DELETE">
+      <JFXButton layoutX="672.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: red;" text="DELETE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>

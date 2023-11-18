@@ -124,8 +124,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblNetTotal" layoutX="157.0" layoutY="708.0" prefHeight="40.0" prefWidth="156.0" />
-      <Label layoutX="76.0" layoutY="708.0" prefHeight="40.0" prefWidth="80.0" text="Total :">
+      <Label fx:id="lblNetTotal" layoutX="192.0" layoutY="707.0" prefHeight="40.0" prefWidth="165.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="76.0" layoutY="708.0" prefHeight="40.0" prefWidth="127.0" text="Total : Rs.">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
