@@ -1,12 +1,19 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.dto.ItemDto;
+import lk.ijse.dto.Tm.ItemTm;
 import lk.ijse.model.ItemModel;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class StockController {
     public TextField txtItemCode;
@@ -14,8 +21,45 @@ public class StockController {
     public TextField txtPrice;
     public TextField txtQty;
     public TextField txtSearchId;
+    public TableView tblItemTm;
+    public TableColumn colItemCode;
+    public TableColumn colName;
+    public TableColumn colPrice;
+    public TableColumn colQtyOnHand;
 
 
+    public void initialize(){
+        loadAllItems();
+        setCellValueFactory();
+    }
+    private void setCellValueFactory() {
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
+    }
+    public void loadAllItems() {
+        var model = new ItemModel();
+        ObservableList<ItemTm> obList = FXCollections.observableArrayList();
+        try{
+            List<ItemDto> dtoList = model.getAllItems();
+            for (ItemDto dto : dtoList) {
+                obList.add(
+                        new ItemTm(
+                                dto.getItemCode(),
+                                dto.getName(),
+                                dto.getUnitPrice(),
+                                dto.getQty()
+                        )
+                );
+            }
+            tblItemTm.setItems(obList);
+
+        }catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
+
+    }
     public void btnAddOnAction(ActionEvent actionEvent) {
         String code = txtItemCode.getText();
         String name = txtItemName.getText();

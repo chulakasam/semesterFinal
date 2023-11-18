@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,12 +12,32 @@
 
 <AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
    <children>
-      <AnchorPane layoutX="156.0" layoutY="161.0" prefHeight="111.0" prefWidth="488.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
+      <AnchorPane layoutX="14.0" layoutY="213.0" prefHeight="454.0" prefWidth="272.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
-            <TextField fx:id="txtItemName" layoutX="23.0" layoutY="65.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Name" style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtItemCode" layoutX="23.0" layoutY="17.0" prefHeight="31.0" prefWidth="201.0" promptText="Item Code" style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtQty" layoutX="268.0" layoutY="64.0" prefHeight="31.0" prefWidth="201.0" promptText="Quantity " style="-fx-background-radius: 30;" />
-            <TextField fx:id="txtPrice" layoutX="268.0" layoutY="16.0" prefHeight="31.0" prefWidth="201.0" promptText="Unit Price" style="-fx-background-radius: 30;" />
+            <TextField fx:id="txtItemName" layoutX="113.0" layoutY="127.0" prefHeight="31.0" prefWidth="146.0" promptText="Item Name" />
+            <TextField fx:id="txtItemCode" layoutX="112.0" layoutY="50.0" prefHeight="31.0" prefWidth="146.0" promptText="Item Code" />
+            <TextField fx:id="txtQty" layoutX="114.0" layoutY="281.0" prefHeight="31.0" prefWidth="146.0" promptText="Quantity " />
+            <TextField fx:id="txtPrice" layoutX="114.0" layoutY="208.0" prefHeight="31.0" prefWidth="146.0" promptText="Unit Price" />
+            <Label layoutX="14.0" layoutY="57.0" text="Item Code">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="133.0" text="Item Name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="215.0" text="Unit price">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="288.0" text="Qty On Hand">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <TextField fx:id="txtSearchId" layoutX="457.0" layoutY="72.0" prefHeight="31.0" prefWidth="223.0" promptText="Enter the Item ID" style="-fx-background-radius: 30;" />
       <JFXButton layoutX="157.0" layoutY="113.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="83.0" style="-fx-background-color: lightblue;" text="ADD">
@@ -44,5 +66,13 @@
             <Image url="@../Assests/items%20n.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tblItemTm" layoutX="315.0" layoutY="213.0" prefHeight="454.0" prefWidth="450.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="102.0" text="Item Code" />
+          <TableColumn fx:id="colName" prefWidth="125.0" text="Item Name" />
+            <TableColumn fx:id="colPrice" prefWidth="104.0" text="Unit Price" />
+            <TableColumn fx:id="colQtyOnHand" minWidth="0.0" prefWidth="118.0" text="Qty On  Hand" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

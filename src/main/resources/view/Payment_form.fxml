@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="757.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentController">
    <children>
+      <AnchorPane layoutX="7.0" layoutY="186.0" prefHeight="452.0" prefWidth="259.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="14.0" layoutY="68.0" prefHeight="24.0" prefWidth="91.0" text="Description">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField layoutX="119.0" layoutY="68.0" prefHeight="36.0" prefWidth="132.0" />
+         </children>
+      </AnchorPane>
       <Label layoutX="23.0" layoutY="18.0" prefHeight="36.0" prefWidth="225.0" text="Payment Details">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -13,19 +27,50 @@
       </Label>
       <Label layoutX="23.0" layoutY="94.0" text="Payment ID -">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblPayId" layoutX="117.0" layoutY="84.0" prefHeight="36.0" prefWidth="88.0" />
+      <Label fx:id="lblPayId" layoutX="125.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" textFill="#0d809a">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Label layoutX="521.0" layoutY="94.0" text="Date -">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="569.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" textFill="#0d809a">
+      <Label fx:id="lblDate" layoutX="569.0" layoutY="85.0" prefHeight="36.0" prefWidth="205.0" textFill="#0d809a">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <JFXComboBox layoutX="144.0" layoutY="331.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <Label layoutX="21.0" layoutY="331.0" prefHeight="24.0" prefWidth="114.0" text="Select Client ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXComboBox layoutX="142.0" layoutY="425.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <Label layoutX="19.0" layoutY="425.0" prefHeight="24.0" prefWidth="114.0" text="Select Order ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXComboBox layoutX="142.0" layoutY="521.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <Label layoutX="19.0" layoutY="521.0" prefHeight="24.0" prefWidth="114.0" text="Payment Type">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView layoutX="275.0" layoutY="193.0" prefHeight="364.0" prefWidth="523.0">
+        <columns>
+          <TableColumn prefWidth="87.0" text="PaymentID" />
+          <TableColumn prefWidth="83.0" text="Date" />
+            <TableColumn prefWidth="101.0" text="Description" />
+            <TableColumn prefWidth="85.0" text="ClientID" />
+            <TableColumn prefWidth="93.0" text="OrderId" />
+            <TableColumn prefWidth="75.0" text="Type" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

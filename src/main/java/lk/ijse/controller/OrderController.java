@@ -100,7 +100,6 @@ public class OrderController {
             throw  new RuntimeException(e);
         }
     }
-
     public void btnAddTocartOnAction(ActionEvent actionEvent) {
         String code = cmbItem.getValue();
         String description = lblItemName.getText();
@@ -136,7 +135,6 @@ public class OrderController {
         calculateTotal();
         txtQty.clear();
     }
-
     private void setRemoveBtnAction(Button btn) {
         btn.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
@@ -153,7 +151,6 @@ public class OrderController {
             }
         });
     }
-
     private void calculateTotal() {
         double total = 0;
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -161,7 +158,6 @@ public class OrderController {
         }
         lblNetTotal.setText(String.valueOf(total));
     }
-
     private void setCellValueFactory(){
         colItemcode.setCellValueFactory(new PropertyValueFactory<>("code"));
         coldescription.setCellValueFactory(new PropertyValueFactory<>("description"));
