@@ -17,7 +17,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="119.0" layoutY="68.0" prefHeight="36.0" prefWidth="132.0" />
+            <TextField fx:id="txtDescription" layoutX="119.0" layoutY="68.0" prefHeight="36.0" prefWidth="132.0" />
          </children>
       </AnchorPane>
       <Label layoutX="23.0" layoutY="18.0" prefHeight="36.0" prefWidth="225.0" text="Payment Details">
@@ -44,32 +44,32 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="144.0" layoutY="331.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <JFXComboBox fx:id="cmbClientId" layoutX="144.0" layoutY="331.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
       <Label layoutX="21.0" layoutY="331.0" prefHeight="24.0" prefWidth="114.0" text="Select Client ID">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="142.0" layoutY="425.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <JFXComboBox fx:id="cmbOrderId" layoutX="142.0" layoutY="425.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
       <Label layoutX="19.0" layoutY="425.0" prefHeight="24.0" prefWidth="114.0" text="Select Order ID">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="142.0" layoutY="521.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
+      <JFXComboBox fx:id="cmbType" layoutX="142.0" layoutY="521.0" prefHeight="24.0" prefWidth="102.0" promptText="select" />
       <Label layoutX="19.0" layoutY="521.0" prefHeight="24.0" prefWidth="114.0" text="Payment Type">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TableView layoutX="275.0" layoutY="193.0" prefHeight="364.0" prefWidth="523.0">
+      <TableView fx:id="tblPayementTm" layoutX="275.0" layoutY="193.0" prefHeight="364.0" prefWidth="523.0">
         <columns>
-          <TableColumn prefWidth="87.0" text="PaymentID" />
-          <TableColumn prefWidth="83.0" text="Date" />
-            <TableColumn prefWidth="101.0" text="Description" />
-            <TableColumn prefWidth="85.0" text="ClientID" />
-            <TableColumn prefWidth="93.0" text="OrderId" />
-            <TableColumn prefWidth="75.0" text="Type" />
+          <TableColumn fx:id="colPayId" prefWidth="87.0" text="PaymentID" />
+          <TableColumn fx:id="colDate" prefWidth="83.0" text="Date" />
+            <TableColumn fx:id="colDesc" prefWidth="101.0" text="Description" />
+            <TableColumn fx:id="colClientId" prefWidth="85.0" text="ClientID" />
+            <TableColumn fx:id="colOrderId" prefWidth="93.0" text="OrderId" />
+            <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
         </columns>
       </TableView>
    </children>

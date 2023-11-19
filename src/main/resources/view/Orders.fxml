@@ -46,9 +46,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="136.0" layoutY="64.0" prefHeight="40.0" prefWidth="142.0">
+      <Label fx:id="lblOrderId" layoutX="136.0" layoutY="64.0" prefHeight="40.0" prefWidth="142.0" textFill="#14a2b2">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="77.0" layoutY="144.0" prefHeight="40.0" prefWidth="88.0" text="Client ID">

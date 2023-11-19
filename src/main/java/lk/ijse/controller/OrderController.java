@@ -13,6 +13,8 @@ import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
 import lk.ijse.model.ClientModel;
 import lk.ijse.model.ItemModel;
+import lk.ijse.model.OrderModel;
+import lk.ijse.model.PaymentModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -37,7 +39,7 @@ public class OrderController {
     public TableView <CartTm>tblOrderCart;
     public JFXButton btnAddtoCart;
     public ObservableList<CartTm> obList = FXCollections.observableArrayList();
-
+    public Label lblOrderId;
 
 
     public void setDate(){
@@ -48,6 +50,7 @@ public class OrderController {
         setDate();
         LoadAllClients();
         loadAllItem();
+        generateOrderId();
     }
     public void LoadAllClients() {
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -166,4 +169,15 @@ public class OrderController {
         colTotal.setCellValueFactory(new PropertyValueFactory<>("tot"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
+    public void generateOrderId(){
+        try {
+            String OrderId = OrderModel.generateNextOrderId();
+           lblOrderId .setText(OrderId);
+
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+
 }

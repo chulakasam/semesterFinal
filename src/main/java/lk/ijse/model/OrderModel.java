@@ -7,26 +7,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PaymentModel {
+public class OrderModel {
+
     public static String generateNextOrderId() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        String sql="SELECT paymentId FROM payment ORDER BY paymentId  DESC LIMIT 1";
+        String sql="SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()){
-            return splitOrderId(resultSet.getString(1));
+            return changeId(resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return changeId(null);
     }
-    private static String splitOrderId(String currentpayId) {
-        if(currentpayId!=null){
-            String[] split = currentpayId.split("P0");
+    public static String changeId(String orderId){
+        if(orderId!=null){
+            String[] split = orderId.split("O0");
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "P00" + id;
+            return "O00" + id;
         }else{
-            return "P001";
+            return "O001";
         }
     }
 }
