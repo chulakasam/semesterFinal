@@ -25,15 +25,16 @@ CREATE TABLE client(clientId VARCHAR(5)PRIMARY KEY ,
 CREATE TABLE orders(orderId  VARCHAR(5)PRIMARY KEY,
                     date DATE,
                     clientId VARCHAR(5),
-                    FOREIGN KEY (clientId)REFERENCES client(clientId)ON DELETE CASCADE ON UPDATE CASCADE );
+                    CONSTRAINT FOREIGN KEY (clientId)REFERENCES client(clientId)ON DELETE CASCADE ON UPDATE CASCADE ,
+                    amount DECIMAL(6,2));
 
 CREATE TABLE payment(paymentId VARCHAR(5),
                     date DATE,
                     description VARCHAR(50),
                     clientId VARCHAR(5),
-                    FOREIGN KEY (clientId)REFERENCES client(clientId)ON UPDATE CASCADE ON DELETE CASCADE,
+                    CONSTRAINT FOREIGN KEY (clientId)REFERENCES client(clientId)ON UPDATE CASCADE ON DELETE CASCADE,
                     orderId VARCHAR(5),
-                    FOREIGN KEY (orderId)REFERENCES orders(orderId)ON UPDATE CASCADE ON DELETE CASCADE ,
+                    CONSTRAINT FOREIGN KEY (orderId)REFERENCES orders(orderId)ON UPDATE CASCADE ON DELETE CASCADE ,
                     type VARCHAR(10));
 
 CREATE TABLE item(itemCode VARCHAR(5)PRIMARY KEY,
@@ -53,9 +54,9 @@ CREATE TABLE trainerClientDetails(trainerId VARCHAR(5),
                                   date DATE);
 
 CREATE TABLE orderItemDetails(orderId VARCHAR(5),
-                              FOREIGN KEY (orderId)REFERENCES orders(orderId)ON UPDATE CASCADE ON DELETE CASCADE ,
+                              CONSTRAINT FOREIGN KEY (orderId)REFERENCES orders(orderId)ON UPDATE CASCADE ON DELETE CASCADE ,
                                itemId VARCHAR(5),
-                               FOREIGN KEY (itemId)REFERENCES item(itemCode)ON UPDATE CASCADE ON DELETE CASCADE ,
+                               CONSTRAINT FOREIGN KEY (itemId)REFERENCES item(itemCode)ON UPDATE CASCADE ON DELETE CASCADE ,
                                qty INT(4));
 
 CREATE TABLE supplierItemDetails(supplierId VARCHAR(5),

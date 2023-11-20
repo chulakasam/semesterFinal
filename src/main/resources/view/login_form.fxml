@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,6 +22,7 @@
       </AnchorPane>
       <AnchorPane fx:id="LoginPanel" prefHeight="781.0" prefWidth="607.0" style="-fx-background-color: darkgrey;">
          <children>
+            <PasswordField fx:id="pwPassword" layoutX="126.0" layoutY="348.0" prefHeight="50.0" prefWidth="290.0" promptText="Password" style="-fx-background-radius: 20;" />
             <Label layoutX="129.0" layoutY="62.0" prefHeight="87.0" prefWidth="152.0" text="Log In">
                <font>
                   <Font name="Dyuthi Regular" size="55.0" />
@@ -30,11 +32,6 @@
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField fx:id="txtPassword" layoutX="130.0" layoutY="363.0" prefHeight="50.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
             <Label layoutX="130.0" layoutY="560.0" text="Do you haven't an account ? Sign in here">
                <font>
                   <Font size="14.0" />
@@ -45,7 +42,7 @@
                   <Image url="@../Assests/username.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="46.0" layoutX="368.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="46.0" layoutX="360.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/password.png" />
                </image>

@@ -9,15 +9,14 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.dto.ClientDto;
+import lk.ijse.dto.ConfirmOrderDto;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.ItemModel;
-import lk.ijse.model.OrderModel;
-import lk.ijse.model.PaymentModel;
+import lk.ijse.model.*;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -180,4 +179,28 @@ public class OrderController {
     }
 
 
+    public void btnConfirmOrderOnAction(ActionEvent actionEvent) {
+        String orderId = lblOrderId.getText();
+        String date = lblDate.getText();
+        String clientId = cmbClient.getValue();
+        double netTotal = Double.parseDouble(lblNetTotal.getText());
+        List<CartTm> cartTmList = new ArrayList<>();
+
+        for (int i=0;i<tblOrderCart.getItems().size();i++){
+            CartTm cartTm = obList.get(i);
+            cartTmList.add(cartTm);
+        }
+        var confirmOrderDto = new ConfirmOrderDto(orderId, date, clientId, netTotal, cartTmList);
+        var confirmOrderModel = new ConfirmOrderModel();
+        try {
+            boolean isSuccess = confirmOrderModel.confirmOrder(confirmOrderDto);
+            if (isSuccess) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
+            }
+        } catch (SQLException e) {
+          //new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            throw new RuntimeException(e);
+        }
+
+    }
 }

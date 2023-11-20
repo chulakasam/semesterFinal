@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,12 +13,13 @@
    <children>
       <AnchorPane layoutX="7.0" layoutY="186.0" prefHeight="452.0" prefWidth="259.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="14.0" layoutY="68.0" prefHeight="24.0" prefWidth="91.0" text="Description">
+            <Label layoutX="14.0" layoutY="68.0" prefHeight="24.0" prefWidth="91.0" text="Amount">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDescription" layoutX="119.0" layoutY="68.0" prefHeight="36.0" prefWidth="132.0" />
+            <TextField fx:id="txtAmount" layoutX="119.0" layoutY="68.0" prefHeight="36.0" prefWidth="132.0" />
+            <JFXButton buttonType="RAISED" layoutX="81.0" layoutY="404.0" onAction="#btnAddPayementOnAction" prefHeight="24.0" prefWidth="114.0" style="-fx-background-color: pink;" text="Add Payment" />
          </children>
       </AnchorPane>
       <Label layoutX="23.0" layoutY="18.0" prefHeight="36.0" prefWidth="225.0" text="Payment Details">
@@ -66,7 +68,7 @@
         <columns>
           <TableColumn fx:id="colPayId" prefWidth="87.0" text="PaymentID" />
           <TableColumn fx:id="colDate" prefWidth="83.0" text="Date" />
-            <TableColumn fx:id="colDesc" prefWidth="101.0" text="Description" />
+            <TableColumn fx:id="colAmount" prefWidth="101.0" text="Amount" />
             <TableColumn fx:id="colClientId" prefWidth="85.0" text="ClientID" />
             <TableColumn fx:id="colOrderId" prefWidth="93.0" text="OrderId" />
             <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />

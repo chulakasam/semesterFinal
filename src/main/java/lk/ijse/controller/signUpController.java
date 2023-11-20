@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ public class signUpController {
     public TextField txtusername;
     public TextField txtpassword;
     public TextField txtEmail;
+    public PasswordField pwPassword;
 
     public void btnSignInOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
@@ -28,7 +30,7 @@ public class signUpController {
 
     public void btnCreateAccountOnAction(ActionEvent actionEvent) {
         String username = txtusername.getText();
-        String password = txtpassword.getText();
+        String password = pwPassword.getText();
         String email = txtEmail.getText();
 
         var dto = new UserDto(username,password,email);
@@ -47,7 +49,7 @@ public class signUpController {
 
     private void clearField() {
         txtusername.setText("");
-        txtpassword.setText("");
+        pwPassword.setText("");
         txtEmail.setText("");
     }
 }

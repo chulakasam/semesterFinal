@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,11 +14,6 @@
       <AnchorPane prefHeight="781.0" prefWidth="603.0" style="-fx-background-color: darkgrey;">
          <children>
             <TextField fx:id="txtusername" layoutX="106.0" layoutY="190.0" prefHeight="37.0" prefWidth="287.0" promptText="UserName" style="-fx-background-radius: 20;">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtpassword" layoutX="106.0" layoutY="276.0" prefHeight="37.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;">
                <font>
                   <Font size="14.0" />
                </font>
@@ -38,6 +34,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <PasswordField fx:id="pwPassword" layoutX="106.0" layoutY="277.0" prefHeight="37.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 20;" />
          </children></AnchorPane>
       <AnchorPane layoutX="602.0" prefHeight="781.0" prefWidth="536.0">
          <children>

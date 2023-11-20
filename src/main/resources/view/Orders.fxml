@@ -114,7 +114,7 @@
             <TableColumn fx:id="colAction" prefWidth="121.0" text="Action" />
         </columns>
       </TableView>
-      <JFXButton layoutX="661.0" layoutY="708.0" prefHeight="40.0" prefWidth="127.0" style="-fx-background-color: #32FEAD;" text="Confirm Order">
+      <JFXButton layoutX="661.0" layoutY="708.0" onAction="#btnConfirmOrderOnAction" prefHeight="40.0" prefWidth="127.0" style="-fx-background-color: #32FEAD;" text="Confirm Order">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

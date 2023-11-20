@@ -1,11 +1,12 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.OrderDto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderModel {
 
@@ -29,5 +30,36 @@ public class OrderModel {
         }else{
             return "O001";
         }
+    }
+
+    public boolean saveOrder(String orderId, LocalDate date, String clientId, double netTotal) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "INSERT INTO orders VALUES(?,?,?,?)";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, orderId);
+        pstm.setDate(2, Date.valueOf(date));
+        pstm.setString(3, clientId);
+        pstm.setDouble(4, netTotal);
+
+        return pstm.executeUpdate() > 0;
+
+    }
+
+    public List<OrderDto> getAllCustomer() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT * FROM orders";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<OrderDto> dto = new ArrayList<>();
+        while (resultSet.next()){
+            dto.add(new OrderDto(resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getDouble(4)
+
+            ));
+        }
+       return  dto;
     }
 }

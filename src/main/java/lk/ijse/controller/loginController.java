@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ public class loginController {
     public AnchorPane LoginPanel;
     public TextField txtUserName;
     public TextField txtPassword;
+    public PasswordField pwPassword;
 
 
     public void btnSignOnAction(ActionEvent actionEvent) throws IOException {
@@ -28,7 +30,7 @@ public class loginController {
     }
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException, SQLException {
         String username = txtUserName.getText();
-        String password = txtPassword.getText();
+        String password = pwPassword.getText();
 
         if(username.isEmpty() || password.isEmpty()){
             new Alert(Alert.AlertType.ERROR,"Please enter your username and password").show();
