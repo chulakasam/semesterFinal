@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.ItemTm;
 import lk.ijse.model.ItemModel;
@@ -26,6 +27,7 @@ public class StockController {
     public TableColumn colName;
     public TableColumn colPrice;
     public TableColumn colQtyOnHand;
+    public AnchorPane itemPanel;
 
 
     public void initialize(){

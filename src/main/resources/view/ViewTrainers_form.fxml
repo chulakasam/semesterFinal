@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewTrainerController">
+   <children>
+      <Label layoutX="25.0" layoutY="33.0" prefHeight="30.0" prefWidth="289.0" text="View Trainer Details ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblTrainerTm" layoutX="67.0" layoutY="102.0" prefHeight="525.0" prefWidth="807.0">
+        <columns>
+          <TableColumn fx:id="colTrainerId" prefWidth="87.0" text="TrainerID" />
+          <TableColumn fx:id="colName" prefWidth="63.0" text="Name" />
+            <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="colDob" prefWidth="115.0" text="Date Of Birth" />
+            <TableColumn fx:id="colTel" prefWidth="131.0" text="Contact No" />
+            <TableColumn fx:id="colNIc" minWidth="4.0" prefWidth="118.0" text="NIC" />
+            <TableColumn fx:id="colGen" prefWidth="86.0" text="Gender" />
+            <TableColumn fx:id="colDesc" prefWidth="131.0" text="Description" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

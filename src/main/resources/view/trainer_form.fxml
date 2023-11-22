@@ -90,5 +90,15 @@
             <Image url="@../Assests/coach%20n.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="225.0" layoutY="672.0" onAction="#btnViewTrainersOnAction" prefHeight="34.0" prefWidth="171.0" text="View Trainer details">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="46.0" layoutY="672.0" prefHeight="34.0" prefWidth="164.0" text="Check the trainers ">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,13 +1,19 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.SupplierDto;
+import lk.ijse.dto.Tm.SupplierTm;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.model.SupplierModel;
 import lk.ijse.model.TrainerModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class SupplierController {
@@ -17,6 +23,13 @@ public class SupplierController {
     public TextField txtAddress;
     public TextField txtTel;
     public TextField txtSuppId;
+    public TableView <SupplierTm>tblSupplierTm;
+    public TableColumn <?,?>colSupId;
+    public TableColumn <?,?>colSupName;
+    public TableColumn <?,?>colAddress;
+    public TableColumn <?,?>colTel;
+    public AnchorPane supplierPanel;
+
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         String Id = txtId.getText();
@@ -91,6 +104,12 @@ public class SupplierController {
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
+    }
+    public void btnGoToItemOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Stock_form.fxml"));
+        supplierPanel.getChildren().clear();
+        supplierPanel.getChildren().add(anchorPane);
 
     }
 }

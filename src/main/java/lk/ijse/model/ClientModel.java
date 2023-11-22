@@ -77,7 +77,7 @@ public class ClientModel {
             String client_id = resultSet.getString(1);
             String client_name = resultSet.getString(2);
             String client_address = resultSet.getString(3);
-           int client_tel = Integer.parseInt(resultSet.getString(4));
+            int client_tel = Integer.parseInt(resultSet.getString(4));
             String email = resultSet.getString(5);
             int height = Integer.parseInt((resultSet.getString(6)));
             int weight = (int) Double.parseDouble(resultSet.getString(7));

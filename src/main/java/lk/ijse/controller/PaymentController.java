@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.OrderDto;
 import lk.ijse.dto.Tm.AddPaymentTm;
+import lk.ijse.dto.paymentDto;
 import lk.ijse.model.ClientModel;
 import lk.ijse.model.OrderModel;
 import lk.ijse.model.PaymentModel;
@@ -68,7 +69,6 @@ public class PaymentController {
         }
 
     }
-
     public void setDate(){
         lblDate.setText(String.valueOf(LocalDate.now()));
     }
@@ -101,8 +101,6 @@ public class PaymentController {
         obList.add("Monthly Payment");
         cmbType.setItems(obList);
     }
-
-
     public void btnAddPayementOnAction(ActionEvent actionEvent) {
         ObservableList<AddPaymentTm> obList = FXCollections.observableArrayList();
         String payId = lblPayId.getText();
@@ -116,6 +114,21 @@ public class PaymentController {
         tblPayementTm.setItems(obList);
 
 
-
+        var dto = new paymentDto(payId,date,amount,clientId,orderId,type);
+        try{
+           var model = new PaymentModel();
+           boolean isSaved=model.savePayment(dto);
+           if (isSaved){
+               new Alert(Alert.AlertType.CONFIRMATION,"Payment Added Successfully!!!").show();
+               clearField();
+           }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+}
+    private void clearField() {
+        txtAmount.setText("");
     }
+
+
 }

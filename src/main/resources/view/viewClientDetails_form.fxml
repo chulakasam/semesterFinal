@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.viewClientController">
+<AnchorPane fx:id="window" prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.viewClientController">
    <children>
       <TableView fx:id="tblClientTm" layoutX="47.0" layoutY="96.0" prefHeight="533.0" prefWidth="852.0">
         <columns>
@@ -22,7 +22,7 @@
             <TableColumn fx:id="colDOB" prefWidth="111.0" text="Date of Birth" />
         </columns>
       </TableView>
-      <JFXButton layoutX="811.0" layoutY="679.0" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: lightgrey;" text="Back">
+      <JFXButton fx:id="closeBtn" layoutX="811.0" layoutY="679.0" onAction="#btnCloseOnAction" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: lightgrey;" text="Back">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

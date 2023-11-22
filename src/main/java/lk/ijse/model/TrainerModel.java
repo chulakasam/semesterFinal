@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TrainerModel {
     public boolean saveTrainer(TrainerDto dto) throws SQLException {
@@ -73,5 +75,32 @@ public class TrainerModel {
             dto = new TrainerDto(Id, name, tel,nic,email,gender,dob,desc);
         }
          return dto;
+    }
+
+    public List<TrainerDto> LoadAllTrainers() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT * FROM trainer";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<TrainerDto> dtoList = new ArrayList<>();
+        while(resultSet.next()){
+            dtoList.add(
+                    new TrainerDto(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8)
+                    )
+            );
+
+        }
+        return dtoList;
+
     }
 }
