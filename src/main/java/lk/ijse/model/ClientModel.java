@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientModel {
-
-
     public static List<ClientDto> getAllCustomer() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM client";
@@ -38,7 +36,6 @@ public class ClientModel {
         }
         return dtoList;
     }
-
     public boolean saveClient(ClientDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)";
@@ -56,7 +53,6 @@ public class ClientModel {
 
         return pstm.executeUpdate()>0;
     }
-
     public boolean deleteClient(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="DELETE FROM  client WHERE clientId=?";
@@ -65,7 +61,6 @@ public class ClientModel {
         pstm.setString(1,id);
         return pstm.executeUpdate()>0;
     }
-
     public ClientDto searchClient(String searchId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM client WHERE clientId=?";
@@ -88,7 +83,6 @@ public class ClientModel {
         }
         return clientDto;
     }
-
     public boolean updateClient(ClientDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?";
