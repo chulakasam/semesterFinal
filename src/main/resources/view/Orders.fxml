@@ -119,7 +119,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnAddtoCart" layoutX="76.0" layoutY="278.0" onAction="#btnAddTocartOnAction" prefHeight="40.0" prefWidth="113.0" style="-fx-background-color: #229FDA;" text="Add to  cart">
+      <JFXButton fx:id="btnAddtoCart" layoutX="76.0" layoutY="278.0" onAction="#btnAddTocartOnAction" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #229FDA;" text="     Add to  cart">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -133,5 +133,10 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="82.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/cart.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

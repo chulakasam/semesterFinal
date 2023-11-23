@@ -102,7 +102,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: #B7B6B6; -fx-background-radius: 30;">
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;">
          <children>
             <BarChart layoutX="46.0" layoutY="213.0" prefHeight="365.0" prefWidth="482.0">
               <xAxis>
@@ -124,6 +124,11 @@
                </font>
             </Label>
             <TextField layoutX="251.0" layoutY="95.0" prefHeight="72.0" prefWidth="158.0" style="-fx-background-radius: 20;" />
+            <JFXButton layoutX="85.0" layoutY="657.0" onAction="#btnGenerateReportOnAction" prefHeight="40.0" prefWidth="251.0" text="Generate A Orders Daily Report">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
    </children>
 </AnchorPane>

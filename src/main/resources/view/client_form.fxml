@@ -75,15 +75,15 @@
          </children>
       </AnchorPane>
       <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="ADD">
+      <JFXButton layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="358.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: yellow;" text="UPDATE">
+      <JFXButton layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="672.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: red;" text="DELETE">
+      <JFXButton layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
@@ -107,5 +107,20 @@
          </font>
       </Label>
       <Hyperlink layoutX="292.0" layoutY="710.0" onAction="#hypelinkOnAction" prefHeight="22.0" prefWidth="137.0" text="Click Here to pay.." />
+      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="48.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="333.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="642.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/delete.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

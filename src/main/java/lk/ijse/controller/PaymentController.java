@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.OrderDto;
 import lk.ijse.dto.Tm.AddPaymentTm;
@@ -13,7 +14,12 @@ import lk.ijse.dto.paymentDto;
 import lk.ijse.model.ClientModel;
 import lk.ijse.model.OrderModel;
 import lk.ijse.model.PaymentModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -131,4 +137,14 @@ public class PaymentController {
     }
 
 
+    public void btnGenerateReportOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/report.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+
+
+        JasperViewer.viewReport(jasperPrint, false);
+    }
 }

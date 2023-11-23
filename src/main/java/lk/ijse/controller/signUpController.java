@@ -29,6 +29,7 @@ public class signUpController {
     }
 
     public void btnCreateAccountOnAction(ActionEvent actionEvent) {
+
         String username = txtusername.getText();
         String password = pwPassword.getText();
         String email = txtEmail.getText();
