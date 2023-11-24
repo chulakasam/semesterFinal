@@ -22,7 +22,7 @@ public class Mail implements Runnable{
     }
 
     public void outMail() throws MessagingException {
-        String from = "madushansameera499@gmail.com"; //sender's email address
+        String from = "amashamaduwanthi123@gmail.com"; //sender's email address
         String host = "localhost";
 
         Properties properties = new Properties();
@@ -36,7 +36,7 @@ public class Mail implements Runnable{
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("madushansameera499@gmail.com", "dait ssuo uqln hgap");  // have to change some settings in SMTP
+                return new PasswordAuthentication("amashamaduwanthi123@gmail.com", "wsav jlje eazb mjxi");  // have to change some settings in SMTP
             }
         });
 

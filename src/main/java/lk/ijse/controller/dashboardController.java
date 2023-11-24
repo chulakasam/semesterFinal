@@ -3,6 +3,8 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -25,6 +27,8 @@ public class dashboardController {
     public AnchorPane dashSubPanel;
     public Label lblDate;
     public Label lblIme;
+    public BarChart <?,?>tbldashboard;
+
 
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
@@ -69,6 +73,7 @@ public class dashboardController {
     }
     public void initialize(){
         setDate();
+        setBarchart();
     }
 
     public void btnGenerateReportOnAction(ActionEvent actionEvent) throws JRException, SQLException {
@@ -80,5 +85,21 @@ public class dashboardController {
 
 
         JasperViewer.viewReport(jasperPrint, false);
+    }
+
+
+    public void setBarchart(){
+
+        XYChart.Series series = new XYChart.Series();
+
+        series.setName("Income");
+        series.getData().add(new XYChart.Data("Monday",8));
+        series.getData().add(new XYChart.Data("Tuesday",12));
+        series.getData().add(new XYChart.Data("Wednesday",10));
+        series.getData().add(new XYChart.Data("Thursday",15));
+        series.getData().add(new XYChart.Data("Friday",12));
+        series.getData().add(new XYChart.Data("Saturday",8));
+        series.getData().add(new XYChart.Data("Sunday",5));
+        tbldashboard.getData().addAll(series);
     }
 }

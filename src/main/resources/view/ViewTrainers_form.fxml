@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewTrainerController">
    <children>
@@ -26,5 +26,9 @@
             <TableColumn fx:id="colDesc" prefWidth="131.0" text="Description" />
         </columns>
       </TableView>
+      <JFXButton fx:id="closBtn" layoutX="777.0" layoutY="684.0" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="95.0" style="-fx-background-color: #ADADAD;" text="Back">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

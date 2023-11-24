@@ -1,10 +1,13 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.dto.Tm.TrainerTm;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.model.TrainerModel;
@@ -22,6 +25,7 @@ public class ViewTrainerController {
     public TableColumn <?,?>colNIc;
     public TableColumn <?,?>colGen;
     public TableColumn <?,?>colDesc;
+    public JFXButton closBtn;
 
     public void initialize(){
         loadAllTrainers();
@@ -62,5 +66,10 @@ public class ViewTrainerController {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        Stage window = (Stage) closBtn.getScene().getWindow();
+        window.close();
     }
 }

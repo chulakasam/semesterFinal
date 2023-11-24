@@ -7,8 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class SupplierModel {
+
+
+
     public boolean saveSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO supplier VALUES(?,?,?,?)";
@@ -57,5 +61,25 @@ public class SupplierModel {
             dto=new SupplierDto(Id,name,address,tel);
         }
        return dto;
+    }
+
+    public ArrayList<SupplierDto> getAllSupplier() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT * FROM supplier";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<SupplierDto> list = new ArrayList<>();
+        while (resultSet.next()){
+            list.add(
+                    new SupplierDto(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getInt(4)
+                    )
+            );
+
+        }
+        return list;
     }
 }

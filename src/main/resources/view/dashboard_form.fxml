@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="201.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff; -fx-background-radius: 0;" text=" Manage Client ">
+            <JFXButton fx:id="btnManageClient" layoutX="14.0" layoutY="201.0" onAction="#btnManageClientOnAction" prefHeight="40.0" prefWidth="248.0" style="-fx-background-color: #b3ddff; -fx-background-radius: 0;" text=" Manage Client ">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Image url="@../Assests/employee.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="19.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="19.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assests/client.png" />
                </image>
@@ -104,7 +104,7 @@
       </AnchorPane>
       <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;">
          <children>
-            <BarChart layoutX="46.0" layoutY="213.0" prefHeight="365.0" prefWidth="482.0">
+            <BarChart fx:id="tbldashboard" layoutX="46.0" layoutY="213.0" prefHeight="365.0" prefWidth="482.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

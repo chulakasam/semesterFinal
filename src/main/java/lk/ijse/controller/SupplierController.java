@@ -1,11 +1,14 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.SupplierDto;
 import lk.ijse.dto.Tm.SupplierTm;
@@ -15,6 +18,7 @@ import lk.ijse.model.TrainerModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SupplierController {
 
@@ -30,6 +34,18 @@ public class SupplierController {
     public TableColumn <?,?>colTel;
     public AnchorPane supplierPanel;
 
+
+    public void initialize() {
+        loadAllSuppliers();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colSupId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        colSupName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colTel.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
+    }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         String Id = txtId.getText();
@@ -111,5 +127,25 @@ public class SupplierController {
         supplierPanel.getChildren().clear();
         supplierPanel.getChildren().add(anchorPane);
 
+    }
+    public void loadAllSuppliers()  {
+        var model = new SupplierModel();
+        ObservableList<SupplierTm> obList = FXCollections.observableArrayList();
+        try{
+            List<SupplierDto> dtoList = model.getAllSupplier();
+            for (SupplierDto dto : dtoList) {
+                obList.add(
+                        new SupplierTm(
+                                dto.getSupplierId(),
+                                dto.getName(),
+                                dto.getAddress(),
+                                dto.getContactNo()
+                        )
+                );
+            }
+            tblSupplierTm.setItems(obList);
+        }catch (SQLException e){
+            throw  new RuntimeException(e);
+        }
     }
 }
