@@ -36,6 +36,17 @@ public class ClientModel {
         }
         return dtoList;
     }
+    public static String searchClientTotal() throws SQLException {
+        String count="0";
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT COUNT(*) FROM client";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()){
+            count=resultSet.getString(1);
+        }
+        return count;
+    }
     public boolean saveClient(ClientDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)";

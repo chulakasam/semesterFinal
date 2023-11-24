@@ -74,6 +74,5 @@
             <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
         </columns>
       </TableView>
-      <JFXButton layoutX="14.0" layoutY="677.0" onAction="#btnGenerateReportOnAction" prefHeight="36.0" prefWidth="239.0" text="Generate a payment Report" />
    </children>
 </AnchorPane>

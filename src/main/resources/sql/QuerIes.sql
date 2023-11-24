@@ -20,7 +20,7 @@ CREATE TABLE workoutPlan(workPlanId VARCHAR(5)PRIMARY KEY,
 CREATE TABLE client(clientId VARCHAR(5)PRIMARY KEY ,
                     name VARCHAR(20),
                     Address VARCHAR(30),
-                    contactNo INT(11),email VARCHAR(30),height DECIMAL(4,3),weight DECIMAL(4,3),gender VARCHAR(10),dob DATE);
+                    contactNo INT(11),email VARCHAR(30),height INT(4),weight INT(4),gender VARCHAR(10),dob DATE);
 
 CREATE TABLE orders(orderId  VARCHAR(5)PRIMARY KEY,
                     date DATE,
@@ -30,7 +30,7 @@ CREATE TABLE orders(orderId  VARCHAR(5)PRIMARY KEY,
 
 CREATE TABLE payment(paymentId VARCHAR(5),
                     date DATE,
-                    description VARCHAR(50),
+                    amount VARCHAR(50),
                     clientId VARCHAR(5),
                     CONSTRAINT FOREIGN KEY (clientId)REFERENCES client(clientId)ON UPDATE CASCADE ON DELETE CASCADE,
                     orderId VARCHAR(5),
@@ -57,7 +57,7 @@ CREATE TABLE orderItemDetails(orderId VARCHAR(5),
                               CONSTRAINT FOREIGN KEY (orderId)REFERENCES orders(orderId)ON UPDATE CASCADE ON DELETE CASCADE ,
                                itemId VARCHAR(5),
                                CONSTRAINT FOREIGN KEY (itemId)REFERENCES item(itemCode)ON UPDATE CASCADE ON DELETE CASCADE ,
-                               qty INT(4));
+                               qty INT(4),amount DECIMAL(7,2));
 
 CREATE TABLE supplierItemDetails(supplierId VARCHAR(5),
                                 FOREIGN KEY (supplierId)REFERENCES supplier(supplierId)ON UPDATE CASCADE ON DELETE CASCADE,

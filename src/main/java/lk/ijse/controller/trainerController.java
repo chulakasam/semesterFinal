@@ -68,6 +68,10 @@ public class trainerController {
         txtId.setText("");
         txtName.setText("");
         txtTel.setText("");
+        txtDesc.setText("");
+        txtEmail.setText("");
+        txtNic.setText("");
+
     }
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String Id = txtId.getText();

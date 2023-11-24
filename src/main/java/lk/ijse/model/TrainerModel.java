@@ -12,6 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrainerModel {
+    public static String searchTrainerTotal() throws SQLException {
+        String count="0";
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT COUNT(*) FROM trainer";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()){
+            count=resultSet.getString(1);
+        }
+        return count;
+    }
     public boolean saveTrainer(TrainerDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO trainer VALUES(?,?,?,?,?,?,?,?)";
@@ -76,7 +87,6 @@ public class TrainerModel {
         }
          return dto;
     }
-
     public List<TrainerDto> LoadAllTrainers() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM trainer";

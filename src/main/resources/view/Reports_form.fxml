@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="757.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.reportsController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="131.0" onAction="#btnClientReportsAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <ImageView fitHeight="134.0" fitWidth="132.0" layoutX="184.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/clienr%20n.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="131.0" onAction="#btnPaymentReportsOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <JFXButton buttonType="RAISED" layoutX="142.0" layoutY="402.0" onAction="#btnOrdersReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="402.0" onAction="#btnStockReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" />
+      <Label layoutX="190.0" layoutY="328.0" prefHeight="26.0" prefWidth="111.0" text="    Clients">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="510.0" layoutY="328.0" prefHeight="26.0" prefWidth="124.0" text="    Payments">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="603.0" prefHeight="26.0" prefWidth="102.0" text="   Orders">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="511.0" layoutY="602.0" prefHeight="26.0" prefWidth="102.0" text="      Stock">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="116.0" fitWidth="124.0" layoutX="500.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/payment%20report.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="37.0" layoutY="18.0" prefHeight="34.0" prefWidth="193.0" text="Daily Reports">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="82.0" fitWidth="96.0" layoutX="208.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/ordersrep.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="102.0" layoutX="524.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/warehoues.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -148,4 +148,6 @@ public class clientController {
         stage.setScene(scene);
         stage.show();
     }
+    public void btnBackToHomeAction(ActionEvent actionEvent) throws IOException {
+    }
 }

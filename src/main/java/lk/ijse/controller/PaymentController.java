@@ -49,7 +49,6 @@ public class PaymentController {
         loadAllOrders();
         setCellValueFactory();
     }
-
     private void setCellValueFactory() {
         colPayId.setCellValueFactory(new PropertyValueFactory<>("paymentId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -59,7 +58,6 @@ public class PaymentController {
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
 
     }
-
     private void loadAllOrders() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
@@ -136,15 +134,4 @@ public class PaymentController {
         txtAmount.setText("");
     }
 
-
-    public void btnGenerateReportOnAction(ActionEvent actionEvent) throws JRException, SQLException {
-
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/report.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
-
-
-        JasperViewer.viewReport(jasperPrint, false);
-    }
 }

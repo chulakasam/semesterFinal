@@ -13,6 +13,11 @@
 
 <AnchorPane fx:id="cleintPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
    <children>
+      <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="720.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/home.png" />
+         </image>
+      </ImageView>
       <AnchorPane layoutX="35.0" layoutY="164.0" prefHeight="526.0" prefWidth="715.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
             <TextField fx:id="txtaddress" layoutX="111.0" layoutY="91.0" prefHeight="35.0" prefWidth="228.0" promptText="Address" />
@@ -122,5 +127,10 @@
             <Image url="@../Assests/delete.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="647.0" layoutY="11.0" onAction="#btnBackToHomeAction" prefHeight="35.0" prefWidth="105.0" text="Home  ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
