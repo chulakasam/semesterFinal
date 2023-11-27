@@ -7,18 +7,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lk.ijse.dto.TrainerDto;
+import lk.ijse.model.ClientModel;
 import lk.ijse.model.ItemModel;
 import lk.ijse.model.TrainerModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 public class trainerController {
     public TextField txtId;
@@ -30,11 +29,23 @@ public class trainerController {
     public DatePicker dpDOB;
     public ComboBox cmbgen;
     public TextField txtDesc;
+    public Label lblTrainerId;
 
 
     public void initialize(){
         loadGender();
+        generateNextTrainerId();
     }
+
+    private void generateNextTrainerId() {
+        try {
+            String id = new TrainerModel().generateTrainerId();
+            lblTrainerId.setText(id);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
     private void loadGender() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Male");
@@ -42,7 +53,10 @@ public class trainerController {
         cmbgen.setItems(obList);
     }
     public void btnAddOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+
+        boolean isValidated=validated();
+
+        String Id = lblTrainerId.getText();
         String name = txtName.getText();
         int tel = Integer.parseInt(txtTel.getText());
         String nic = txtNic.getText();
@@ -52,20 +66,46 @@ public class trainerController {
         String desc = txtDesc.getText();
 
         var dto = new TrainerDto(Id,name,tel,nic,email,gender,dob,desc);
-        try {
-            var model = new TrainerModel();
-            boolean isAdded=model.saveTrainer(dto);
-            if(isAdded){
-                new Alert(Alert.AlertType.CONFIRMATION,"Trainer Saved successfully!!!").show();
-                clearField();
-            }
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage());
-        }
 
+        if(isValidated) {
+            try {
+                var model = new TrainerModel();
+                boolean isAdded = model.saveTrainer(dto);
+                if (isAdded) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Trainer Saved successfully!!!").show();
+                    clearField();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Trainer Saved Unsuccessfully!!!").show();
+        }
+    }
+    private boolean validated() {
+        boolean isMatched;
+        String tel = txtTel.getText();
+        isMatched= Pattern.compile("[0-9]{9,10}").matcher(tel).matches();
+        if(!isMatched){
+            new Alert(Alert.AlertType.ERROR,"Invalid telephone no").show();
+            return false;
+        }
+        String nic = txtNic.getText();
+        isMatched=Pattern.compile("[0-9]{12,}").matcher(nic).matches();
+        if(!isMatched){
+            new Alert(Alert.AlertType.ERROR,"Invalid NIC").show();
+            return false;
+        }
+        String email = txtEmail.getText();
+        isMatched=Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$").matcher(email).matches();
+        if(!isMatched){
+            new Alert(Alert.AlertType.ERROR,"Invalid email").show();
+            return false;
+        }
+        return true;
     }
     private void clearField() {
-        txtId.setText("");
+        lblTrainerId.setText("");
         txtName.setText("");
         txtTel.setText("");
         txtDesc.setText("");
@@ -74,7 +114,7 @@ public class trainerController {
 
     }
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+        String Id = lblTrainerId.getText();
         String Name = txtName.getText();
         int Tel = Integer.parseInt(txtTel.getText());
         String nic = txtNic.getText();
@@ -96,7 +136,7 @@ public class trainerController {
 
     }
     public void btnTrainerDeleteOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+        String Id = txtTrainerId.getText();
         try{
             TrainerModel model = new TrainerModel();
             boolean isDeleted=model.deleteTrainer(Id);
@@ -114,7 +154,7 @@ public class trainerController {
         try {
             TrainerDto dto=model.searchTrainer(trainerId);
            if(dto!=null){
-               txtId.setText(dto.getTrainerId());
+               lblTrainerId.setText(dto.getTrainerId());
                txtName.setText(dto.getName());
                txtTel.setText(String.valueOf(dto.getTel()));
                txtNic.setText(dto.getNic());

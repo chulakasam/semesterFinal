@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashPanel" prefHeight="781.0" prefWidth="1138.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
+<AnchorPane fx:id="dashPanel" prefHeight="755.0" prefWidth="1138.0" style="-fx-background-color: white;" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
    <children>
-      <AnchorPane layoutX="8.0" layoutY="15.0" prefHeight="757.0" prefWidth="301.0" style="-fx-background-color: #99d1ff; -fx-background-radius: 30;" stylesheets="@../style/dashboard.css">
+      <AnchorPane layoutX="8.0" layoutY="6.0" prefHeight="743.0" prefWidth="301.0" style="-fx-background-color: #99d1ff; -fx-background-radius: 30;" stylesheets="@../style/dashboard.css">
          <children>
             <JFXButton fx:id="btnOrders" buttonType="RAISED" layoutX="14.0" layoutY="550.0" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="248.0" stylesheets="@../style/dashboard.css" text="  Manage Orders ">
                <font>
@@ -59,7 +59,7 @@
                   <Image url="@../Assests/payment.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="20.0" layoutY="697.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="109.0" stylesheets="@../style/dashboard.css" text="LogOut" textFill="#f5f5f5">
+            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="14.0" layoutY="686.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="109.0" stylesheets="@../style/dashboard.css" text="LogOut" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -104,9 +104,14 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </JFXButton>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="19.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assests/reports.gif" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="15.0" prefHeight="757.0" prefWidth="811.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;">
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" prefHeight="743.0" prefWidth="811.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;">
          <children>
             <AnchorPane layoutX="24.0" layoutY="26.0" prefHeight="167.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
             <BarChart fx:id="tbldashboard" layoutX="39.0" layoutY="275.0" prefHeight="365.0" prefWidth="482.0">

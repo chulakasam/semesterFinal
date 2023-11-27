@@ -3,10 +3,7 @@ package lk.ijse.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ItemDto;
@@ -28,12 +25,24 @@ public class StockController {
     public TableColumn colPrice;
     public TableColumn colQtyOnHand;
     public AnchorPane itemPanel;
+    public Label lblItemCode;
 
 
     public void initialize(){
         loadAllItems();
         setCellValueFactory();
+        generateNextItemId();
     }
+
+    private void generateNextItemId() {
+        try {
+            String nextItemId = new ItemModel().generateNextItemId();
+            lblItemCode.setText(nextItemId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void setCellValueFactory() {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -63,7 +72,7 @@ public class StockController {
 
     }
     public void btnAddOnAction(ActionEvent actionEvent) {
-        String code = txtItemCode.getText();
+        String code = lblItemCode.getText();
         String name = txtItemName.getText();
         double price = Double.parseDouble(txtPrice.getText());
         int qty = Integer.parseInt(txtQty.getText());
@@ -81,13 +90,13 @@ public class StockController {
         }
     }
     private void clearField() {
-        txtItemCode.setText("");
+        lblItemCode.setText("");
         txtItemName.setText("");
         txtPrice.setText("");
         txtQty.setText("");
     }
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String code = txtItemCode.getText();
+        String code = lblItemCode.getText();
         String name = txtItemName.getText();
         double price= Double.parseDouble(txtPrice.getText());
         int qty= Integer.parseInt(txtQty.getText());
@@ -105,7 +114,7 @@ public class StockController {
         }
     }
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String code = txtItemCode.getText();
+        String code = txtSearchId.getText();
 
         var itemModel = new ItemModel();
         try{
@@ -125,7 +134,7 @@ public class StockController {
         try {
             ItemDto dto=itemModel.searchItem(searchId);
             if(dto!=null){
-                txtItemCode.setText(dto.getItemCode());
+                lblItemCode.setText(dto.getItemCode());
                 txtItemName.setText(dto.getName());
                 txtPrice.setText(String.valueOf(dto.getUnitPrice()));
                 txtQty.setText(String.valueOf(dto.getQty()));

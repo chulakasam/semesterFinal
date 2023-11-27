@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerController">
+<AnchorPane prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerController">
    <children>
       <AnchorPane layoutX="46.0" layoutY="173.0" prefHeight="448.0" prefWidth="675.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
@@ -19,7 +19,6 @@
             <TextField fx:id="txtEmail" layoutX="132.0" layoutY="229.0" prefHeight="34.0" prefWidth="191.0" promptText="Email" />
             <DatePicker fx:id="dpDOB" layoutX="131.0" layoutY="318.0" prefHeight="34.0" prefWidth="191.0" promptText="Date Of Birth" />
             <TextField fx:id="txtDesc" layoutX="449.0" layoutY="318.0" prefHeight="34.0" prefWidth="191.0" promptText="Description" />
-            <TextField fx:id="txtId" layoutX="133.0" layoutY="46.0" prefHeight="34.0" prefWidth="191.0" promptText="Trainer ID" />
             <TextField fx:id="txtName" layoutX="131.0" layoutY="141.0" prefHeight="34.0" prefWidth="191.0" promptText="Trainer Name" />
             <Label layoutX="54.0" layoutY="52.0" prefHeight="22.0" prefWidth="77.0" text="Trainer ID">
                <font>
@@ -62,17 +61,22 @@
                </font>
             </Label>
             <JFXComboBox fx:id="cmbgen" layoutX="447.0" layoutY="234.0" prefHeight="24.0" prefWidth="191.0" promptText="select" />
+            <Label fx:id="lblTrainerId" layoutX="132.0" layoutY="47.0" prefHeight="34.0" prefWidth="191.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <TextField fx:id="txtTrainerId" layoutX="448.0" layoutY="78.0" prefHeight="34.0" prefWidth="229.0" promptText="Enter Trainer ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="46.0" layoutY="115.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="46.0" layoutY="115.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="340.0" layoutY="116.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: lightgreen;" text="     UPDATE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="116.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: lightgreen;" text="     UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="596.0" layoutY="116.0" onAction="#btnTrainerDeleteOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: #ff4d4d;" text="     DELETE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="596.0" layoutY="116.0" onAction="#btnTrainerDeleteOnAction" prefHeight="42.0" prefWidth="119.0" style="-fx-background-color: #ff4d4d;" text="     DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
@@ -90,7 +94,7 @@
             <Image url="@../Assests/coach%20n.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="225.0" layoutY="672.0" onAction="#btnViewTrainersOnAction" prefHeight="34.0" prefWidth="171.0" text="View Trainer details">
+      <JFXButton buttonType="RAISED" layoutX="225.0" layoutY="672.0" onAction="#btnViewTrainersOnAction" prefHeight="34.0" prefWidth="171.0" style="-fx-background-color: #12CBC4;" text="View Trainer details">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

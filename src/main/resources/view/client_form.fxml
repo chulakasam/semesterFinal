@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cleintPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
+<AnchorPane fx:id="cleintPanel" prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.clientController">
    <children>
       <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="720.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,7 +23,6 @@
             <TextField fx:id="txtaddress" layoutX="111.0" layoutY="91.0" prefHeight="35.0" prefWidth="228.0" promptText="Address" />
             <TextField fx:id="txttel" layoutX="460.0" layoutY="91.0" prefHeight="35.0" prefWidth="228.0" promptText="Tel No" />
             <TextField fx:id="txtname" layoutX="460.0" layoutY="21.0" prefHeight="35.0" prefWidth="228.0" promptText="Name" />
-            <TextField fx:id="txtid" layoutX="110.0" layoutY="21.0" prefHeight="35.0" prefWidth="228.0" promptText="Client ID" />
             <TextField fx:id="txtEmail" layoutX="112.0" layoutY="161.0" prefHeight="35.0" prefWidth="228.0" promptText="Email" />
             <DatePicker fx:id="datePickerDOB" layoutX="117.0" layoutY="315.0" prefHeight="24.0" prefWidth="222.0" promptText="Date of Birth" />
             <TextField fx:id="txtHeight" layoutX="460.0" layoutY="161.0" prefHeight="35.0" prefWidth="228.0" promptText="Height" />
@@ -68,7 +67,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <JFXButton layoutX="215.0" layoutY="426.0" onAction="#btnViewClientsOnAction" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #12CBC4;" text="View Client Details">
+            <JFXButton buttonType="RAISED" layoutX="215.0" layoutY="426.0" onAction="#btnViewClientsOnAction" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #12CBC4;" text="View Client Details">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -77,18 +76,22 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></Label>
+            <Label fx:id="lblclientId" layoutX="111.0" layoutY="23.0" prefHeight="35.0" prefWidth="228.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>

@@ -9,19 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginPanel" prefHeight="781.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.loginController">
+<AnchorPane fx:id="loginPanel" prefHeight="755.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.loginController">
    <children>
-      <AnchorPane layoutX="599.0" prefHeight="781.0" prefWidth="533.0">
+      <AnchorPane fx:id="LoginPanel" prefHeight="762.0" prefWidth="1138.0" style="-fx-background-color: darkgrey;">
          <children>
-            <ImageView fitHeight="781.0" fitWidth="539.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="783.0" fitWidth="1138.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Assests/firstpage.jpg" />
+                  <Image url="@../Assests/backgroundimg/pexels-moose-photos-1037992.jpg" />
                </image>
             </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="LoginPanel" prefHeight="781.0" prefWidth="607.0" style="-fx-background-color: darkgrey;">
-         <children>
             <PasswordField fx:id="pwPassword" layoutX="126.0" layoutY="348.0" prefHeight="50.0" prefWidth="290.0" promptText="Password" style="-fx-background-radius: 20;" />
             <Label layoutX="129.0" layoutY="62.0" prefHeight="87.0" prefWidth="152.0" text="Log In">
                <font>
@@ -47,12 +43,15 @@
                   <Image url="@../Assests/password.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="130.0" layoutY="460.0" onAction="#btnLogInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Log In">
+            <JFXButton buttonType="RAISED" layoutX="130.0" layoutY="460.0" onAction="#btnLogInOnAction" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Log In">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="437.0" layoutY="557.0" onAction="#btnSignOnAction" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign In" />
+            <JFXButton buttonType="RAISED" layoutX="437.0" layoutY="557.0" onAction="#btnSignOnAction" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></JFXButton>
          </children>
       </AnchorPane>
    </children>

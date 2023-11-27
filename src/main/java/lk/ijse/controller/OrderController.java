@@ -177,8 +177,6 @@ public class OrderController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
-
     public void btnConfirmOrderOnAction(ActionEvent actionEvent) {
         String orderId = lblOrderId.getText();
         String date = lblDate.getText();

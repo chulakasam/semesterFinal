@@ -113,4 +113,28 @@ public class TrainerModel {
         return dtoList;
 
     }
+
+    public String generateTrainerId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT trainerId FROM trainer ORDER BY trainerId DESC LIMIT 1";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()){
+            return changeId(resultSet.getString(1));
+        }
+        return changeId(null);
+    }
+    public static String changeId(String trainerId){
+        if(trainerId!=null){
+            String[] split = trainerId.split("T0");
+
+            int id = Integer.parseInt(split[1]); //01
+            id++;
+            return "T00" + id;
+        }else{
+            return "T001";
+        }
+    }
 }
+
+

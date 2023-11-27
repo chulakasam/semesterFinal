@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.SupplierDto;
@@ -19,6 +16,7 @@ import lk.ijse.model.TrainerModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class SupplierController {
 
@@ -33,11 +31,22 @@ public class SupplierController {
     public TableColumn <?,?>colAddress;
     public TableColumn <?,?>colTel;
     public AnchorPane supplierPanel;
+    public Label lblSupplierId;
 
 
     public void initialize() {
         loadAllSuppliers();
         setCellValueFactory();
+        generateSupplierId();
+    }
+
+    private void generateSupplierId() {
+        try {
+            String supplierId = SupplierModel.generateSupplierId();
+            lblSupplierId.setText(supplierId);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     private void setCellValueFactory() {
@@ -46,33 +55,35 @@ public class SupplierController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colTel.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
     }
-
     public void btnAddOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+
+
+        String Id = lblSupplierId.getText();
         String Name = txtName.getText();
         String Address = txtAddress.getText();
         int Tel = Integer.parseInt(txtTel.getText());
 
         var dto = new SupplierDto(Id, Name, Address, Tel);
-        try {
-            var supplierModel = new SupplierModel();
-            boolean isAdded=supplierModel.saveSupplier(dto);
-            if (isAdded){
-                new Alert(Alert.AlertType.CONFIRMATION,"Supplier Added sucessfully!!!").show();
-                clearField();
+            try {
+                var supplierModel = new SupplierModel();
+                boolean isAdded = supplierModel.saveSupplier(dto);
+                if (isAdded) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added sucessfully!!!").show();
+                    clearField();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
+
     }
     private void clearField() {
-        txtId.setText("");
+        lblSupplierId.setText("");
         txtName.setText("");
         txtAddress.setText("");
         txtTel.setText("");
     }
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+        String Id = lblSupplierId.getText();
         String Name = txtName.getText();
         String Address = txtAddress.getText();
         int Tel = Integer.parseInt(txtTel.getText());
@@ -90,7 +101,7 @@ public class SupplierController {
         }
     }
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String Id = txtId.getText();
+        String Id = txtSuppId.getText();
 
         try {
             var supplierModel = new SupplierModel();
@@ -110,7 +121,7 @@ public class SupplierController {
         try {
             SupplierDto dto=model.searchSupplier(suppId);
             if(dto!=null){
-                txtId.setText(dto.getSupplierId());
+                lblSupplierId.setText(dto.getSupplierId());
                 txtName.setText(dto.getName());
                 txtAddress.setText(dto.getAddress());
                 txtTel.setText(String.valueOf(dto.getContactNo()));

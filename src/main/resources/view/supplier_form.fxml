@@ -10,21 +10,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="supplierPanel" prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierController">
+<AnchorPane fx:id="supplierPanel" prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierController">
    <children>
       <AnchorPane layoutX="347.0" layoutY="654.0" prefHeight="71.0" prefWidth="446.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
-            <JFXButton layoutX="171.0" layoutY="17.0" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="171.0" layoutY="17.0" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="18.0" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: lightgreen;" text="       UPDATE" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="13.0" layoutY="18.0" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: lightgreen;" text="       UPDATE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="323.0" layoutY="16.0" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="323.0" layoutY="16.0" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -48,7 +48,6 @@
       </AnchorPane>
       <AnchorPane layoutX="17.0" layoutY="181.0" prefHeight="544.0" prefWidth="305.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
-            <TextField fx:id="txtId" layoutX="129.0" layoutY="31.0" prefHeight="33.0" prefWidth="166.0" promptText="Supplier ID" />
             <TextField fx:id="txtName" layoutX="129.0" layoutY="100.0" prefHeight="33.0" prefWidth="166.0" promptText="Supplier Name" />
             <TextField fx:id="txtAddress" layoutX="129.0" layoutY="171.0" prefHeight="33.0" prefWidth="166.0" promptText="Address" />
             <TextField fx:id="txtTel" layoutX="129.0" layoutY="239.0" prefHeight="33.0" prefWidth="166.0" promptText="Tel No" />
@@ -80,6 +79,11 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></JFXButton>
+            <Label fx:id="lblSupplierId" layoutX="127.0" layoutY="31.0" prefHeight="33.0" prefWidth="166.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label layoutX="33.0" layoutY="5.0" prefHeight="50.0" prefWidth="222.0" text="Supplier Details">

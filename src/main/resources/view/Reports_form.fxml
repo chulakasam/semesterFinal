@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="757.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.reportsController">
+<AnchorPane prefHeight="743.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.reportsController">
    <children>
       <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="131.0" onAction="#btnClientReportsAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
       <ImageView fitHeight="134.0" fitWidth="132.0" layoutX="184.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">

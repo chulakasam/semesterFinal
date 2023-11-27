@@ -10,12 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="757.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
+<AnchorPane prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="213.0" prefHeight="454.0" prefWidth="272.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
             <TextField fx:id="txtItemName" layoutX="113.0" layoutY="127.0" prefHeight="31.0" prefWidth="146.0" promptText="Item Name" />
-            <TextField fx:id="txtItemCode" layoutX="112.0" layoutY="50.0" prefHeight="31.0" prefWidth="146.0" promptText="Item Code" />
             <TextField fx:id="txtQty" layoutX="114.0" layoutY="281.0" prefHeight="31.0" prefWidth="146.0" promptText="Quantity " />
             <TextField fx:id="txtPrice" layoutX="114.0" layoutY="208.0" prefHeight="31.0" prefWidth="146.0" promptText="Unit Price" />
             <Label layoutX="14.0" layoutY="57.0" text="Item Code">
@@ -38,17 +37,22 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <Label fx:id="lblItemCode" layoutX="111.0" layoutY="53.0" prefHeight="31.0" prefWidth="146.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <TextField fx:id="txtSearchId" layoutX="457.0" layoutY="72.0" prefHeight="31.0" prefWidth="223.0" promptText="Enter the Item ID" style="-fx-background-radius: 30;" />
-      <JFXButton layoutX="29.0" layoutY="141.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="29.0" layoutY="141.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="341.0" layoutY="141.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: lightgreen;" text="      UPDATE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="341.0" layoutY="141.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: lightgreen;" text="      UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton layoutX="641.0" layoutY="141.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: red;" text="       DELETE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="641.0" layoutY="141.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: red;" text="       DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
@@ -66,7 +70,7 @@
             <Image url="@../Assests/items%20n.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblItemTm" layoutX="315.0" layoutY="213.0" prefHeight="454.0" prefWidth="450.0">
+      <TableView fx:id="tblItemTm" layoutX="315.0" layoutY="213.0" prefHeight="454.0" prefWidth="450.0" stylesheets="@../style/table.css">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="102.0" text="Item Code" />
           <TableColumn fx:id="colName" prefWidth="125.0" text="Item Name" />

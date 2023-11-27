@@ -42,20 +42,24 @@
 	<title>
 		<band height="86" splitType="Stretch">
 			<staticText>
-				<reportElement x="233" y="16" width="147" height="30" uuid="8fa8b927-432d-4db2-8355-f778d2e5a099"/>
+				<reportElement x="94" y="16" width="346" height="30" uuid="8fa8b927-432d-4db2-8355-f778d2e5a099"/>
 				<textElement>
-					<font size="22" isBold="true" isUnderline="true"/>
+					<font size="20" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[LA Fittrack]]></text>
+				<text><![CDATA[  LA Fittrack Payments Details  ]]></text>
 			</staticText>
 			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="433" y="8" width="100" height="30" uuid="80c18bfd-1334-4cd1-8ae3-5a9fa2213a7f"/>
+				<reportElement x="457" y="8" width="100" height="30" uuid="80c18bfd-1334-4cd1-8ae3-5a9fa2213a7f"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField pattern="HH:mm">
-				<reportElement x="433" y="42" width="100" height="30" uuid="bb887969-58ac-4a0c-9863-5e3029d80f94"/>
+				<reportElement x="457" y="42" width="100" height="30" uuid="bb887969-58ac-4a0c-9863-5e3029d80f94"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="-2" width="90" height="74" uuid="7bc1520a-b30a-4335-ae4b-5f7ca814936a"/>
+				<imageExpression><![CDATA["/home/sampath/Desktop/Final project SRS /la logo.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>

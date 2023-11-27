@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.UserDto;
+import lk.ijse.mail.Mail;
 import lk.ijse.model.UserModel;
 
 import java.io.IOException;
@@ -28,7 +29,6 @@ public class signUpController {
         Stage stage = (Stage) signUpPanel.getScene().getWindow();
         stage.setScene(scene);
     }
-
     public void btnCreateAccountOnAction(ActionEvent actionEvent) {
 
         String username = txtusername.getText();
@@ -43,6 +43,7 @@ public class signUpController {
                boolean isSaved=userModel.saveUser(dto);
                if(isSaved){
                    new Alert(Alert.AlertType.CONFIRMATION,"User added successfully!!!").show();
+                   sendAnEmail(email);
                    clearField();
                }
            }catch (SQLException e){
@@ -52,6 +53,15 @@ public class signUpController {
        }else{
            new Alert(Alert.AlertType.ERROR,"User added failed!!!").show();
        }
+    }
+    private void sendAnEmail(String email) {
+        Mail mail = new Mail();
+        mail.setMsg("Welcome..! \n\n\tYou are successfully logged in to the LA fitness  Management System \n\nThank you..!");
+        mail.setTo(email);
+        mail.setSubject("LA fitness center");
+
+        Thread thread = new Thread(mail);
+        thread.start();
     }
     private boolean validateSignUp() {
         boolean ismatch;
@@ -77,10 +87,11 @@ public class signUpController {
         }
         return true;
     }
-
     private void clearField() {
         txtusername.setText("");
         pwPassword.setText("");
         txtEmail.setText("");
     }
+
+
 }

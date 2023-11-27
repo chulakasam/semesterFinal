@@ -47,6 +47,9 @@ public class ClientModel {
         }
         return count;
     }
+
+
+
     public boolean saveClient(ClientDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)";
@@ -111,4 +114,27 @@ public class ClientModel {
         return pstm.executeUpdate()>0;
 
     }
-}
+
+    public String generateClientId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT clientId FROM client ORDER BY clientId DESC LIMIT 1";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()){
+            return changeId(resultSet.getString(1));
+        }
+        return changeId(null);
+    }
+    public static String changeId(String clientId){
+        if(clientId!=null){
+            String[] split = clientId.split("C0");
+
+            int id = Integer.parseInt(split[1]); //01
+            id++;
+            return "C00" + id;
+        }else{
+            return "C001";
+        }
+    }
+    }
+
