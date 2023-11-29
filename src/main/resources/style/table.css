@@ -1,4 +1,7 @@
-#tblItemTm{
-    -fx-background-color:lightblue;
+.table-view{
+    -fx-background-radius: 0px 0px 20px 20px;
+    -fx-border-radius: 20px 20px 20px 20px;
+    -fx-background-insets: 0 0px 0 0;
+    -fx-background-color: lightblue;
 }
 

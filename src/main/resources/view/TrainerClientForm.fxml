@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="workOutPanel" prefHeight="743.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerClientController">
+   <children>
+      <AnchorPane layoutX="40.0" layoutY="93.0" prefHeight="616.0" prefWidth="442.0" style="-fx-background-color: lightgrey; -fx-background-radius: 25;">
+         <children>
+            <JFXButton fx:id="btnAdddetail" buttonType="RAISED" layoutX="321.0" layoutY="562.0" onAction="#btnAddDetailsOnAction" prefHeight="40.0" prefWidth="107.0" stylesheets="@../style/dashboard.css" text="Add Details">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></JFXButton>
+            <Label layoutX="19.0" layoutY="26.0" prefHeight="24.0" prefWidth="89.0" text="WorkOut ID">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWorkOutId" layoutX="126.0" layoutY="22.0" prefHeight="30.0" prefWidth="166.0" />
+         </children></AnchorPane>
+      <Label layoutX="40.0" layoutY="21.0" prefHeight="30.0" prefWidth="232.0" text="Workout Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbTrainerId" layoutX="167.0" layoutY="165.0" prefHeight="24.0" prefWidth="166.0" />
+      <JFXComboBox fx:id="cmbClientId" layoutX="169.0" layoutY="229.0" prefHeight="24.0" prefWidth="166.0" />
+      <Label layoutX="59.0" layoutY="169.0" prefHeight="24.0" prefWidth="89.0" text="Trainer ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="229.0" prefHeight="24.0" prefWidth="89.0" text="Client ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="323.0" prefHeight="24.0" prefWidth="89.0" text="Date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="169.0" layoutY="324.0" prefHeight="24.0" prefWidth="166.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtareadesc" layoutX="168.0" layoutY="401.0" prefHeight="244.0" prefWidth="298.0" />
+      <Label layoutX="59.0" layoutY="400.0" prefHeight="24.0" prefWidth="89.0" text="Description">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="677.0" layoutY="660.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="107.0" style="-fx-background-color: lightgrey;" text="Back">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

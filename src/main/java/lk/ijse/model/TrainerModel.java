@@ -87,7 +87,7 @@ public class TrainerModel {
         }
          return dto;
     }
-    public List<TrainerDto> LoadAllTrainers() throws SQLException {
+    public static List<TrainerDto> LoadAllTrainers() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM trainer";
 

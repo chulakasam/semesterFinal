@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerController">
+<AnchorPane fx:id="trainerPanel" prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerController">
    <children>
       <AnchorPane layoutX="46.0" layoutY="173.0" prefHeight="448.0" prefWidth="675.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
@@ -119,5 +119,15 @@
             <Image url="@../Assests/delete.png" />
          </image>
       </ImageView>
+      <Label layoutX="459.0" layoutY="672.0" prefHeight="34.0" prefWidth="171.0" text="Check workout Details ">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="636.0" layoutY="672.0" onAction="#btnWorkOutDetailsOnAction" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: #12CBC4;" text="Workout Details ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

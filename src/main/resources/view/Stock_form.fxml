@@ -70,14 +70,6 @@
             <Image url="@../Assests/items%20n.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblItemTm" layoutX="315.0" layoutY="213.0" prefHeight="454.0" prefWidth="450.0" stylesheets="@../style/table.css">
-        <columns>
-          <TableColumn fx:id="colItemCode" prefWidth="102.0" text="Item Code" />
-          <TableColumn fx:id="colName" prefWidth="125.0" text="Item Name" />
-            <TableColumn fx:id="colPrice" prefWidth="104.0" text="Unit Price" />
-            <TableColumn fx:id="colQtyOnHand" minWidth="0.0" prefWidth="118.0" text="Qty On  Hand" />
-        </columns>
-      </TableView>
       <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="39.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/save.png" />
@@ -93,5 +85,13 @@
             <Image url="@../Assests/delete.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tblItemTm" layoutX="314.0" layoutY="213.0" prefHeight="454.0" prefWidth="450.0" stylesheets="@../style/table.css">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="102.0" text="Item Code" />
+          <TableColumn fx:id="colName" prefWidth="125.0" text="Item Name" />
+            <TableColumn fx:id="colPrice" prefWidth="104.0" text="Unit Price" />
+            <TableColumn fx:id="colQtyOnHand" minWidth="0.0" prefWidth="118.0" text="Qty On  Hand" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

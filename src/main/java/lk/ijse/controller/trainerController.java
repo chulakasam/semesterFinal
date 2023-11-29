@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.model.ClientModel;
@@ -30,6 +31,7 @@ public class trainerController {
     public ComboBox cmbgen;
     public TextField txtDesc;
     public Label lblTrainerId;
+    public AnchorPane trainerPanel;
 
 
     public void initialize(){
@@ -175,5 +177,10 @@ public class trainerController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+    }
+    public void btnWorkOutDetailsOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/TrainerClientForm.fxml"));
+        trainerPanel.getChildren().clear();
+        trainerPanel.getChildren().add(anchorPane);
     }
 }

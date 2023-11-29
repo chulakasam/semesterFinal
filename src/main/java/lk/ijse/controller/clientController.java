@@ -42,7 +42,6 @@ public class clientController {
         generateClientId();
 
     }
-
     private void generateClientId() {
         try {
             String id = new ClientModel().generateClientId();
@@ -51,7 +50,6 @@ public class clientController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
     private void loadGender() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Male");

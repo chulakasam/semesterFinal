@@ -19,3 +19,6 @@
 #btnLogOut{
     -fx-background-color : rgb(0, 0, 0);
 }
+#btnAdddetail{
+    -fx-background-color : rgb(104, 252, 221);
+}
