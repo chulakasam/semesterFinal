@@ -84,7 +84,6 @@ public class ItemModel {
         }
            return itemDto;
     }
-
     public boolean updateItem(List<CartTm> cartTmList) throws SQLException {
         for(CartTm tm : cartTmList) {
             System.out.println("Item: " + tm);
@@ -94,8 +93,6 @@ public class ItemModel {
         }
         return true;
     }
-
-
     public boolean updateQty(String code, int qty) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -107,7 +104,6 @@ public class ItemModel {
 
         return pstm.executeUpdate() > 0; //false
     }
-
     public String generateNextItemId() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT itemCode FROM item ORDER BY itemCode DESC LIMIT 1";
@@ -124,7 +120,11 @@ public class ItemModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "I00" + id;
+            if(id<10) {
+                return "I00" + id;
+            }else{
+                return "I0" + id;
+            }
         }else{
             return "I001";
         }

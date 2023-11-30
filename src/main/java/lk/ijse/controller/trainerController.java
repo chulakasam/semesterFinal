@@ -76,6 +76,7 @@ public class trainerController {
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Trainer Saved successfully!!!").show();
                     clearField();
+                    generateNextTrainerId();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -131,6 +132,8 @@ public class trainerController {
             boolean isUpdated=model.UpdateTrainer(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"update successfully!!").show();
+                clearField();
+                generateNextTrainerId();
             }
         }catch (SQLException e){
            new Alert(Alert.AlertType.ERROR, e.getMessage());
@@ -145,6 +148,7 @@ public class trainerController {
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Deleted successfully!!!").show();
                 clearField();
+                generateNextTrainerId();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

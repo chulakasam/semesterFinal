@@ -78,6 +78,7 @@ public class clientController {
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Client added!!!").show();
                     clearField();
+                    generateClientId();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,"Client can't added!!!").show();
@@ -137,6 +138,7 @@ public class clientController {
             if(isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Client deleted successfully!!!").show();
                 clearField();
+                generateClientId();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -184,6 +186,7 @@ public class clientController {
             if (isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Client Updated successfully!!!").show();
                 clearField();
+                generateClientId();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage());
@@ -202,6 +205,9 @@ public class clientController {
         stage.show();
     }
     public void btnBackToHomeAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashform.fxml"));
+        cleintPanel.getChildren().clear();
+       cleintPanel.getChildren().add(anchorPane);
     }
 
 

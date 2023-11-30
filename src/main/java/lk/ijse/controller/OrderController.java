@@ -170,10 +170,9 @@ public class OrderController {
     }
     public void generateOrderId(){
         try {
-            String OrderId = OrderModel.generateNextOrderId();
-           lblOrderId .setText(OrderId);
-
-        }catch (SQLException e){
+            String id = new OrderModel().generateNextOrderId();
+           lblOrderId.setText(id);
+        } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }

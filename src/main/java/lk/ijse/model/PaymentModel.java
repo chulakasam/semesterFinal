@@ -25,12 +25,15 @@ public class PaymentModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "P00" + id;
+            if(id<10) {
+                return "P00" + id;
+            }else{
+                return "P0" + id;
+            }
         }else{
             return "P001";
         }
     }
-
     public boolean savePayment(paymentDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String  sql="INSERT INTO payment VALUES(?,?,?,?,?,?)";

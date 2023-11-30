@@ -127,7 +127,11 @@ public class ClientModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "C00" + id;
+            if(id<10) {
+                return "C00" + id;
+            }else{
+                return "C0" + id;
+            }
         }else{
             return "C001";
         }

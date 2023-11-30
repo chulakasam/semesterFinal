@@ -63,7 +63,11 @@ public class WorkoutModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "W00" + id;
+            if(id<10) {
+                return "W00" + id;
+            }else{
+                return "W0" + id;
+            }
         }else{
             return "W001";
         }

@@ -28,14 +28,15 @@ public class SupplierModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "S00" + id;
+            if(id<10) {
+                return "S00" + id;
+            }else{
+                return "S0" + id;
+            }
         }else{
             return "S001";
         }
     }
-
-
-
     public boolean saveSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO supplier VALUES(?,?,?,?)";

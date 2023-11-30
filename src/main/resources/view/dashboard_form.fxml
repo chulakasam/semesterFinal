@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashPanel" prefHeight="755.0" prefWidth="1138.0" style="-fx-background-color: white;" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
+<AnchorPane fx:id="dashPanel" prefHeight="755.0" prefWidth="1138.0" style="-fx-background-color: grey;" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
    <children>
       <AnchorPane layoutX="8.0" layoutY="6.0" prefHeight="743.0" prefWidth="301.0" style="-fx-background-color: #99d1ff; -fx-background-radius: 30;" stylesheets="@../style/dashboard.css">
          <children>
@@ -111,7 +111,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" prefHeight="743.0" prefWidth="811.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;">
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" prefHeight="743.0" prefWidth="811.0" style="-fx-background-color: ebebe0; -fx-background-radius: 30;">
          <children>
             <AnchorPane layoutX="24.0" layoutY="26.0" prefHeight="167.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
             <BarChart fx:id="tbldashboard" layoutX="39.0" layoutY="275.0" prefHeight="365.0" prefWidth="482.0">

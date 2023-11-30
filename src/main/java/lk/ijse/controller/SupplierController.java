@@ -68,8 +68,11 @@ public class SupplierController {
                 var supplierModel = new SupplierModel();
                 boolean isAdded = supplierModel.saveSupplier(dto);
                 if (isAdded) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added sucessfully!!!").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added successfully!!!").show();
                     clearField();
+                    generateSupplierId();
+                    loadAllSuppliers();
+
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -95,6 +98,8 @@ public class SupplierController {
             if (isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Update successfully!!!").show();
                 clearField();
+                generateSupplierId();
+                loadAllSuppliers();
             }
         }catch (SQLException e){
             new  Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -109,6 +114,8 @@ public class SupplierController {
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Deleted successfully!!!").show();
                 clearField();
+                generateSupplierId();
+                loadAllSuppliers();
             }
         }catch(SQLException e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

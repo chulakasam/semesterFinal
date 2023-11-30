@@ -84,6 +84,8 @@ public class StockController {
             if(isAdded){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Added successed!!!").show();
                 clearField();
+                generateNextItemId();
+                loadAllItems();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -108,6 +110,8 @@ public class StockController {
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Update successfully!!!").show();
                 clearField();
+                generateNextItemId();
+                clearField();
             }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -122,6 +126,8 @@ public class StockController {
            if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION,"Item Deleted successfully!!!").show();
             clearField();
+            generateNextItemId();
+            loadAllItems();
            }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

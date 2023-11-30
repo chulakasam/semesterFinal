@@ -17,7 +17,6 @@ public class OrderDetailModel {
             }
             return true;
         }
-
         private boolean saveOrderDetails(String orderId, CartTm tm) throws SQLException {
             Connection connection = DbConnection.getInstance().getConnection();
 

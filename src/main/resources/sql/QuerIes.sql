@@ -1,4 +1,4 @@
-CREATE TABLE user (useName VARCHAR(5)PRIMARY KEY,
+CREATE TABLE user (useName VARCHAR(20)PRIMARY KEY,
                     password VARCHAR(12),
                     email VARCHAR(30)NOT NULL );
 

@@ -130,7 +130,11 @@ public class TrainerModel {
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "T00" + id;
+            if(id<10) {
+                return "T00" + id;
+            }else{
+                return "T0" + id;
+            }
         }else{
             return "T001";
         }

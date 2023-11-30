@@ -18,6 +18,54 @@
             <Image url="@../Assests/home.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
+      <JFXButton buttonType="RAISED" layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="682.0" layoutY="61.0" onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="78.0" text="Search">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <Label layoutX="28.0" layoutY="6.0" prefHeight="58.0" prefWidth="206.0" text="Client Details">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="43.0" layoutX="220.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/clienr%20n.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="35.0" layoutY="708.0" prefHeight="26.0" prefWidth="257.0" text="Please Do your Payments Here  -&gt;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="292.0" layoutY="710.0" onAction="#hypelinkOnAction" prefHeight="22.0" prefWidth="137.0" text="Click Here to pay.." />
+      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="48.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="333.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="642.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/delete.png" />
+         </image>
+      </ImageView>
       <AnchorPane layoutX="35.0" layoutY="164.0" prefHeight="526.0" prefWidth="715.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
             <TextField fx:id="txtaddress" layoutX="111.0" layoutY="91.0" prefHeight="35.0" prefWidth="228.0" promptText="Address" />
@@ -82,54 +130,6 @@
                </font></Label>
          </children>
       </AnchorPane>
-      <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <JFXButton buttonType="RAISED" layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
-      <JFXButton layoutX="682.0" layoutY="61.0" onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="78.0" text="Search">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
-      <Label layoutX="28.0" layoutY="6.0" prefHeight="58.0" prefWidth="206.0" text="Client Details">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="35.0" fitWidth="43.0" layoutX="220.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assests/clienr%20n.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="35.0" layoutY="708.0" prefHeight="26.0" prefWidth="257.0" text="Please Do your Payments Here  -&gt;">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Hyperlink layoutX="292.0" layoutY="710.0" onAction="#hypelinkOnAction" prefHeight="22.0" prefWidth="137.0" text="Click Here to pay.." />
-      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="48.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assests/save.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="333.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assests/update.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="642.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assests/delete.png" />
-         </image>
-      </ImageView>
       <JFXButton layoutX="647.0" layoutY="11.0" onAction="#btnBackToHomeAction" prefHeight="35.0" prefWidth="105.0" text="Home  ">
          <font>
             <Font name="System Bold" size="13.0" />

@@ -125,6 +125,7 @@ public class PaymentController {
            if (isSaved){
                new Alert(Alert.AlertType.CONFIRMATION,"Payment Added Successfully!!!").show();
                clearField();
+               generatePayId();
            }
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
