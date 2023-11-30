@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import javafx.scene.control.Label;
 import lk.ijse.model.ClientModel;
+import lk.ijse.model.SupplierModel;
 import lk.ijse.model.TrainerModel;
 
 public class dashController {
@@ -31,7 +32,13 @@ public class dashController {
 
     }
     private void loadSupplierTot() {
-
+        String SupplierValue="0";
+        try{
+            SupplierValue= SupplierModel.searchSupplierTotal();
+        }catch (Exception e){
+           SupplierValue="0";
+        }
+        lblSuppierTot.setText(SupplierValue);
     }
     public void initialize(){
         loadClientTotal();

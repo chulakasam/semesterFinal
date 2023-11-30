@@ -113,7 +113,18 @@
       </AnchorPane>
       <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" prefHeight="743.0" prefWidth="811.0" style="-fx-background-color: ebebe0; -fx-background-radius: 30;">
          <children>
-            <AnchorPane layoutX="24.0" layoutY="26.0" prefHeight="167.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <AnchorPane layoutX="24.0" layoutY="26.0" prefHeight="167.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+               <children>
+                  <Label fx:id="lblsupplierTotal" layoutX="590.0" layoutY="76.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20; -fx-alignment: center;">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font></Label>
+                  <Label layoutX="558.0" layoutY="33.0" prefHeight="33.0" prefWidth="168.0" text="Total Suppliers">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
             <BarChart fx:id="tbldashboard" layoutX="39.0" layoutY="275.0" prefHeight="365.0" prefWidth="482.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
@@ -127,7 +138,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="262.0" layoutY="55.0" prefHeight="33.0" prefWidth="151.0" text="Total Trainers ">
+            <Label layoutX="320.0" layoutY="55.0" prefHeight="33.0" prefWidth="151.0" text="Total Trainers ">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -136,7 +147,7 @@
                <font>
                   <Font name="System Bold" size="36.0" />
                </font></Label>
-            <Label fx:id="lblTrainerTotal" layoutX="279.0" layoutY="95.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="   ">
+            <Label fx:id="lblTrainerTotal" layoutX="337.0" layoutY="95.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="   ">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>

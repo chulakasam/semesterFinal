@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
+<AnchorPane fx:id="itemPanel" prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StockController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="213.0" prefHeight="454.0" prefWidth="272.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20;">
          <children>
@@ -93,5 +93,15 @@
             <TableColumn fx:id="colQtyOnHand" minWidth="0.0" prefWidth="118.0" text="Qty On  Hand" />
         </columns>
       </TableView>
+      <JFXButton buttonType="RAISED" layoutX="675.0" layoutY="17.0" onAction="#btnBackToHomeOnAction" prefHeight="31.0" prefWidth="94.0" text="      Home">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="682.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assests/home.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

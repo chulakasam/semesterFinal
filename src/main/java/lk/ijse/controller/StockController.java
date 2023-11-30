@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -10,6 +11,7 @@ import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.ItemTm;
 import lk.ijse.model.ItemModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -42,7 +44,6 @@ public class StockController {
             throw new RuntimeException(e);
         }
     }
-
     private void setCellValueFactory() {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -151,5 +152,10 @@ public class StockController {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
 
+    }
+    public void btnBackToHomeOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashform.fxml"));
+        itemPanel.getChildren().clear();
+       itemPanel.getChildren().add(anchorPane);
     }
 }

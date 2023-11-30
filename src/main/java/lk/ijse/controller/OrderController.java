@@ -5,15 +5,18 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.ConfirmOrderDto;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
 import lk.ijse.model.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,6 +42,7 @@ public class OrderController {
     public JFXButton btnAddtoCart;
     public ObservableList<CartTm> obList = FXCollections.observableArrayList();
     public Label lblOrderId;
+    public AnchorPane orderPanel;
 
 
     public void setDate(){
@@ -199,5 +203,10 @@ public class OrderController {
             throw new RuntimeException(e);
         }
 
+    }
+    public void btnBackToHomeOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashform.fxml"));
+        orderPanel.getChildren().clear();
+        orderPanel.getChildren().add(anchorPane);
     }
 }

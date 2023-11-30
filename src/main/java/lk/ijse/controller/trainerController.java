@@ -187,4 +187,9 @@ public class trainerController {
         trainerPanel.getChildren().clear();
         trainerPanel.getChildren().add(anchorPane);
     }
+    public void btnBacktoHomeOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashform.fxml"));
+        trainerPanel.getChildren().clear();
+       trainerPanel.getChildren().add(anchorPane);
+    }
 }

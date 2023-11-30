@@ -166,4 +166,10 @@ public class SupplierController {
             throw  new RuntimeException(e);
         }
     }
+
+    public void btnBackToHomeOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashform.fxml"));
+        supplierPanel.getChildren().clear();
+        supplierPanel.getChildren().add(anchorPane);
+    }
 }

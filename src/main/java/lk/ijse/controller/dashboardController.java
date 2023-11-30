@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.ClientModel;
+import lk.ijse.model.SupplierModel;
 import lk.ijse.model.TrainerModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -35,6 +36,7 @@ public class dashboardController {
     public BarChart <?,?>tbldashboard;
     public Label lbltotalClient;
     public Label lblTrainerTotal;
+    public Label lblsupplierTotal;
 
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
@@ -92,6 +94,7 @@ public class dashboardController {
         setBarchart();
         loadClientTotal();
         loadTrainerTotal();
+        loadSupplierTotal();
     }
     private void loadTrainerTotal() {
 
@@ -113,6 +116,15 @@ public class dashboardController {
 
        lbltotalClient.setText(ClientValue);
 
+    }
+    private void loadSupplierTotal(){
+        String SupplierValue="0";
+        try{
+            SupplierValue= SupplierModel.searchSupplierTotal();
+        }catch (Exception e){
+            SupplierValue="0";
+        }
+        lblsupplierTotal.setText(SupplierValue);
     }
     public void setBarchart(){
 

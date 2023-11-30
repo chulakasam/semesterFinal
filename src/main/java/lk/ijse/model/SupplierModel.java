@@ -37,6 +37,19 @@ public class SupplierModel {
             return "S001";
         }
     }
+
+    public static String searchSupplierTotal() throws SQLException {
+        String count="0";
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql="SELECT COUNT(*) FROM supplier";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()){
+            count=resultSet.getString(1);
+        }
+        return count;
+    }
+
     public boolean saveSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO supplier VALUES(?,?,?,?)";
