@@ -20,7 +20,10 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="lblWorkOutId" layoutX="126.0" layoutY="22.0" prefHeight="30.0" prefWidth="166.0" />
+            <Label fx:id="lblWorkOutId" layoutX="126.0" layoutY="22.0" prefHeight="30.0" prefWidth="166.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
          </children></AnchorPane>
       <Label layoutX="40.0" layoutY="21.0" prefHeight="30.0" prefWidth="232.0" text="Workout Details">
          <font>

@@ -39,7 +39,6 @@ public class SupplierController {
         setCellValueFactory();
         generateSupplierId();
     }
-
     private void generateSupplierId() {
         try {
             String supplierId = SupplierModel.generateSupplierId();
@@ -48,7 +47,6 @@ public class SupplierController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
     private void setCellValueFactory() {
         colSupId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
         colSupName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -56,28 +54,40 @@ public class SupplierController {
         colTel.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
     }
     public void btnAddOnAction(ActionEvent actionEvent) {
-
+        boolean isValidated=validated();
 
         String Id = lblSupplierId.getText();
         String Name = txtName.getText();
         String Address = txtAddress.getText();
         int Tel = Integer.parseInt(txtTel.getText());
+       if(isValidated) {
+           var dto = new SupplierDto(Id, Name, Address, Tel);
+           try {
+               var supplierModel = new SupplierModel();
+               boolean isAdded = supplierModel.saveSupplier(dto);
+               if (isAdded) {
+                   new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added successfully!!!").show();
+                   clearField();
+                   generateSupplierId();
+                   loadAllSuppliers();
 
-        var dto = new SupplierDto(Id, Name, Address, Tel);
-            try {
-                var supplierModel = new SupplierModel();
-                boolean isAdded = supplierModel.saveSupplier(dto);
-                if (isAdded) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added successfully!!!").show();
-                    clearField();
-                    generateSupplierId();
-                    loadAllSuppliers();
+               }
+           } catch (SQLException e) {
+               new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+           }
+       }else{
+           new Alert(Alert.AlertType.ERROR,"Supplier not Added!!!").show();
+       }
 
-                }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            }
-
+    }
+    private boolean validated() {
+        String address = txtAddress.getText();
+        boolean isMatched=Pattern.compile("[A-Za-z]{8,}").matcher(address).matches();
+        if(!isMatched){
+            new Alert(Alert.AlertType.ERROR,"Invalid address").show();
+            return false;
+        }
+        return true;
     }
     private void clearField() {
         lblSupplierId.setText("");

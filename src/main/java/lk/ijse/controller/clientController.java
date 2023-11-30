@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.google.zxing.WriterException;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
+import lk.ijse.QRGenerator.QRGenerate;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.model.ClientModel;
 
@@ -56,7 +58,7 @@ public class clientController {
         obList.add("Female");
         cmbGender.setItems(obList);
     }
-    public void btnAddOnAction(ActionEvent actionEvent) {
+    public void btnAddOnAction(ActionEvent actionEvent) throws IOException, WriterException {
         String id = lblclientId.getText();
         String name = txtname.getText();
         String address = txtaddress.getText();
