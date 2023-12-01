@@ -41,6 +41,13 @@ public class reportsController {
 
         JasperViewer.viewReport(jasperPrint, false);
     }
-    public void btnStockReportOnAction(ActionEvent actionEvent) {
+    public void btnStockReportOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/stock report.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+
+
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }
