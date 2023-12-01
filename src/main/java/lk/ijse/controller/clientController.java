@@ -79,6 +79,7 @@ public class clientController {
                 boolean isAdded = clientModel.saveClient(dto);
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Client added!!!").show();
+                    QRGenerate qrGenerate = new QRGenerate(id, name, address, email);
                     clearField();
                     generateClientId();
                 }
