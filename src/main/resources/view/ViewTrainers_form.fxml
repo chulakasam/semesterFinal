@@ -26,7 +26,7 @@
             <TableColumn fx:id="colDesc" prefWidth="131.0" text="Description" />
         </columns>
       </TableView>
-      <JFXButton fx:id="closBtn" layoutX="777.0" layoutY="684.0" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="95.0" style="-fx-background-color: #ADADAD;" text="Back">
+      <JFXButton fx:id="closBtn" layoutX="777.0" layoutY="684.0" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="95.0" stylesheets="@../style/dashboard.css" text="Back">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>

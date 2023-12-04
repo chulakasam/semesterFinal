@@ -22,7 +22,7 @@
             <TableColumn fx:id="colDOB" prefWidth="111.0" text="Date of Birth" />
         </columns>
       </TableView>
-      <JFXButton fx:id="closeBtn" layoutX="811.0" layoutY="679.0" onAction="#btnCloseOnAction" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: lightgrey;" text="Back">
+      <JFXButton fx:id="closeBtn" layoutX="811.0" layoutY="679.0" onAction="#btnCloseOnAction" prefHeight="42.0" prefWidth="88.0" stylesheets="@../style/dashboard.css" text="Back">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

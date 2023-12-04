@@ -7,38 +7,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="743.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.reportsController">
+<AnchorPane fx:id="reportPanel" prefHeight="743.0" prefWidth="811.0" stylesheets="@../style/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.reportsController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="131.0" onAction="#btnClientReportsAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
-      <ImageView fitHeight="134.0" fitWidth="132.0" layoutX="184.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="74.0" onAction="#btnClientReportsAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <ImageView fitHeight="134.0" fitWidth="132.0" layoutX="184.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/clienr%20n.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="131.0" onAction="#btnPaymentReportsOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
-      <JFXButton buttonType="RAISED" layoutX="142.0" layoutY="402.0" onAction="#btnOrdersReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
-      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="402.0" onAction="#btnStockReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" />
-      <Label layoutX="190.0" layoutY="328.0" prefHeight="26.0" prefWidth="111.0" text="    Clients">
+      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="74.0" onAction="#btnPaymentReportsOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <JFXButton buttonType="RAISED" layoutX="142.0" layoutY="324.0" onAction="#btnOrdersReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" text="Button" />
+      <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="324.0" onAction="#btnStockReportOnAction" prefHeight="185.0" prefWidth="213.0" style="-fx-background-radius: 25;" />
+      <Label layoutX="190.0" layoutY="272.0" prefHeight="26.0" prefWidth="111.0" text="    Clients">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="510.0" layoutY="328.0" prefHeight="26.0" prefWidth="124.0" text="    Payments">
+      <Label layoutX="510.0" layoutY="272.0" prefHeight="26.0" prefWidth="124.0" text="    Payments">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="198.0" layoutY="603.0" prefHeight="26.0" prefWidth="102.0" text="   Orders">
+      <Label layoutX="198.0" layoutY="525.0" prefHeight="26.0" prefWidth="102.0" text="   Orders">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="511.0" layoutY="602.0" prefHeight="26.0" prefWidth="102.0" text="      Stock">
+      <Label layoutX="511.0" layoutY="524.0" prefHeight="26.0" prefWidth="102.0" text="      Stock">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <ImageView fitHeight="116.0" fitWidth="124.0" layoutX="500.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="116.0" fitWidth="124.0" layoutX="500.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/payment%20report.png" />
          </image>
@@ -48,15 +48,20 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="82.0" fitWidth="96.0" layoutX="208.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="96.0" layoutX="208.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/ordersrep.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="116.0" fitWidth="102.0" layoutX="524.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="116.0" fitWidth="102.0" layoutX="524.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assests/warehoues.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btnSendReport" buttonType="RAISED" layoutX="90.0" layoutY="637.0" prefHeight="44.0" prefWidth="154.0" stylesheets="@../style/dashboard.css" text="Send A Report">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

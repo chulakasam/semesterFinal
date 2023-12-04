@@ -19,15 +19,15 @@
          </image>
       </ImageView>
       <TextField fx:id="txtsearchId" layoutX="471.0" layoutY="62.0" prefHeight="35.0" prefWidth="192.0" promptText="Enter the search ID" style="-fx-background-radius: 30;" />
-      <JFXButton buttonType="RAISED" layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightblue;" text="ADD" textFill="WHITE">
+      <JFXButton fx:id="btnADD" buttonType="RAISED" layoutX="35.0" layoutY="107.0" onAction="#btnAddOnAction" prefHeight="42.0" prefWidth="117.0" stylesheets="@../style/dashboard.css" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: lightgreen;" text="    UPDATE" textFill="WHITE">
+      <JFXButton fx:id="btnUPDATE" buttonType="RAISED" layoutX="328.0" layoutY="107.0" onAction="#btnUpdateOnAction" prefHeight="42.0" prefWidth="117.0" stylesheets="@../style/dashboard.css" text="    UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: red;" text="      DELETE" textFill="WHITE">
+      <JFXButton fx:id="btnDELETE" buttonType="RAISED" layoutX="633.0" layoutY="107.0" onAction="#btnDeleteOnAction" prefHeight="42.0" prefWidth="117.0" stylesheets="@../style/dashboard.css" text="      DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>

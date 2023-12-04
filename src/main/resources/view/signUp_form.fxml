@@ -24,12 +24,12 @@
                </font>
             </TextField>
             <TextField fx:id="txtEmail" layoutX="106.0" layoutY="362.0" prefHeight="37.0" prefWidth="287.0" promptText="Email" style="-fx-background-radius: 20;" />
-            <JFXButton layoutX="167.0" layoutY="466.0" onAction="#btnCreateAccountOnAction" prefHeight="37.0" prefWidth="163.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Create an account">
+            <JFXButton fx:id="btnLOGIN" layoutX="167.0" layoutY="466.0" onAction="#btnCreateAccountOnAction" prefHeight="37.0" prefWidth="163.0" style="-fx-background-radius: 30;" stylesheets="@../style/dashboard.css" text="Create an account">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="402.0" layoutY="543.0" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: lightgrey; -fx-background-radius: 30;" text="Log in">
+            <JFXButton fx:id="btnLOGIN" layoutX="402.0" layoutY="543.0" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-radius: 30;" stylesheets="@../style/dashboard.css" text="Log in">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

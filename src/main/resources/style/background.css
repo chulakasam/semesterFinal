@@ -1,1 +1,3 @@
-
+.reportPanel{
+    -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
+}

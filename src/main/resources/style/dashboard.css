@@ -1,24 +1,52 @@
 #btnManageClient{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnTrainer{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnSupplier{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnStock{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnOrders{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnReport{
-    -fx-background-color : rgb(104, 252, 221);
+    -fx-background-color : linear-gradient(to right,#ffffff, #66ccff);
 }
 #btnLogOut{
-    -fx-background-color : rgb(0, 0, 0);
+    -fx-background-color : linear-gradient(to right, #33ccff, #ff99cc);;
 }
 #btnAdddetail{
     -fx-background-color : rgb(104, 252, 221);
 }
+#btnSendReport{
+    -fx-background-color :linear-gradient(to right,#F2E3E3, #B4C5EE);
+}
+#btnADD{
+    -fx-background-color :linear-gradient(to right,#0066ff, #66ffff);
+}
+#btnUPDATE{
+    -fx-background-color :linear-gradient(to right,#99ff33, #00ff99);
+}
+#btnDELETE{
+    -fx-background-color :linear-gradient(to right,#ff9933, #cc0000);
+}
+#btnAddtoCart{
+    -fx-background-color :linear-gradient(to right,#ff99ff, #00ff99);
+}
+#btnConfirm{
+    -fx-background-color :linear-gradient(to right,#cc00cc, #6699ff);
+}
+#closeBtn{
+    -fx-background-color :linear-gradient(to right,#009999, #66ffff);
+}
+#closBtn{
+    -fx-background-color :linear-gradient(to right,#009999, #66ffff);
+}
+#btnLOGIN{
+    -fx-background-color :linear-gradient(to right,#66ccff, #ff99cc);
+}
+
