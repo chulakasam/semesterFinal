@@ -58,7 +58,7 @@
             <Image url="@../Assests/warehoues.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnSendReport" buttonType="RAISED" layoutX="90.0" layoutY="637.0" prefHeight="44.0" prefWidth="154.0" stylesheets="@../style/dashboard.css" text="Send A Report">
+      <JFXButton fx:id="btnSendReport" buttonType="RAISED" layoutX="90.0" layoutY="637.0" onAction="#btnSendReportOnAction" prefHeight="44.0" prefWidth="154.0" stylesheets="@../style/dashboard.css" text="Send A Report">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

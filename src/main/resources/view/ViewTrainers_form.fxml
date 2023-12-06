@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="757.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewTrainerController">
+<AnchorPane fx:id="viewTrainerPanel" prefHeight="757.0" prefWidth="941.0" stylesheets="@../style/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewTrainerController">
    <children>
       <Label layoutX="25.0" layoutY="33.0" prefHeight="30.0" prefWidth="289.0" text="View Trainer Details ">
          <font>

@@ -1,7 +1,9 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import lk.ijse.ReportSender.SendReport;
 import lk.ijse.db.DbConnection;
+import lk.ijse.mail.Mail;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -50,4 +52,21 @@ public class reportsController {
 
         JasperViewer.viewReport(jasperPrint, false);
     }
+
+    public void btnSendReportOnAction(ActionEvent actionEvent) {
+
+    }
+    /*public void sendEmailReport(){
+        JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\thisu\\reports\\"+id+".pdf");
+
+        SendReport sendReport = new SendReport();
+        sendReport.setMsg("Pyment Success. ");
+        sendReport.setTo(lblCustomerMail.getText());
+        sendReport.setSubject("payment!");
+        sendReport.setFile(new File("C:\\Users\\thisu\\reports\\"+id+".pdf"));
+
+        Thread thread = new Thread(sendReport);
+        thread.start();
+
+    }*/
 }

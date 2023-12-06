@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="dashPanel" prefHeight="755.0" prefWidth="1138.0" style="-fx-background-color: grey;" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.dashboardController">
    <children>
-      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" opacity="0.85" prefHeight="743.0" prefWidth="811.0" style="-fx-background-radius: 30; -fx-background-color: #ebebe0;">
+      <AnchorPane fx:id="dashSubPanel" layoutX="317.0" layoutY="7.0" opacity="0.85" prefHeight="743.0" prefWidth="811.0" stylesheets="@../style/background.css">
          <children>
             <AnchorPane layoutX="24.0" layoutY="26.0" prefHeight="167.0" prefWidth="764.0" style="-fx-background-color: white; -fx-background-radius: 30;">
                <children>
@@ -21,10 +21,30 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblsupplierTotal" layoutX="590.0" layoutY="76.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20; -fx-alignment: center;">
+                  <Label fx:id="lblsupplierTotal" layoutX="606.0" layoutY="69.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20; -fx-alignment: center;">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font></Label>
+                  <ImageView fitHeight="54.0" fitWidth="47.0" layoutX="11.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assests/clienr%20n.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="54.0" fitWidth="47.0" layoutX="290.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assests/coach%20n.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblTrainerTotal" layoutX="341.0" layoutY="67.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="   ">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="54.0" fitWidth="47.0" layoutX="551.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assests/supplier%20n.png" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
             <BarChart fx:id="tbldashboard" layoutX="39.0" layoutY="275.0" prefHeight="365.0" prefWidth="482.0">
               <xAxis>
@@ -39,18 +59,13 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lbltotalClient" layoutX="65.0" layoutY="95.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="    " textAlignment="JUSTIFY">
+            <Label fx:id="lbltotalClient" layoutX="83.0" layoutY="95.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="    " textAlignment="JUSTIFY">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font></Label>
             <Label layoutX="320.0" layoutY="55.0" prefHeight="33.0" prefWidth="151.0" text="Total Trainers ">
                <font>
                   <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblTrainerTotal" layoutX="337.0" layoutY="95.0" prefHeight="54.0" prefWidth="99.0" style="-fx-background-color: lightgrey; -fx-alignment: center; -fx-background-radius: 20;" text="   ">
-               <font>
-                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
          </children></AnchorPane>
@@ -155,3 +170,4 @@
       </AnchorPane>
    </children>
 </AnchorPane>
+

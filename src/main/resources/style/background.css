@@ -1,3 +1,19 @@
 .reportPanel{
     -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
 }
+#dashSubPanel{
+    -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
+    -fx-background-radius: 30;
+}
+#dashPanel2{
+    -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
+    -fx-background-radius: 30;
+}
+#viewTrainerPanel{
+    -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
+    -fx-background-radius: 30;
+}
+#window{
+    -fx-background-color: linear-gradient(to right,#F2E3E3, #B4C5EE);
+    -fx-background-radius: 30;
+}

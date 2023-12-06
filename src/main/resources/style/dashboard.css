@@ -49,4 +49,7 @@
 #btnLOGIN{
     -fx-background-color :linear-gradient(to right,#66ccff, #ff99cc);
 }
+#btnAdddetail{
+    -fx-background-color :linear-gradient(to right,#0066ff, #66ffff);
+}
 

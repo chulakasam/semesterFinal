@@ -9,9 +9,9 @@
 
 <AnchorPane fx:id="workOutPanel" prefHeight="743.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.trainerClientController">
    <children>
-      <AnchorPane layoutX="40.0" layoutY="93.0" prefHeight="616.0" prefWidth="442.0" style="-fx-background-color: lightgrey; -fx-background-radius: 25;">
+      <AnchorPane layoutX="40.0" layoutY="93.0" prefHeight="616.0" prefWidth="598.0" style="-fx-background-color: lightgrey; -fx-background-radius: 25;">
          <children>
-            <JFXButton fx:id="btnAdddetail" buttonType="RAISED" layoutX="321.0" layoutY="562.0" onAction="#btnAddDetailsOnAction" prefHeight="40.0" prefWidth="107.0" stylesheets="@../style/dashboard.css" text="Add Details">
+            <JFXButton fx:id="btnAdddetail" buttonType="RAISED" layoutX="453.0" layoutY="562.0" onAction="#btnAddDetailsOnAction" prefHeight="40.0" prefWidth="107.0" stylesheets="@../style/dashboard.css" text="Add Details">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></JFXButton>
@@ -31,13 +31,13 @@
          </font>
       </Label>
       <JFXComboBox fx:id="cmbTrainerId" layoutX="167.0" layoutY="165.0" prefHeight="24.0" prefWidth="166.0" />
-      <JFXComboBox fx:id="cmbClientId" layoutX="169.0" layoutY="229.0" prefHeight="24.0" prefWidth="166.0" />
+      <JFXComboBox fx:id="cmbClientId" layoutX="169.0" layoutY="243.0" prefHeight="24.0" prefWidth="166.0" />
       <Label layoutX="59.0" layoutY="169.0" prefHeight="24.0" prefWidth="89.0" text="Trainer ID">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="229.0" prefHeight="24.0" prefWidth="89.0" text="Client ID">
+      <Label layoutX="59.0" layoutY="243.0" prefHeight="24.0" prefWidth="89.0" text="Client ID">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -52,7 +52,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtareadesc" layoutX="168.0" layoutY="401.0" prefHeight="244.0" prefWidth="298.0" />
+      <TextArea fx:id="txtareadesc" layoutX="168.0" layoutY="401.0" prefHeight="244.0" prefWidth="387.0" />
       <Label layoutX="59.0" layoutY="400.0" prefHeight="24.0" prefWidth="89.0" text="Description">
          <font>
             <Font name="System Bold" size="13.0" />
