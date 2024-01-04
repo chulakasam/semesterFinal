@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.BO.TrainerBO;
+import lk.ijse.BO.TrainerBOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
@@ -31,8 +33,8 @@ public class trainerController {
     public TextField txtDesc;
     public Label lblTrainerId;
     public AnchorPane trainerPanel;
-    TrainerDAO trainerDAO=new TrainerDAOImpl();
-
+    //TrainerDAO trainerDAO=new TrainerDAOImpl();
+     TrainerBO trainerBO=new TrainerBOImpl();
     public void initialize(){
         loadGender();
         generateNextTrainerId();
@@ -40,7 +42,7 @@ public class trainerController {
 
     private void generateNextTrainerId() {
         try {
-            String id = trainerDAO.generateId();
+            String id = trainerBO.generateTrainerId();
             lblTrainerId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -69,7 +71,7 @@ public class trainerController {
 
         if(isValidated) {
             try {
-                boolean isAdded =trainerDAO.save(dto);
+                boolean isAdded =trainerBO.saveTrainer(dto);
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Trainer Saved successfully!!!").show();
                     clearField();
@@ -126,7 +128,7 @@ public class trainerController {
         var dto = new TrainerDto(Id, Name, Tel,nic,email,gender,dob,desc);
         try{
 
-            boolean isUpdated=trainerDAO.update(dto);
+            boolean isUpdated=trainerBO.UpdateTrainer(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"update successfully!!").show();
                 clearField();
@@ -141,7 +143,7 @@ public class trainerController {
         String Id = txtTrainerId.getText();
         try{
 
-            boolean isDeleted=trainerDAO.delete(Id);
+            boolean isDeleted=trainerBO.deleteTrainer(Id);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Deleted successfully!!!").show();
                 clearField();
@@ -154,7 +156,7 @@ public class trainerController {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String trainerId = txtTrainerId.getText();
         try {
-            TrainerDto dto=trainerDAO.search(trainerId);
+            TrainerDto dto=trainerBO.searchTrainer(trainerId);
            if(dto!=null){
                lblTrainerId.setText(dto.getTrainerId());
                txtName.setText(dto.getName());

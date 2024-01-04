@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.BO.ItemBO;
+import lk.ijse.BO.ItemBOImpl;
 import lk.ijse.DAO.Custom.ItemDAO;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.ItemTm;
@@ -30,8 +32,8 @@ public class StockController {
     public AnchorPane itemPanel;
     public Label lblItemCode;
 
-    ItemDAO itemDAOImpl = new ItemDAOImpl();
-
+   // ItemDAO itemDAOImpl = new ItemDAOImpl();
+    ItemBO itemBO= new ItemBOImpl();
     public void initialize(){
         loadAllItems();
         setCellValueFactory();
@@ -40,8 +42,8 @@ public class StockController {
 
     private void generateNextItemId() {
         try {
-            ItemDAOImpl itemDAOImpl = new ItemDAOImpl();
-            String nextItemId = itemDAOImpl.generateId();
+           // ItemDAOImpl itemDAOImpl = new ItemDAOImpl();
+            String nextItemId = itemBO.generateNextItemId();
             lblItemCode.setText(nextItemId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -57,7 +59,7 @@ public class StockController {
        
         ObservableList<ItemTm> obList = FXCollections.observableArrayList();
         try{
-            List<ItemDto> dtoList = itemDAOImpl.getAlls();
+            List<ItemDto> dtoList = itemBO.getAllItems();
             for (ItemDto dto : dtoList) {
                 obList.add(
                         new ItemTm(
@@ -84,7 +86,7 @@ public class StockController {
         var dto= new ItemDto(code,name,price,qty);
         try{
             
-            boolean isAdded=itemDAOImpl.save(dto);
+            boolean isAdded=itemBO.saveItem(dto);
             if(isAdded){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Added successed!!!").show();
                 clearField();
@@ -110,7 +112,7 @@ public class StockController {
         try {
             var dto = new ItemDto(code,name,price,qty);
           
-            boolean isUpdated=itemDAOImpl.update(dto);
+            boolean isUpdated=itemBO.updateItem(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Update successfully!!!").show();
                 clearField();
@@ -126,7 +128,7 @@ public class StockController {
 
        
         try{
-           boolean isDeleted=itemDAOImpl.delete(code);
+           boolean isDeleted=itemBO.deleteItem(code);
            if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION,"Item Deleted successfully!!!").show();
             clearField();
@@ -142,7 +144,7 @@ public class StockController {
 
        
         try {
-            ItemDto dto=itemDAOImpl.search(searchId);
+            ItemDto dto=itemBO.searchItem(searchId);
             if(dto!=null){
                 lblItemCode.setText(dto.getItemCode());
                 txtItemName.setText(dto.getName());
