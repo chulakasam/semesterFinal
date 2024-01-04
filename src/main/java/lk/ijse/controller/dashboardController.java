@@ -9,22 +9,14 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.db.DbConnection;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.SupplierModel;
-import lk.ijse.model.TrainerModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
+import lk.ijse.DAO.Custom.SupplierDAO;
+import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
+import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
 
@@ -99,8 +91,9 @@ public class dashboardController {
     private void loadTrainerTotal() {
 
         String TrainerValue="0";
+        TrainerDAOImpl trainerDAO = new TrainerDAOImpl();
         try{
-            TrainerValue= TrainerModel.searchTrainerTotal();
+            TrainerValue= trainerDAO.searchTrainerTotal();
         }catch (Exception e){
             TrainerValue="0";
         }
@@ -109,7 +102,8 @@ public class dashboardController {
     private void loadClientTotal() {
         String ClientValue="0";
         try{
-            ClientValue= ClientModel.searchClientTotal();
+            ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+            ClientValue= clientDAOImpl.searchClientTotal();
         }catch (Exception e){
             ClientValue="0";
         }
@@ -120,7 +114,8 @@ public class dashboardController {
     private void loadSupplierTotal(){
         String SupplierValue="0";
         try{
-            SupplierValue= SupplierModel.searchSupplierTotal();
+            SupplierDAO supplierDAO = new SupplierDAOImpl();
+            SupplierValue= supplierDAO.searchSupplierTotal();
         }catch (Exception e){
             SupplierValue="0";
         }

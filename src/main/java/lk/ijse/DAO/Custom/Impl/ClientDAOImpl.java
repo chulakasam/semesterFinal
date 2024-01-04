@@ -1,5 +1,7 @@
-package lk.ijse.model;
+package lk.ijse.DAO.Custom.Impl;
 
+import lk.ijse.DAO.Custom.ClientDAO;
+import lk.ijse.DAO.SQLUtil;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ClientDto;
 
@@ -10,13 +12,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientModel {
-    public static List<ClientDto> getAllCustomer() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+public class ClientDAOImpl implements ClientDAO {
+
+    @Override
+    public  List<ClientDto> getAlls() throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM client";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
-
+        */
+       ResultSet resultSet= SQLUtil.test("SELECT * FROM client");
         ArrayList<ClientDto> dtoList = new ArrayList<>();
         while(resultSet.next()) {
             dtoList.add(
@@ -36,19 +41,24 @@ public class ClientModel {
         }
         return dtoList;
     }
-    public static String searchClientTotal() throws SQLException {
+    @Override
+    public  String searchClientTotal() throws SQLException {
         String count="0";
-        Connection connection = DbConnection.getInstance().getConnection();
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT COUNT(*) FROM client";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
+        */
+        ResultSet resultSet=SQLUtil.test("SELECT COUNT(*) FROM client");
+
         if(resultSet.next()){
             count=resultSet.getString(1);
         }
         return count;
     }
-    public boolean saveClient(ClientDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean save(ClientDto dto) throws SQLException {
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -63,21 +73,35 @@ public class ClientModel {
         pstm.setString(9, dto.getDob());
 
         return pstm.executeUpdate()>0;
+
+        */
+        return  SQLUtil.test("INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)",dto.getId(),dto.getName(),dto.getAddress(),dto.getTel(),dto.getEmail(),dto.getHeight(),dto.getWeight(),dto.getGender(),dto.getDob());
     }
-    public boolean deleteClient(String id) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean delete(String id) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="DELETE FROM  client WHERE clientId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,id);
         return pstm.executeUpdate()>0;
+
+         */
+        return SQLUtil.test("DELETE FROM  client WHERE clientId=?",id);
     }
-    public ClientDto searchClient(String searchId) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public ClientDto search(String searchId) throws SQLException {
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM client WHERE clientId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1,searchId);
         ResultSet resultSet = pstm.executeQuery();
+
+        return clientDto;
+
+        */
+        ResultSet resultSet= SQLUtil.test("SELECT * FROM client WHERE clientId=?",searchId);
+
         ClientDto clientDto=null;
         if (resultSet.next()){
             String client_id = resultSet.getString(1);
@@ -94,8 +118,9 @@ public class ClientModel {
         }
         return clientDto;
     }
-    public boolean updateClient(ClientDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean update(ClientDto dto) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, dto.getName());
@@ -110,18 +135,25 @@ public class ClientModel {
 
         return pstm.executeUpdate()>0;
 
+         */
+        return SQLUtil.test("UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?",dto.getName(),dto.getAddress(),dto.getTel(),dto.getEmail(),dto.getHeight(),dto.getWeight(),dto.getGender(),dto.getDob(),dto.getId());
     }
-    public String generateClientId() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public String generateId() throws SQLException {
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT clientId FROM client ORDER BY clientId DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
+
+        */
+        ResultSet resultSet=SQLUtil.test("SELECT clientId FROM client ORDER BY clientId DESC LIMIT 1");
         if(resultSet.next()){
             return changeId(resultSet.getString(1));
         }
         return changeId(null);
     }
-    public static String changeId(String clientId){
+    @Override
+    public  String changeId(String clientId){
         if(clientId!=null){
             String[] split = clientId.split("C0");
 

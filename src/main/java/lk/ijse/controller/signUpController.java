@@ -8,9 +8,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.DAO.Custom.UserDAO;
 import lk.ijse.dto.UserDto;
 import lk.ijse.mail.Mail;
-import lk.ijse.model.UserModel;
+import lk.ijse.DAO.Custom.Impl.UserDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ public class signUpController {
     public TextField txtEmail;
     public PasswordField pwPassword;
 
+    UserDAO userDAO = new UserDAOImpl();
     public void btnSignInOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -37,10 +39,9 @@ public class signUpController {
 
         boolean isValidated = validateSignUp();
         var dto = new UserDto(username,password,email);
-       if(isValidated){
+        if(isValidated){
            try {
-               var userModel = new UserModel();
-               boolean isSaved=userModel.saveUser(dto);
+               boolean isSaved=userDAO.save(dto);
                if(isSaved){
                    new Alert(Alert.AlertType.CONFIRMATION,"User added successfully!!!").show();
                    sendAnEmail(email);
@@ -50,7 +51,7 @@ public class signUpController {
                new  Alert(Alert.AlertType.ERROR,e.getMessage()).show();
            }
            new Alert(Alert.AlertType.INFORMATION,"User added successfully!!!").show();
-       }else{
+        }else{
            new Alert(Alert.AlertType.ERROR,"User added failed!!!").show();
        }
     }

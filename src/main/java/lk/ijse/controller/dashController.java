@@ -3,9 +3,10 @@ package lk.ijse.controller;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.SupplierModel;
-import lk.ijse.model.TrainerModel;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
+import lk.ijse.DAO.Custom.TrainerDAO;
+import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
+import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 
 public class dashController {
     public Label lblclientTot;
@@ -16,8 +17,9 @@ public class dashController {
     private void loadTrainerTotal() {
 
         String TrainerValue="0";
+        TrainerDAO trainerDAO = new TrainerDAOImpl();
         try{
-            TrainerValue= TrainerModel.searchTrainerTotal();
+            TrainerValue= trainerDAO.searchTrainerTotal();
         }catch (Exception e){
             TrainerValue="0";
         }
@@ -26,7 +28,8 @@ public class dashController {
     private void loadClientTotal() {
         String ClientValue="0";
         try{
-            ClientValue= ClientModel.searchClientTotal();
+            ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+            ClientValue= clientDAOImpl.searchClientTotal();
         }catch (Exception e){
             ClientValue="0";
         }
@@ -36,8 +39,9 @@ public class dashController {
     }
     private void loadSupplierTot() {
         String SupplierValue="0";
+        SupplierDAOImpl supplierDAO = new SupplierDAOImpl();
         try{
-            SupplierValue= SupplierModel.searchSupplierTotal();
+            SupplierValue= supplierDAO.searchSupplierTotal();
         }catch (Exception e){
            SupplierValue="0";
         }

@@ -1,6 +1,8 @@
-package lk.ijse.model;
+package lk.ijse.DAO.Custom.Impl;
 
 
+import lk.ijse.DAO.Custom.TrainerDAO;
+import lk.ijse.DAO.SQLUtil;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.TrainerDto;
 
@@ -11,20 +13,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrainerModel {
-    public static String searchTrainerTotal() throws SQLException {
+public class TrainerDAOImpl implements TrainerDAO {
+    @Override
+    public String searchTrainerTotal() throws SQLException {
         String count="0";
-        Connection connection = DbConnection.getInstance().getConnection();
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT COUNT(*) FROM trainer";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
+        */
+        ResultSet resultSet=SQLUtil.test("SELECT COUNT(*) FROM trainer");
         if(resultSet.next()){
             count=resultSet.getString(1);
         }
         return count;
     }
-    public boolean saveTrainer(TrainerDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean save(TrainerDto dto) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO trainer VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, dto.getTrainerId());
@@ -37,9 +43,13 @@ public class TrainerModel {
         pstm.setString(8, dto.getDesc());
 
         return pstm.executeUpdate()>0;
+
+         */
+        return SQLUtil.test("INSERT INTO trainer VALUES(?,?,?,?,?,?,?,?)",dto.getTrainerId(),dto.getName(),dto.getTel(),dto.getNic(),dto.getEmail(),dto.getGender(),dto.getDob(),dto.getDesc());
     }
-    public boolean UpdateTrainer(TrainerDto dto) throws SQLException {
-            Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean update(TrainerDto dto) throws SQLException {
+            /*Connection connection = DbConnection.getInstance().getConnection();
             String sql="UPDATE trainer SET name=?,telephone=?,nic=?,email=?,gender=?,dob=?,description=? WHERE trainerId=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -54,22 +64,30 @@ public class TrainerModel {
 
 
             return pstm.executeUpdate()>0;
+
+             */
+        return SQLUtil.test("UPDATE trainer SET name=?,telephone=?,nic=?,email=?,gender=?,dob=?,description=? WHERE trainerId=?",dto.getName(),dto.getTel(),dto.getNic(),dto.getEmail(),dto.getGender(),dto.getDob(),dto.getDesc(),dto.getTrainerId());
     }
-    public boolean deleteTrainer(String id) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public boolean delete(String id) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="DELETE FROM trainer WHERE trainerId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1,id);
         return pstm.executeUpdate()>0;
+        */
+        return SQLUtil.test("DELETE FROM trainer WHERE trainerId=?",id);
     }
-    public TrainerDto searchTrainer(String trainerId) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public TrainerDto search(String trainerId) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM trainer WHERE trainerId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1,trainerId);
 
         ResultSet resultSet = pstm.executeQuery();
-
+        */
+        ResultSet resultSet=SQLUtil.test("SELECT * FROM trainer WHERE trainerId=?",trainerId);
         TrainerDto dto=null;
 
         if(resultSet.next()){
@@ -87,13 +105,17 @@ public class TrainerModel {
         }
          return dto;
     }
-    public static List<TrainerDto> LoadAllTrainers() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public List<TrainerDto> getAlls() throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM trainer";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
+
+         */
+        ResultSet resultSet=SQLUtil.test("SELECT * FROM trainer");
         ArrayList<TrainerDto> dtoList = new ArrayList<>();
         while(resultSet.next()){
             dtoList.add(
@@ -113,18 +135,21 @@ public class TrainerModel {
         return dtoList;
 
     }
-
-    public String generateTrainerId() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public String generateId() throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT trainerId FROM trainer ORDER BY trainerId DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
+         ResultSet resultSet = pstm.executeQuery();
+         */
+       ResultSet resultSet=SQLUtil.test("SELECT trainerId FROM trainer ORDER BY trainerId DESC LIMIT 1");
         if(resultSet.next()){
             return changeId(resultSet.getString(1));
         }
         return changeId(null);
     }
-    public static String changeId(String trainerId){
+    @Override
+    public  String changeId(String trainerId){
         if(trainerId!=null){
             String[] split = trainerId.split("T0");
 

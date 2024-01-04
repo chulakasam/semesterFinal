@@ -10,11 +10,17 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.DAO.Custom.ClientDAO;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
+import lk.ijse.DAO.Custom.Impl.ItemDAOImpl;
+import lk.ijse.DAO.Custom.Impl.OrderDAOImpl;
+import lk.ijse.DAO.Custom.ItemDAO;
+import lk.ijse.DAO.Custom.OrderDAO;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.ConfirmOrderDto;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
-import lk.ijse.model.*;
+import lk.ijse.DAO.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,6 +50,9 @@ public class OrderController {
     public Label lblOrderId;
     public AnchorPane orderPanel;
 
+    ItemDAO itemDAOImpl = new ItemDAOImpl();
+    ClientDAO clientDAOImpl = new ClientDAOImpl();
+    OrderDAO orderDAOImpl=new OrderDAOImpl();
 
     public void setDate(){
        lblDate.setText(String.valueOf(LocalDate.now()));
@@ -59,7 +68,8 @@ public class OrderController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<ClientDto> idList = ClientModel.getAllCustomer();
+            
+            List<ClientDto> idList = clientDAOImpl.getAlls();
 
             for (ClientDto dto : idList) {
                 obList.add(dto.getId());
@@ -74,7 +84,8 @@ public class OrderController {
     public void loadAllItem(){
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<ItemDto> codeList=ItemModel.getAllItems();
+            
+            List<ItemDto> codeList= itemDAOImpl.getAlls();
             for (ItemDto dto:codeList){
                 obList.add(dto.getItemCode());
             }
@@ -87,8 +98,8 @@ public class OrderController {
     public void cmbClientOnAction(ActionEvent actionEvent) throws SQLException {
         String Id = cmbClient.getValue();
         try{
-           var model = new ClientModel();
-           ClientDto dto=model.searchClient(Id);
+          
+           ClientDto dto=clientDAOImpl.search(Id);
            txtClientname.setText(dto.getName());
         }catch (SQLException e){
             throw  new RuntimeException(e);
@@ -98,8 +109,8 @@ public class OrderController {
         String code = cmbItem.getValue();
 
         try{
-            var model = new ItemModel();
-            ItemDto dto=model.searchItem(code);
+           
+            ItemDto dto=itemDAOImpl.search(code);
             lblItemName.setText(dto.getName());
             lblPrice.setText(String.valueOf(dto.getUnitPrice()));
         }catch (SQLException e){
@@ -174,7 +185,7 @@ public class OrderController {
     }
     public void generateOrderId(){
         try {
-            String id = new OrderModel().generateNextOrderId();
+            String id = new OrderDAOImpl().generateId();
            lblOrderId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

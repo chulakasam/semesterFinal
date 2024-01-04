@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.dto.Tm.TrainerTm;
 import lk.ijse.dto.TrainerDto;
-import lk.ijse.model.TrainerModel;
+import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -42,10 +42,10 @@ public class ViewTrainerController {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("desc"));
     }
     private void loadAllTrainers() {
-        var model = new TrainerModel();
+        var model = new TrainerDAOImpl();
         ObservableList<TrainerTm> obList = FXCollections.observableArrayList();
         try{
-            List<TrainerDto> dtoList=model.LoadAllTrainers();
+            List<TrainerDto> dtoList=model.getAlls();
 
             for (TrainerDto dto:dtoList){
 

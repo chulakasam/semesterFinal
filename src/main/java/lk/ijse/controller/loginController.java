@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.UserDto;
-import lk.ijse.model.UserModel;
+import lk.ijse.DAO.Custom.Impl.UserDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,7 +36,7 @@ public class loginController {
             new Alert(Alert.AlertType.ERROR,"Please enter your username and password").show();
 
         } else {
-            var model = new UserModel();
+            var model = new UserDAOImpl();
 
             try {
                 UserDto dto = model.checkcredential(username, password);

@@ -10,10 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.dto.TrainerDto;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.ItemModel;
-import lk.ijse.model.TrainerModel;
+import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,7 +31,7 @@ public class trainerController {
     public TextField txtDesc;
     public Label lblTrainerId;
     public AnchorPane trainerPanel;
-
+    TrainerDAO trainerDAO=new TrainerDAOImpl();
 
     public void initialize(){
         loadGender();
@@ -41,13 +40,12 @@ public class trainerController {
 
     private void generateNextTrainerId() {
         try {
-            String id = new TrainerModel().generateTrainerId();
+            String id = trainerDAO.generateId();
             lblTrainerId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
     private void loadGender() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Male");
@@ -71,8 +69,7 @@ public class trainerController {
 
         if(isValidated) {
             try {
-                var model = new TrainerModel();
-                boolean isAdded = model.saveTrainer(dto);
+                boolean isAdded =trainerDAO.save(dto);
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Trainer Saved successfully!!!").show();
                     clearField();
@@ -128,8 +125,8 @@ public class trainerController {
 
         var dto = new TrainerDto(Id, Name, Tel,nic,email,gender,dob,desc);
         try{
-            var model = new TrainerModel();
-            boolean isUpdated=model.UpdateTrainer(dto);
+
+            boolean isUpdated=trainerDAO.update(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"update successfully!!").show();
                 clearField();
@@ -143,8 +140,8 @@ public class trainerController {
     public void btnTrainerDeleteOnAction(ActionEvent actionEvent) {
         String Id = txtTrainerId.getText();
         try{
-            TrainerModel model = new TrainerModel();
-            boolean isDeleted=model.deleteTrainer(Id);
+
+            boolean isDeleted=trainerDAO.delete(Id);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Deleted successfully!!!").show();
                 clearField();
@@ -156,9 +153,8 @@ public class trainerController {
     }
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String trainerId = txtTrainerId.getText();
-        var model = new TrainerModel();
         try {
-            TrainerDto dto=model.searchTrainer(trainerId);
+            TrainerDto dto=trainerDAO.search(trainerId);
            if(dto!=null){
                lblTrainerId.setText(dto.getTrainerId());
                txtName.setText(dto.getName());

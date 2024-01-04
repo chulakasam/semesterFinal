@@ -1,5 +1,7 @@
-package lk.ijse.model;
+package lk.ijse.DAO.Custom.Impl;
 
+import lk.ijse.DAO.Custom.OrderDAO;
+import lk.ijse.DAO.SQLUtil;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.OrderDto;
 
@@ -8,19 +10,21 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderModel {
-
-    public static String generateNextOrderId() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+public class OrderDAOImpl implements OrderDAO {
+    @Override
+    public  String generateId() throws SQLException {
+      /*  Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
+        ResultSet resultSet = pstm.executeQuery();*/
+        ResultSet resultSet= SQLUtil.test("SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1");
         if(resultSet.next()){
             return changeId(resultSet.getString(1));
         }
         return changeId(null);
     }
-    public static String changeId(String orderId){
+    @Override
+    public  String changeId(String orderId){
         if(orderId!=null){
             String[] split = orderId.split("O0");
 
@@ -35,8 +39,9 @@ public class OrderModel {
             return "O001";
         }
     }
+    @Override
     public boolean saveOrder(String orderId, LocalDate date, String clientId, double netTotal) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+       /* Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO orders VALUES(?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -46,15 +51,18 @@ public class OrderModel {
         pstm.setString(3, clientId);
         pstm.setDouble(4, netTotal);
 
-        return pstm.executeUpdate() > 0;
+        return pstm.executeUpdate() > 0;*/
+        return SQLUtil.test("INSERT INTO orders VALUES(?,?,?,?)",orderId,date,clientId,netTotal);
 
     }
-    public List<OrderDto> getAllCustomer() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    @Override
+    public List<OrderDto> getAlls() throws SQLException {
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM orders";
         PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
+        ResultSet resultSet = pstm.executeQuery();*/
         ArrayList<OrderDto> dto = new ArrayList<>();
+        ResultSet resultSet=SQLUtil.test("SELECT * FROM orders");
         while (resultSet.next()){
             dto.add(new OrderDto(resultSet.getString(1),
                     resultSet.getString(2),
@@ -64,5 +72,25 @@ public class OrderModel {
             ));
         }
        return  dto;
+    }
+
+    @Override
+    public boolean save(OrderDto dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public <T> T search(String searchId) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean update(OrderDto dto) throws SQLException {
+        return false;
     }
 }

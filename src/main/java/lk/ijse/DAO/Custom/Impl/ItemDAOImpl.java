@@ -1,5 +1,7 @@
-package lk.ijse.model;
+package lk.ijse.DAO.Custom.Impl;
 
+import lk.ijse.DAO.Custom.ItemDAO;
+import lk.ijse.DAO.SQLUtil;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
@@ -11,16 +13,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemModel {
-    public static List<ItemDto> getAllItems() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+public class ItemDAOImpl implements ItemDAO {
+    public  List<ItemDto> getAlls() throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql = "SELECT * FROM item";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 
+         */
+        ResultSet resultSet= SQLUtil.test("SELECT * FROM item");
+
         ArrayList<ItemDto> list = new ArrayList<>();
         while (resultSet.next()){
-
             list.add(
                     new ItemDto(
                             resultSet.getString(1),
@@ -32,8 +36,8 @@ public class ItemModel {
         }
         return list;
     }
-    public boolean saveItem(ItemDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    public boolean save(ItemDto dto) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO item VALUES(?,?,?,?)";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -44,9 +48,12 @@ public class ItemModel {
         pstm.setInt(4,dto.getQty());
 
         return  pstm.executeUpdate()>0;
+
+         */
+        return SQLUtil.test("INSERT INTO item VALUES(?,?,?,?)",dto.getItemCode(),dto.getName(),dto.getUnitPrice(),dto.getQty());
     }
-    public boolean updateItem(ItemDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    public boolean update(ItemDto dto) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE item SET name=?,unitPrice=?,qtyOnHand=? WHERE itemCode=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -56,23 +63,32 @@ public class ItemModel {
         pstm.setString(4, dto.getItemCode());
 
         return pstm.executeUpdate()>0;
+
+         */
+       return SQLUtil.test("UPDATE item SET name=?,unitPrice=?,qtyOnHand=? WHERE itemCode=?",dto.getName(),dto.getUnitPrice(),dto.getQty(),dto.getItemCode());
     }
-    public boolean deleteItem(String code) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    public boolean delete(String code) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="DELETE FROM item WHERE itemCode=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,code);
 
         return pstm.executeUpdate()>0;
+
+         */
+       return SQLUtil.test("DELETE FROM item WHERE itemCode=?",code);
     }
-    public ItemDto searchItem(String searchId) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    public ItemDto search(String searchId) throws SQLException {
+        /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT *FROM item WHERE itemCode=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,searchId);
         ResultSet resultSet = pstm.executeQuery();
+
+         */
+        ResultSet resultSet=SQLUtil.test("SELECT *FROM item WHERE itemCode=?",searchId);
         ItemDto itemDto=null;
         if(resultSet.next()){
             String code = resultSet.getString(1);
@@ -94,7 +110,7 @@ public class ItemModel {
         return true;
     }
     public boolean updateQty(String code, int qty) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+        /*Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "UPDATE item SET qtyOnHand = qtyOnHand - ? WHERE itemcode = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -103,18 +119,23 @@ public class ItemModel {
         pstm.setString(2, code);
 
         return pstm.executeUpdate() > 0; //false
+
+         */
+        return SQLUtil.test("UPDATE item SET qtyOnHand = qtyOnHand - ? WHERE itemcode = ?",qty,code);
     }
-    public String generateNextItemId() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
+    public String generateId() throws SQLException {
+       /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT itemCode FROM item ORDER BY itemCode DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
+        */
+       ResultSet resultSet= SQLUtil.test("SELECT itemCode FROM item ORDER BY itemCode DESC LIMIT 1");
         if(resultSet.next()){
             return changeId(resultSet.getString(1));
         }
         return changeId(null);
     }
-    public static String changeId(String itemCode){
+    public  String changeId(String itemCode){
         if(itemCode!=null){
             String[] split = itemCode.split("I0");
 

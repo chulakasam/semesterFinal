@@ -15,9 +15,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
+import lk.ijse.BO.ClientBO;
+import lk.ijse.BO.ClientBOImpl;
 import lk.ijse.QRGenerator.QRGenerate;
 import lk.ijse.dto.ClientDto;
-import lk.ijse.model.ClientModel;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -39,6 +41,8 @@ public class clientController {
     public AnchorPane lblClientId;
     public Label lblclientId;
 
+    //ClientDAOImpl clientDAOImpl= new ClientDAOImpl();
+    ClientBO clientBO=new ClientBOImpl();
     public void initialize(){
         loadGender();
         generateClientId();
@@ -46,7 +50,7 @@ public class clientController {
     }
     private void generateClientId() {
         try {
-            String id = new ClientModel().generateClientId();
+            String id = clientBO.generateClientId();
             lblclientId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -69,14 +73,12 @@ public class clientController {
         String gender = (String) cmbGender.getValue();
         String dob = String.valueOf(datePickerDOB.getValue());
 
-
         boolean isValidated=Validated();
 
         var dto = new ClientDto(id, name, address, tel,email,height,weight,gender,dob);
         if(isValidated) {
             try {
-                var clientModel = new ClientModel();
-                boolean isAdded = clientModel.saveClient(dto);
+                boolean isAdded = clientBO.saveClient(dto);
                 if (isAdded) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Client added!!!").show();
                     QRGenerate qrGenerate = new QRGenerate(id, name, address, email);
@@ -135,9 +137,8 @@ public class clientController {
     }
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         String id = txtsearchId.getText();
-        var clientModel = new ClientModel();
         try {
-            boolean isDeleted = clientModel.deleteClient(id);
+            boolean isDeleted = clientBO.deleteClient(id);
             if(isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Client deleted successfully!!!").show();
                 clearField();
@@ -149,10 +150,8 @@ public class clientController {
     }
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String searchId = txtsearchId.getText();
-
-        var clientModel = new ClientModel();
         try {
-            ClientDto clientDto=clientModel.searchClient(searchId);
+            ClientDto clientDto=clientBO.searchClient(searchId);
             if(clientDto!=null){
                lblclientId.setText(clientDto.getId());
                 txtname.setText(clientDto.getName());
@@ -181,11 +180,9 @@ public class clientController {
         int Weight = (int) Double.parseDouble(txtWeight.getText());
         String Gender = (String) cmbGender.getValue();
         String DOB = String.valueOf(datePickerDOB.getValue());
-
         try{
             var dto = new ClientDto(Id, Name, Address, Tel,Email,Height,Weight,Gender,DOB);
-            var clientModel = new ClientModel();
-            boolean isUpdated=clientModel.updateClient(dto);
+            boolean isUpdated=clientBO.updateClient(dto);
             if (isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Client Updated successfully!!!").show();
                 clearField();

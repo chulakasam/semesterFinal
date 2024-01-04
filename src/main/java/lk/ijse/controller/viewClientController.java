@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.Tm.ClientTm;
-import lk.ijse.model.ClientModel;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -49,11 +49,11 @@ public class viewClientController {
     }
     private void loadClientDetails() {
 
-        var model = new ClientModel();
+        var model = new ClientDAOImpl();
         ObservableList<ClientTm> obList = FXCollections.observableArrayList();
 
         try{
-            List<ClientDto> dtoList = model.getAllCustomer();
+            List<ClientDto> dtoList = model.getAlls();
 
             for (ClientDto dto : dtoList) {
                 obList.add(

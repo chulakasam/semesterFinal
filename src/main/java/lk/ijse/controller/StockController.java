@@ -7,9 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.DAO.Custom.ItemDAO;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.ItemTm;
-import lk.ijse.model.ItemModel;
+import lk.ijse.DAO.Custom.Impl.ItemDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ public class StockController {
     public AnchorPane itemPanel;
     public Label lblItemCode;
 
+    ItemDAO itemDAOImpl = new ItemDAOImpl();
 
     public void initialize(){
         loadAllItems();
@@ -38,7 +40,8 @@ public class StockController {
 
     private void generateNextItemId() {
         try {
-            String nextItemId = new ItemModel().generateNextItemId();
+            ItemDAOImpl itemDAOImpl = new ItemDAOImpl();
+            String nextItemId = itemDAOImpl.generateId();
             lblItemCode.setText(nextItemId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -51,10 +54,10 @@ public class StockController {
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
     }
     public void loadAllItems() {
-        var model = new ItemModel();
+       
         ObservableList<ItemTm> obList = FXCollections.observableArrayList();
         try{
-            List<ItemDto> dtoList = model.getAllItems();
+            List<ItemDto> dtoList = itemDAOImpl.getAlls();
             for (ItemDto dto : dtoList) {
                 obList.add(
                         new ItemTm(
@@ -80,8 +83,8 @@ public class StockController {
 
         var dto= new ItemDto(code,name,price,qty);
         try{
-            var itemModel = new ItemModel();
-            boolean isAdded=itemModel.saveItem(dto);
+            
+            boolean isAdded=itemDAOImpl.save(dto);
             if(isAdded){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Added successed!!!").show();
                 clearField();
@@ -106,8 +109,8 @@ public class StockController {
 
         try {
             var dto = new ItemDto(code,name,price,qty);
-            var itemModel = new ItemModel();
-            boolean isUpdated=itemModel.updateItem(dto);
+          
+            boolean isUpdated=itemDAOImpl.update(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Item Update successfully!!!").show();
                 clearField();
@@ -121,9 +124,9 @@ public class StockController {
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         String code = txtSearchId.getText();
 
-        var itemModel = new ItemModel();
+       
         try{
-           boolean isDeleted=itemModel.deleteItem(code);
+           boolean isDeleted=itemDAOImpl.delete(code);
            if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION,"Item Deleted successfully!!!").show();
             clearField();
@@ -137,9 +140,9 @@ public class StockController {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String searchId = txtSearchId.getText();
 
-        var itemModel = new ItemModel();
+       
         try {
-            ItemDto dto=itemModel.searchItem(searchId);
+            ItemDto dto=itemDAOImpl.search(searchId);
             if(dto!=null){
                 lblItemCode.setText(dto.getItemCode());
                 txtItemName.setText(dto.getName());

@@ -10,13 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.DAO.Custom.ClientDAO;
+import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.TrainerClientDto;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.dto.WorkOutDto;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.TrainerModel;
-import lk.ijse.model.WorkoutModel;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
+import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
+import lk.ijse.DAO.Custom.Impl.WorkoutDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,6 +34,8 @@ public class trainerClientController {
     public JFXButton btnAdddetail;
     public AnchorPane workOutPanel;
 
+    TrainerDAO trainerDAO = new TrainerDAOImpl();
+    ClientDAO clientDAO = new ClientDAOImpl();
 
     public void initialize(){
         generateWorkOutId();
@@ -43,7 +47,7 @@ public class trainerClientController {
     private void generateWorkOutId() {
 
         try {
-            String id = new WorkoutModel().generateworkoutId();
+            String id = new WorkoutDAOImpl().generateId();
             lblWorkOutId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -56,7 +60,8 @@ public class trainerClientController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<ClientDto> idList = ClientModel.getAllCustomer();
+
+            List<ClientDto> idList = clientDAO.getAlls();
 
             for (ClientDto dto : idList) {
                 obList.add(dto.getId());
@@ -72,7 +77,8 @@ public class trainerClientController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<TrainerDto> idList = TrainerModel.LoadAllTrainers();
+
+            List<TrainerDto> idList = trainerDAO.getAlls();
 
             for (TrainerDto dto : idList) {
                 obList.add(dto.getTrainerId());
@@ -101,7 +107,8 @@ public class trainerClientController {
        var Dto=new TrainerClientDto(trainerId,clientId,date);
 
        try{
-           boolean isAdded= WorkoutModel.setWorkOut(dto,Dto);
+           WorkoutDAOImpl workoutDAO = new WorkoutDAOImpl();
+           boolean isAdded= workoutDAO.setWorkOut(dto,Dto);
 
            if(isAdded){
                new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!!!!").show();

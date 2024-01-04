@@ -6,20 +6,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.db.DbConnection;
+import lk.ijse.DAO.Custom.ClientDAO;
+import lk.ijse.DAO.Custom.PaymentDAO;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.OrderDto;
 import lk.ijse.dto.Tm.AddPaymentTm;
 import lk.ijse.dto.paymentDto;
-import lk.ijse.model.ClientModel;
-import lk.ijse.model.OrderModel;
-import lk.ijse.model.PaymentModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
+import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
+import lk.ijse.DAO.Custom.Impl.OrderDAOImpl;
+import lk.ijse.DAO.Custom.Impl.PaymentDAOImpl;
 
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -39,7 +35,9 @@ public class PaymentController {
     public TableColumn colType;
     public TableColumn colAmount;
     public TextField txtAmount;
-    private OrderModel orderModel=new OrderModel();
+    private OrderDAOImpl orderModel=new OrderDAOImpl();
+    PaymentDAO paymentDAO = new PaymentDAOImpl();
+    ClientDAO clientDAOImpl = new ClientDAOImpl();
 
     public void initialize(){
         setDate();
@@ -61,7 +59,7 @@ public class PaymentController {
     private void loadAllOrders() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<OrderDto> orderDtos = orderModel.getAllCustomer();
+            List<OrderDto> orderDtos = orderModel.getAlls();
 
             for (OrderDto dto : orderDtos) {
                 obList.add(dto.getOrderId());
@@ -78,7 +76,7 @@ public class PaymentController {
     }
     public  void generatePayId(){
         try {
-            String payId = PaymentModel.generateNextOrderId();
+            String payId = paymentDAO.generateId();
             lblPayId.setText(payId);
 
         }catch (SQLException e){
@@ -88,7 +86,8 @@ public class PaymentController {
     public void  loadAllClients(){
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<ClientDto> idList = ClientModel.getAllCustomer();
+
+            List<ClientDto> idList = clientDAOImpl.getAlls();
 
             for (ClientDto dto : idList) {
                 obList.add(dto.getId());
@@ -120,8 +119,8 @@ public class PaymentController {
 
         var dto = new paymentDto(payId,date,amount,clientId,orderId,type);
         try{
-           var model = new PaymentModel();
-           boolean isSaved=model.savePayment(dto);
+
+           boolean isSaved=paymentDAO.save(dto);
            if (isSaved){
                new Alert(Alert.AlertType.CONFIRMATION,"Payment Added Successfully!!!").show();
                clearField();

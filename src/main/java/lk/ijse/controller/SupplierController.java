@@ -7,11 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.BO.SupplierBO;
+import lk.ijse.BO.SupplierBOImpl;
+import lk.ijse.DAO.Custom.SupplierDAO;
 import lk.ijse.dto.SupplierDto;
 import lk.ijse.dto.Tm.SupplierTm;
-import lk.ijse.dto.TrainerDto;
-import lk.ijse.model.SupplierModel;
-import lk.ijse.model.TrainerModel;
+import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,7 +33,8 @@ public class SupplierController {
     public TableColumn <?,?>colTel;
     public AnchorPane supplierPanel;
     public Label lblSupplierId;
-
+   //SupplierDAO supplierDAOImpl= new SupplierDAOImpl();
+     SupplierBO supplierBO=new SupplierBOImpl();
 
     public void initialize() {
         loadAllSuppliers();
@@ -41,7 +43,7 @@ public class SupplierController {
     }
     private void generateSupplierId() {
         try {
-            String supplierId = SupplierModel.generateSupplierId();
+            String supplierId = supplierBO.generateSupplierId();
             lblSupplierId.setText(supplierId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -63,8 +65,8 @@ public class SupplierController {
        if(isValidated) {
            var dto = new SupplierDto(Id, Name, Address, Tel);
            try {
-               var supplierModel = new SupplierModel();
-               boolean isAdded = supplierModel.saveSupplier(dto);
+
+               boolean isAdded = supplierBO.saveSupplier(dto);
                if (isAdded) {
                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added successfully!!!").show();
                    clearField();
@@ -103,8 +105,8 @@ public class SupplierController {
 
         try{
             SupplierDto dto=new SupplierDto(Id,Name,Address,Tel);
-            var supplierModel = new SupplierModel();
-            boolean isUpdated=supplierModel.updateSupplier(dto);
+
+            boolean isUpdated=supplierBO.updateSupplier(dto);
             if (isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Update successfully!!!").show();
                 clearField();
@@ -119,8 +121,8 @@ public class SupplierController {
         String Id = txtSuppId.getText();
 
         try {
-            var supplierModel = new SupplierModel();
-            boolean isDeleted=supplierModel.deleteSupplier(Id);
+
+            boolean isDeleted=supplierBO.deleteSupplier(Id);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Supplier Deleted successfully!!!").show();
                 clearField();
@@ -134,9 +136,9 @@ public class SupplierController {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String suppId = txtSuppId.getText();
 
-        var model = new SupplierModel();
+
         try {
-            SupplierDto dto=model.searchSupplier(suppId);
+            SupplierDto dto=supplierBO.searchSupplier(suppId);
             if(dto!=null){
                 lblSupplierId.setText(dto.getSupplierId());
                 txtName.setText(dto.getName());
@@ -157,10 +159,10 @@ public class SupplierController {
 
     }
     public void loadAllSuppliers()  {
-        var model = new SupplierModel();
+
         ObservableList<SupplierTm> obList = FXCollections.observableArrayList();
         try{
-            List<SupplierDto> dtoList = model.getAllSupplier();
+            List<SupplierDto> dtoList = supplierBO.getAllSupplier();
             for (SupplierDto dto : dtoList) {
                 obList.add(
                         new SupplierTm(
