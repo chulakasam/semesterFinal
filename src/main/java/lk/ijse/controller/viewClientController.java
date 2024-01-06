@@ -9,6 +9,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.Tm.ClientTm;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
@@ -30,6 +32,7 @@ public class viewClientController {
     public TableColumn <?,?> colDOB;
     public AnchorPane window;
     public JFXButton closeBtn;
+    ClientBO clientBO=new ClientBOImpl();
 
 
     public void initialize(){
@@ -49,11 +52,11 @@ public class viewClientController {
     }
     private void loadClientDetails() {
 
-        var model = new ClientDAOImpl();
+
         ObservableList<ClientTm> obList = FXCollections.observableArrayList();
 
         try{
-            List<ClientDto> dtoList = model.getAlls();
+            List<ClientDto> dtoList = clientBO.getAllCustomer();
 
             for (ClientDto dto : dtoList) {
                 obList.add(

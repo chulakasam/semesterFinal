@@ -6,6 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
+import lk.ijse.BO.Custom.Impl.OrderBOImpl;
+import lk.ijse.BO.Custom.Impl.PaymentBOImpl;
+import lk.ijse.BO.Custom.OrderBO;
+import lk.ijse.BO.Custom.PaymentBO;
 import lk.ijse.DAO.Custom.ClientDAO;
 import lk.ijse.DAO.Custom.PaymentDAO;
 import lk.ijse.dto.ClientDto;
@@ -35,9 +41,12 @@ public class PaymentController {
     public TableColumn colType;
     public TableColumn colAmount;
     public TextField txtAmount;
-    private OrderDAOImpl orderModel=new OrderDAOImpl();
-    PaymentDAO paymentDAO = new PaymentDAOImpl();
-    ClientDAO clientDAOImpl = new ClientDAOImpl();
+    //OrderDAOImpl orderModel=new OrderDAOImpl();
+    //PaymentDAO paymentDAO = new PaymentDAOImpl();
+    //ClientDAO clientDAOImpl = new ClientDAOImpl();
+    OrderBO orderBO=new OrderBOImpl();
+    PaymentBO paymentBO=new PaymentBOImpl();
+    ClientBO clientBO=new ClientBOImpl();
 
     public void initialize(){
         setDate();
@@ -59,7 +68,7 @@ public class PaymentController {
     private void loadAllOrders() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<OrderDto> orderDtos = orderModel.getAlls();
+            List<OrderDto> orderDtos = orderBO.getAllCustomer();
 
             for (OrderDto dto : orderDtos) {
                 obList.add(dto.getOrderId());
@@ -76,7 +85,7 @@ public class PaymentController {
     }
     public  void generatePayId(){
         try {
-            String payId = paymentDAO.generateId();
+            String payId = paymentBO.generateNextOrderId();
             lblPayId.setText(payId);
 
         }catch (SQLException e){
@@ -87,7 +96,7 @@ public class PaymentController {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
 
-            List<ClientDto> idList = clientDAOImpl.getAlls();
+            List<ClientDto> idList = clientBO.getAllCustomer();
 
             for (ClientDto dto : idList) {
                 obList.add(dto.getId());
@@ -120,7 +129,7 @@ public class PaymentController {
         var dto = new paymentDto(payId,date,amount,clientId,orderId,type);
         try{
 
-           boolean isSaved=paymentDAO.save(dto);
+           boolean isSaved=paymentBO.savePayment(dto);
            if (isSaved){
                new Alert(Alert.AlertType.CONFIRMATION,"Payment Added Successfully!!!").show();
                clearField();

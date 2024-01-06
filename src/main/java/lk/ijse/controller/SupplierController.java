@@ -7,12 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.BO.SupplierBO;
-import lk.ijse.BO.SupplierBOImpl;
-import lk.ijse.DAO.Custom.SupplierDAO;
+import lk.ijse.BO.Custom.SupplierBO;
+import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
 import lk.ijse.dto.SupplierDto;
 import lk.ijse.dto.Tm.SupplierTm;
-import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;

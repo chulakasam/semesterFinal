@@ -1,6 +1,7 @@
-package lk.ijse.BO;
+package lk.ijse.BO.Custom.Impl;
 
 
+import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.dto.TrainerDto;
@@ -8,7 +9,7 @@ import lk.ijse.dto.TrainerDto;
 import java.sql.SQLException;
 import java.util.List;
 
-public class TrainerBOImpl implements TrainerBO{
+public class TrainerBOImpl implements TrainerBO {
     TrainerDAO trainerDAO=new TrainerDAOImpl();
     @Override
     public String searchTrainerTotal() throws SQLException {

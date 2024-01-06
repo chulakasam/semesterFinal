@@ -1,5 +1,6 @@
-package lk.ijse.BO;
+package lk.ijse.BO.Custom.Impl;
 
+import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
 import lk.ijse.DAO.Custom.SupplierDAO;
 import lk.ijse.dto.SupplierDto;

@@ -1,5 +1,6 @@
-package lk.ijse.BO;
+package lk.ijse.BO.Custom.Impl;
 
+import lk.ijse.BO.Custom.OrderBO;
 import lk.ijse.DAO.Custom.Impl.OrderDAOImpl;
 import lk.ijse.DAO.Custom.OrderDAO;
 import lk.ijse.dto.OrderDto;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class OrderBOImpl implements  OrderBO{
+public class OrderBOImpl implements OrderBO {
     OrderDAO orderDAO=new OrderDAOImpl();
     @Override
     public String generateNextOrderId() throws SQLException {

@@ -31,6 +31,9 @@ public class dashboardController {
     public Label lblsupplierTotal;
 
 
+    TrainerDAOImpl trainerDAO = new TrainerDAOImpl();
+    ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+    SupplierDAO supplierDAO = new SupplierDAOImpl();
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -91,7 +94,7 @@ public class dashboardController {
     private void loadTrainerTotal() {
 
         String TrainerValue="0";
-        TrainerDAOImpl trainerDAO = new TrainerDAOImpl();
+
         try{
             TrainerValue= trainerDAO.searchTrainerTotal();
         }catch (Exception e){
@@ -102,7 +105,7 @@ public class dashboardController {
     private void loadClientTotal() {
         String ClientValue="0";
         try{
-            ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+
             ClientValue= clientDAOImpl.searchClientTotal();
         }catch (Exception e){
             ClientValue="0";
@@ -114,7 +117,7 @@ public class dashboardController {
     private void loadSupplierTotal(){
         String SupplierValue="0";
         try{
-            SupplierDAO supplierDAO = new SupplierDAOImpl();
+
             SupplierValue= supplierDAO.searchSupplierTotal();
         }catch (Exception e){
             SupplierValue="0";

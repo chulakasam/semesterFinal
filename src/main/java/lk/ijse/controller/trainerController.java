@@ -10,11 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.BO.TrainerBO;
-import lk.ijse.BO.TrainerBOImpl;
-import lk.ijse.DAO.Custom.TrainerDAO;
+import lk.ijse.BO.Custom.TrainerBO;
+import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
 import lk.ijse.dto.TrainerDto;
-import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;

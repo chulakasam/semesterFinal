@@ -15,11 +15,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
-import lk.ijse.BO.ClientBO;
-import lk.ijse.BO.ClientBOImpl;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.QRGenerator.QRGenerate;
 import lk.ijse.dto.ClientDto;
-import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;

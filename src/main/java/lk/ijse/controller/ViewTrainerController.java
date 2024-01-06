@@ -8,6 +8,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.dto.Tm.TrainerTm;
 import lk.ijse.dto.TrainerDto;
 import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
@@ -26,6 +28,7 @@ public class ViewTrainerController {
     public TableColumn <?,?>colGen;
     public TableColumn <?,?>colDesc;
     public JFXButton closBtn;
+    TrainerBO trainerBO=new TrainerBOImpl();
 
     public void initialize(){
         loadAllTrainers();
@@ -42,10 +45,10 @@ public class ViewTrainerController {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("desc"));
     }
     private void loadAllTrainers() {
-        var model = new TrainerDAOImpl();
+
         ObservableList<TrainerTm> obList = FXCollections.observableArrayList();
         try{
-            List<TrainerDto> dtoList=model.getAlls();
+            List<TrainerDto> dtoList=trainerBO.LoadAllTrainers();
 
             for (TrainerDto dto:dtoList){
 

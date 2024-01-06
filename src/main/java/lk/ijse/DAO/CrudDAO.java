@@ -5,7 +5,7 @@ import lk.ijse.dto.ClientDto;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CrudDAO <T> {
+public interface CrudDAO <T> extends SuperDAO {
     List<T> getAlls() throws SQLException;
 
     boolean save(T dto) throws SQLException ;

@@ -1,5 +1,6 @@
-package lk.ijse.BO;
+package lk.ijse.BO.Custom.Impl;
 
+import lk.ijse.BO.Custom.ClientBO;
 import lk.ijse.DAO.Custom.ClientDAO;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 import lk.ijse.dto.ClientDto;
@@ -7,7 +8,7 @@ import lk.ijse.dto.ClientDto;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ClientBOImpl implements ClientBO{
+public class ClientBOImpl implements ClientBO {
 
     ClientDAO clientDAO=new ClientDAOImpl();
     @Override
