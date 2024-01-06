@@ -9,6 +9,11 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
+import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
+import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 import lk.ijse.DAO.Custom.SupplierDAO;
 import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
@@ -31,9 +36,13 @@ public class dashboardController {
     public Label lblsupplierTotal;
 
 
-    TrainerDAOImpl trainerDAO = new TrainerDAOImpl();
-    ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
-    SupplierDAO supplierDAO = new SupplierDAOImpl();
+    //TrainerDAOImpl trainerDAO = new TrainerDAOImpl();
+    //ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+    //SupplierDAO supplierDAO = new SupplierDAOImpl();
+
+    TrainerBO trainerBO=new TrainerBOImpl();
+    ClientBO clientBO=new ClientBOImpl();
+    SupplierBOImpl supplierBO=new SupplierBOImpl();
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -96,7 +105,7 @@ public class dashboardController {
         String TrainerValue="0";
 
         try{
-            TrainerValue= trainerDAO.searchTrainerTotal();
+            TrainerValue= trainerBO.searchTrainerTotal();
         }catch (Exception e){
             TrainerValue="0";
         }
@@ -106,7 +115,7 @@ public class dashboardController {
         String ClientValue="0";
         try{
 
-            ClientValue= clientDAOImpl.searchClientTotal();
+            ClientValue= clientBO.searchClientTotal();
         }catch (Exception e){
             ClientValue="0";
         }
@@ -118,7 +127,7 @@ public class dashboardController {
         String SupplierValue="0";
         try{
 
-            SupplierValue= supplierDAO.searchSupplierTotal();
+            SupplierValue= supplierBO.searchSupplierTotal();
         }catch (Exception e){
             SupplierValue="0";
         }

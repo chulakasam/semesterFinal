@@ -11,7 +11,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.ConfirmOrderBO;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
+import lk.ijse.BO.Custom.Impl.ConfirmOrderBOImpl;
 import lk.ijse.BO.Custom.Impl.ItemBOImpl;
 import lk.ijse.BO.Custom.Impl.OrderBOImpl;
 import lk.ijse.BO.Custom.ItemBO;
@@ -206,9 +208,10 @@ public class OrderController {
             cartTmList.add(cartTm);
         }
         var confirmOrderDto = new ConfirmOrderDto(orderId, date, clientId, netTotal, cartTmList);
-        var confirmOrderModel = new ConfirmOrderModel();
+       // var confirmOrderModel = new ConfirmOrderModel();
+        ConfirmOrderBO confirmOrderBO = new ConfirmOrderBOImpl();
         try {
-            boolean isSuccess = confirmOrderModel.confirmOrder(confirmOrderDto);
+            boolean isSuccess = confirmOrderBO.confirmOrder(confirmOrderDto);
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
             }

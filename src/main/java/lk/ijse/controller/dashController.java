@@ -3,6 +3,11 @@ package lk.ijse.controller;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
+import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
+import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
@@ -13,13 +18,18 @@ public class dashController {
     public Label lblTrainerTot;
     public Label lblSuppierTot;
     public BarChart barchart;
-
+    //TrainerDAO trainerDAO = new TrainerDAOImpl();
+    //ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+    //SupplierDAOImpl supplierDAO = new SupplierDAOImpl();
+    TrainerBO trainerBO=new TrainerBOImpl();
+    ClientBO clientBO=new ClientBOImpl();
+    SupplierBOImpl supplierBO=new SupplierBOImpl();
     private void loadTrainerTotal() {
 
         String TrainerValue="0";
-        TrainerDAO trainerDAO = new TrainerDAOImpl();
+
         try{
-            TrainerValue= trainerDAO.searchTrainerTotal();
+            TrainerValue= trainerBO.searchTrainerTotal();
         }catch (Exception e){
             TrainerValue="0";
         }
@@ -28,8 +38,8 @@ public class dashController {
     private void loadClientTotal() {
         String ClientValue="0";
         try{
-            ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
-            ClientValue= clientDAOImpl.searchClientTotal();
+
+            ClientValue= clientBO.searchClientTotal();
         }catch (Exception e){
             ClientValue="0";
         }
@@ -39,9 +49,9 @@ public class dashController {
     }
     private void loadSupplierTot() {
         String SupplierValue="0";
-        SupplierDAOImpl supplierDAO = new SupplierDAOImpl();
+
         try{
-            SupplierValue= supplierDAO.searchSupplierTotal();
+            SupplierValue= supplierBO.searchSupplierTotal();
         }catch (Exception e){
            SupplierValue="0";
         }

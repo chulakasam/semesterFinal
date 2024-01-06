@@ -10,8 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.ClientBOImpl;
+import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.Impl.WorkoutBOImpl;
+import lk.ijse.BO.Custom.TrainerBO;
+import lk.ijse.BO.Custom.WorkoutBO;
 import lk.ijse.DAO.Custom.ClientDAO;
 import lk.ijse.DAO.Custom.TrainerDAO;
+import lk.ijse.DAO.Custom.WorkoutDAO;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.TrainerClientDto;
 import lk.ijse.dto.TrainerDto;
@@ -34,8 +41,12 @@ public class trainerClientController {
     public JFXButton btnAdddetail;
     public AnchorPane workOutPanel;
 
-    TrainerDAO trainerDAO = new TrainerDAOImpl();
-    ClientDAO clientDAO = new ClientDAOImpl();
+    //TrainerDAO trainerDAO = new TrainerDAOImpl();
+    //ClientDAO clientDAO = new ClientDAOImpl();
+    //WorkoutDAO workoutDAO=new WorkoutDAOImpl();
+    TrainerBO trainerBO=new TrainerBOImpl();
+    ClientBO clientBO=new ClientBOImpl();
+    WorkoutBO workoutBO=new WorkoutBOImpl();
 
     public void initialize(){
         generateWorkOutId();
@@ -47,7 +58,7 @@ public class trainerClientController {
     private void generateWorkOutId() {
 
         try {
-            String id = new WorkoutDAOImpl().generateId();
+            String id = workoutBO.generateworkoutId();
             lblWorkOutId.setText(id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -61,7 +72,7 @@ public class trainerClientController {
 
         try {
 
-            List<ClientDto> idList = clientDAO.getAlls();
+            List<ClientDto> idList = clientBO.getAllCustomer();
 
             for (ClientDto dto : idList) {
                 obList.add(dto.getId());
@@ -78,7 +89,7 @@ public class trainerClientController {
 
         try {
 
-            List<TrainerDto> idList = trainerDAO.getAlls();
+            List<TrainerDto> idList = trainerBO.LoadAllTrainers();
 
             for (TrainerDto dto : idList) {
                 obList.add(dto.getTrainerId());
@@ -107,8 +118,8 @@ public class trainerClientController {
        var Dto=new TrainerClientDto(trainerId,clientId,date);
 
        try{
-           WorkoutDAOImpl workoutDAO = new WorkoutDAOImpl();
-           boolean isAdded= workoutDAO.setWorkOut(dto,Dto);
+
+           boolean isAdded= workoutBO.setWorkOut(dto,Dto);
 
            if(isAdded){
                new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!!!!").show();
