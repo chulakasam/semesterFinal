@@ -3,13 +3,14 @@ package lk.ijse.BO.Custom.Impl;
 import lk.ijse.BO.Custom.WorkoutBO;
 import lk.ijse.DAO.Custom.Impl.WorkoutDAOImpl;
 import lk.ijse.DAO.Custom.WorkoutDAO;
+import lk.ijse.DAO.DAOFactory;
 import lk.ijse.dto.TrainerClientDto;
 import lk.ijse.dto.WorkOutDto;
 
 import java.sql.SQLException;
 
 public class WorkoutBOImpl implements WorkoutBO {
-   WorkoutDAO workoutDAO=new WorkoutDAOImpl();
+   WorkoutDAO workoutDAO= (WorkoutDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.WORKOUT);
     @Override
     public boolean setWorkOut(WorkOutDto dto, TrainerClientDto dto1) throws SQLException {
         return workoutDAO.setWorkOut(dto,dto1);

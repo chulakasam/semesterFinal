@@ -4,9 +4,11 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
 import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
@@ -21,9 +23,9 @@ public class dashController {
     //TrainerDAO trainerDAO = new TrainerDAOImpl();
     //ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
     //SupplierDAOImpl supplierDAO = new SupplierDAOImpl();
-    TrainerBO trainerBO=new TrainerBOImpl();
-    ClientBO clientBO=new ClientBOImpl();
-    SupplierBOImpl supplierBO=new SupplierBOImpl();
+    TrainerBO trainerBO= (TrainerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRAINER);
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
+    SupplierBO supplierBO= (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
     private void loadTrainerTotal() {
 
         String TrainerValue="0";

@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
 import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.dto.Tm.TrainerTm;
@@ -28,7 +29,7 @@ public class ViewTrainerController {
     public TableColumn <?,?>colGen;
     public TableColumn <?,?>colDesc;
     public JFXButton closBtn;
-    TrainerBO trainerBO=new TrainerBOImpl();
+    TrainerBO trainerBO= (TrainerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRAINER);
 
     public void initialize(){
         loadAllTrainers();

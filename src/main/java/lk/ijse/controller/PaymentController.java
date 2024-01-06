@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.BO.Custom.Impl.OrderBOImpl;
 import lk.ijse.BO.Custom.Impl.PaymentBOImpl;
@@ -44,9 +45,10 @@ public class PaymentController {
     //OrderDAOImpl orderModel=new OrderDAOImpl();
     //PaymentDAO paymentDAO = new PaymentDAOImpl();
     //ClientDAO clientDAOImpl = new ClientDAOImpl();
-    OrderBO orderBO=new OrderBOImpl();
-    PaymentBO paymentBO=new PaymentBOImpl();
-    ClientBO clientBO=new ClientBOImpl();
+
+    OrderBO orderBO= (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
+    PaymentBO paymentBO= (PaymentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PAYMENTS);
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
 
     public void initialize(){
         setDate();

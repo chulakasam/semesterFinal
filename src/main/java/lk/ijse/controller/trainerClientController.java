@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
 import lk.ijse.BO.Custom.Impl.WorkoutBOImpl;
@@ -44,9 +45,9 @@ public class trainerClientController {
     //TrainerDAO trainerDAO = new TrainerDAOImpl();
     //ClientDAO clientDAO = new ClientDAOImpl();
     //WorkoutDAO workoutDAO=new WorkoutDAOImpl();
-    TrainerBO trainerBO=new TrainerBOImpl();
-    ClientBO clientBO=new ClientBOImpl();
-    WorkoutBO workoutBO=new WorkoutBOImpl();
+    TrainerBO trainerBO= (TrainerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRAINER);
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
+    WorkoutBO workoutBO= (WorkoutBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.WORKOUT);
 
     public void initialize(){
         generateWorkOutId();

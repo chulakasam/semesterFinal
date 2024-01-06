@@ -3,13 +3,14 @@ package lk.ijse.BO.Custom.Impl;
 import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
 import lk.ijse.DAO.Custom.SupplierDAO;
+import lk.ijse.DAO.DAOFactory;
 import lk.ijse.dto.SupplierDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class SupplierBOImpl implements SupplierBO {
-   SupplierDAO supplierDAO= new SupplierDAOImpl();
+   SupplierDAO supplierDAO= (SupplierDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.SUPPLIER);
     @Override
     public String generateSupplierId() throws SQLException {
         return supplierDAO.generateId();

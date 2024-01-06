@@ -1,11 +1,12 @@
 package lk.ijse.BO.Custom;
 
+import lk.ijse.DAO.SuperDAO;
 import lk.ijse.dto.SupplierDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface SupplierBO {
+public interface SupplierBO extends SuperDAO {
     String generateSupplierId() throws SQLException ;
     String changeId(String supplierId);
 

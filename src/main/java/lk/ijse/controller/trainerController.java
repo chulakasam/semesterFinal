@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
 import lk.ijse.dto.TrainerDto;
@@ -32,7 +33,7 @@ public class trainerController {
     public Label lblTrainerId;
     public AnchorPane trainerPanel;
     //TrainerDAO trainerDAO=new TrainerDAOImpl();
-     TrainerBO trainerBO=new TrainerBOImpl();
+     TrainerBO trainerBO= (TrainerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRAINER);
     public void initialize(){
         loadGender();
         generateNextTrainerId();

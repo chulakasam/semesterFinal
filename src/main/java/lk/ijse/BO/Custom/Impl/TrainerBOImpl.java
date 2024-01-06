@@ -4,13 +4,14 @@ package lk.ijse.BO.Custom.Impl;
 import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
+import lk.ijse.DAO.DAOFactory;
 import lk.ijse.dto.TrainerDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TrainerBOImpl implements TrainerBO {
-    TrainerDAO trainerDAO=new TrainerDAOImpl();
+    TrainerDAO trainerDAO= (TrainerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.TRAINER);
     @Override
     public String searchTrainerTotal() throws SQLException {
         return trainerDAO.searchTrainerTotal();

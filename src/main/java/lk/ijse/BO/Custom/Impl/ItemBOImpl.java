@@ -3,6 +3,7 @@ package lk.ijse.BO.Custom.Impl;
 import lk.ijse.BO.Custom.ItemBO;
 import lk.ijse.DAO.Custom.Impl.ItemDAOImpl;
 import lk.ijse.DAO.Custom.ItemDAO;
+import lk.ijse.DAO.DAOFactory;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
 
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ItemBOImpl implements ItemBO {
-    ItemDAO itemDAO=new ItemDAOImpl();
+    ItemDAO itemDAO= (ItemDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ITEM);
     @Override
     public List<ItemDto> getAllItems() throws SQLException {
         return itemDAO.getAlls();

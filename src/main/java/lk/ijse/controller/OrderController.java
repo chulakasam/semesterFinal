@@ -12,10 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.BO.Custom.ClientBO;
 import lk.ijse.BO.Custom.ConfirmOrderBO;
-import lk.ijse.BO.Custom.Impl.ClientBOImpl;
-import lk.ijse.BO.Custom.Impl.ConfirmOrderBOImpl;
-import lk.ijse.BO.Custom.Impl.ItemBOImpl;
-import lk.ijse.BO.Custom.Impl.OrderBOImpl;
+import lk.ijse.BO.Custom.Impl.*;
 import lk.ijse.BO.Custom.ItemBO;
 import lk.ijse.BO.Custom.OrderBO;
 import lk.ijse.dto.ClientDto;
@@ -55,9 +52,9 @@ public class OrderController {
     //ItemDAO itemDAOImpl = new ItemDAOImpl();
     //ClientDAO clientDAOImpl = new ClientDAOImpl();
     //OrderDAO orderDAOImpl=new OrderDAOImpl();
-    ItemBO itemBO= new ItemBOImpl();
-    ClientBO clientBO=new ClientBOImpl();
-    OrderBO orderBO=new OrderBOImpl();
+    ItemBO itemBO= (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ITEM);
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
+    OrderBO orderBO= (OrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ORDER);
 
     public void setDate(){
        lblDate.setText(String.valueOf(LocalDate.now()));

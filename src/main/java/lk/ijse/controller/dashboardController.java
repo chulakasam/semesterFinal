@@ -10,9 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
 import lk.ijse.BO.Custom.Impl.TrainerBOImpl;
+import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.ClientDAOImpl;
 import lk.ijse.DAO.Custom.SupplierDAO;
@@ -40,9 +42,9 @@ public class dashboardController {
     //ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
     //SupplierDAO supplierDAO = new SupplierDAOImpl();
 
-    TrainerBO trainerBO=new TrainerBOImpl();
-    ClientBO clientBO=new ClientBOImpl();
-    SupplierBOImpl supplierBO=new SupplierBOImpl();
+    TrainerBO trainerBO= (TrainerBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRAINER);
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
+    SupplierBO supplierBO= (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(anchorPane);

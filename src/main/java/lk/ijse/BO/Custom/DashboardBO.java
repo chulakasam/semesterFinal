@@ -1,4 +1,6 @@
 package lk.ijse.BO.Custom;
 
-public interface DashboardBO {
+import lk.ijse.DAO.SuperDAO;
+
+public interface DashboardBO extends SuperDAO {
 }

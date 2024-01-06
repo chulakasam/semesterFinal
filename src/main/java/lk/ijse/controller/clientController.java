@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.QRGenerator.QRGenerate;
 import lk.ijse.dto.ClientDto;
@@ -41,7 +42,8 @@ public class clientController {
     public Label lblclientId;
 
     //ClientDAOImpl clientDAOImpl= new ClientDAOImpl();
-    ClientBO clientBO=new ClientBOImpl();
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
+
     public void initialize(){
         loadGender();
         generateClientId();

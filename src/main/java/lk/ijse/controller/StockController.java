@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.ItemBO;
 import lk.ijse.BO.Custom.Impl.ItemBOImpl;
 import lk.ijse.dto.ItemDto;
@@ -31,7 +32,7 @@ public class StockController {
     public Label lblItemCode;
 
    // ItemDAO itemDAOImpl = new ItemDAOImpl();
-    ItemBO itemBO= new ItemBOImpl();
+    ItemBO itemBO= (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ITEM);
     public void initialize(){
         loadAllItems();
         setCellValueFactory();

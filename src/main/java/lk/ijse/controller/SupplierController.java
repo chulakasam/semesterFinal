@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.BO.Custom.Impl.SupplierBOImpl;
 import lk.ijse.dto.SupplierDto;
@@ -32,7 +33,7 @@ public class SupplierController {
     public AnchorPane supplierPanel;
     public Label lblSupplierId;
    //SupplierDAO supplierDAOImpl= new SupplierDAOImpl();
-     SupplierBO supplierBO=new SupplierBOImpl();
+     SupplierBO supplierBO= (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
 
     public void initialize() {
         loadAllSuppliers();

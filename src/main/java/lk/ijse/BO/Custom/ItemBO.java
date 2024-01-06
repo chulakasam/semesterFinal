@@ -1,12 +1,13 @@
 package lk.ijse.BO.Custom;
 
+import lk.ijse.DAO.SuperDAO;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ItemBO {
+public interface ItemBO extends SuperDAO {
     List<ItemDto> getAllItems() throws SQLException ;
     boolean saveItem(ItemDto dto) throws SQLException ;
     boolean updateItem(ItemDto dto) throws SQLException ;

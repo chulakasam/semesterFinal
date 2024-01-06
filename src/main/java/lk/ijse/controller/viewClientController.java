@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.BO.Custom.ClientBO;
+import lk.ijse.BO.Custom.Impl.BOFactory;
 import lk.ijse.BO.Custom.Impl.ClientBOImpl;
 import lk.ijse.dto.ClientDto;
 import lk.ijse.dto.Tm.ClientTm;
@@ -32,7 +33,7 @@ public class viewClientController {
     public TableColumn <?,?> colDOB;
     public AnchorPane window;
     public JFXButton closeBtn;
-    ClientBO clientBO=new ClientBOImpl();
+    ClientBO clientBO= (ClientBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.CLIENT);
 
 
     public void initialize(){

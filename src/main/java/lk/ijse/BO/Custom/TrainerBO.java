@@ -1,11 +1,12 @@
 package lk.ijse.BO.Custom;
 
+import lk.ijse.DAO.SuperDAO;
 import lk.ijse.dto.TrainerDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface TrainerBO {
+public interface TrainerBO extends SuperDAO {
     String searchTrainerTotal() throws SQLException;
      boolean saveTrainer(TrainerDto dto) throws SQLException ;
      boolean UpdateTrainer(TrainerDto dto) throws SQLException ;
