@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.SQLUtil;
 import lk.ijse.DAO.Custom.TrainerClientDAO;
+import lk.ijse.Entity.TrainerClient;
 import lk.ijse.dto.TrainerClientDto;
 
 import java.sql.SQLException;
@@ -24,12 +25,12 @@ public class TrainerClientDAOImpl  implements TrainerClientDAO {
     }
 
     @Override
-    public List<TrainerClientDto> getAlls() throws SQLException {
+    public List<TrainerClient> getAlls() throws SQLException {
         return null;
     }
 
     @Override
-    public boolean save(TrainerClientDto dto) throws SQLException {
+    public boolean save(TrainerClient dto) throws SQLException {
         return false;
     }
 
@@ -44,7 +45,7 @@ public class TrainerClientDAOImpl  implements TrainerClientDAO {
     }
 
     @Override
-    public boolean update(TrainerClientDto dto) throws SQLException {
+    public boolean update(TrainerClient dto) throws SQLException {
         return false;
     }
 

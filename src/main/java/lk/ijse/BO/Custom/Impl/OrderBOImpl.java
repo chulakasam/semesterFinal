@@ -4,10 +4,12 @@ import lk.ijse.BO.Custom.OrderBO;
 import lk.ijse.DAO.Custom.Impl.OrderDAOImpl;
 import lk.ijse.DAO.Custom.OrderDAO;
 import lk.ijse.DAO.DAOFactory;
+import lk.ijse.Entity.Order;
 import lk.ijse.dto.OrderDto;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderBOImpl implements OrderBO {
@@ -29,6 +31,11 @@ public class OrderBOImpl implements OrderBO {
 
     @Override
     public List<OrderDto> getAllCustomer() throws SQLException {
-        return orderDAO.getAlls();
+       List<Order> all= orderDAO.getAlls();
+        ArrayList<OrderDto> orderDto = new ArrayList<>();
+        for (Order order:all) {
+            orderDto.add(new OrderDto(order.getOrderId(),order.getDate(),order.getClientId(),order.getAmount()));
+        }
+        return orderDto;
     }
 }

@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.OrderDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Order;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.OrderDto;
 
@@ -56,15 +57,15 @@ public class OrderDAOImpl implements OrderDAO {
 
     }
     @Override
-    public List<OrderDto> getAlls() throws SQLException {
+    public List<Order> getAlls() throws SQLException {
        /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM orders";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();*/
-        ArrayList<OrderDto> dto = new ArrayList<>();
+        ArrayList<Order> dto = new ArrayList<>();
         ResultSet resultSet=SQLUtil.test("SELECT * FROM orders");
         while (resultSet.next()){
-            dto.add(new OrderDto(resultSet.getString(1),
+            dto.add(new Order(resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getDouble(4)
@@ -75,7 +76,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public boolean save(OrderDto dto) throws SQLException {
+    public boolean save(Order dto) throws SQLException {
         return false;
     }
 
@@ -90,7 +91,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public boolean update(OrderDto dto) throws SQLException {
+    public boolean update(Order dto) throws SQLException {
         return false;
     }
 }

@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.PaymentDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Payment;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.paymentDto;
 
@@ -42,12 +43,12 @@ public class PaymentDAOImpl implements PaymentDAO {
     }
 
     @Override
-    public List<paymentDto> getAlls() throws SQLException {
+    public List<Payment> getAlls() throws SQLException {
         return null;
     }
 
     @Override
-    public boolean save(paymentDto dto) throws SQLException {
+    public boolean save(Payment dto) throws SQLException {
        /* Connection connection = DbConnection.getInstance().getConnection();
         String  sql="INSERT INTO payment VALUES(?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -73,7 +74,7 @@ public class PaymentDAOImpl implements PaymentDAO {
     }
 
     @Override
-    public boolean update(paymentDto dto) throws SQLException {
+    public boolean update(Payment dto) throws SQLException {
         return false;
     }
 }
