@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.UserDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.User;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.UserDto;
 
@@ -13,12 +14,12 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     @Override
-    public List<UserDto> getAlls() throws SQLException {
+    public List<User> getAlls() throws SQLException {
         return null;
     }
 
     @Override
-    public boolean save(UserDto dto) throws SQLException {
+    public boolean save(User dto) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO user VALUES(?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -43,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean update(UserDto dto) throws SQLException {
+    public boolean update(User dto) throws SQLException {
         return false;
     }
 

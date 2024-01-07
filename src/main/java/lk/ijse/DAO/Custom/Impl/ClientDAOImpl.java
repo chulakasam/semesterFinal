@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.ClientDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Client;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ClientDto;
 
@@ -15,17 +16,17 @@ import java.util.List;
 public class ClientDAOImpl implements ClientDAO {
 
     @Override
-    public  List<ClientDto> getAlls() throws SQLException {
+    public  List<Client> getAlls() throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM client";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
         */
        ResultSet resultSet= SQLUtil.test("SELECT * FROM client");
-        ArrayList<ClientDto> dtoList = new ArrayList<>();
+        ArrayList<Client> dtoList = new ArrayList<>();
         while(resultSet.next()) {
             dtoList.add(
-                    new ClientDto(
+                    new Client(
                             resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),
@@ -57,7 +58,7 @@ public class ClientDAOImpl implements ClientDAO {
         return count;
     }
     @Override
-    public boolean save(ClientDto dto) throws SQLException {
+    public boolean save(Client client) throws SQLException {
        /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -75,7 +76,7 @@ public class ClientDAOImpl implements ClientDAO {
         return pstm.executeUpdate()>0;
 
         */
-        return  SQLUtil.test("INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)",dto.getId(),dto.getName(),dto.getAddress(),dto.getTel(),dto.getEmail(),dto.getHeight(),dto.getWeight(),dto.getGender(),dto.getDob());
+        return  SQLUtil.test("INSERT INTO client VALUES(?,?,?,?,?,?,?,?,?)",client.getId(),client.getName(),client.getAddress(),client.getTel(),client.getEmail(),client.getHeight(),client.getWeight(),client.getGender(),client.getDob());
     }
     @Override
     public boolean delete(String id) throws SQLException {
@@ -102,7 +103,7 @@ public class ClientDAOImpl implements ClientDAO {
         */
         ResultSet resultSet= SQLUtil.test("SELECT * FROM client WHERE clientId=?",searchId);
 
-        ClientDto clientDto=null;
+        ClientDto client=null;
         if (resultSet.next()){
             String client_id = resultSet.getString(1);
             String client_name = resultSet.getString(2);
@@ -114,12 +115,12 @@ public class ClientDAOImpl implements ClientDAO {
             String gender = resultSet.getString(8);
             String dob = resultSet.getString(9);
 
-            clientDto=new ClientDto(client_id,client_name,client_address,client_tel,email,height,weight,gender,dob);
+             client=new ClientDto(client_id,client_name,client_address,client_tel,email,height,weight,gender,dob);
         }
-        return clientDto;
+        return client;
     }
     @Override
-    public boolean update(ClientDto dto) throws SQLException {
+    public boolean update(Client client) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -136,7 +137,7 @@ public class ClientDAOImpl implements ClientDAO {
         return pstm.executeUpdate()>0;
 
          */
-        return SQLUtil.test("UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?",dto.getName(),dto.getAddress(),dto.getTel(),dto.getEmail(),dto.getHeight(),dto.getWeight(),dto.getGender(),dto.getDob(),dto.getId());
+        return SQLUtil.test("UPDATE client SET name=?,Address=?,contactNo=? ,email=?,height=?,weight=?,gender=?,dob=? WHERE clientId=?",client.getName(),client.getAddress(),client.getTel(),client.getEmail(),client.getHeight(),client.getWeight(),client.getGender(),client.getDob(),client.getId());
     }
     @Override
     public String generateId() throws SQLException {

@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.SupplierDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Supplier;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.SupplierDto;
 
@@ -56,7 +57,7 @@ public class SupplierDAOImpl implements SupplierDAO {
         return count;
     }
     @Override
-    public boolean save(SupplierDto dto) throws SQLException {
+    public boolean save(Supplier dto) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO supplier VALUES(?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -70,7 +71,7 @@ public class SupplierDAOImpl implements SupplierDAO {
         return SQLUtil.test("INSERT INTO supplier VALUES(?,?,?,?)",dto.getSupplierId(),dto.getName(),dto.getAddress(),dto.getContactNo());
     }
     @Override
-    public boolean update(SupplierDto dto) throws SQLException {
+    public boolean update(Supplier dto) throws SQLException {
        /* Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE supplier SET name=?,Address=?,contactNo=? WHERE supplierId=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -118,17 +119,17 @@ public class SupplierDAOImpl implements SupplierDAO {
        return dto;
     }
     @Override
-    public ArrayList<SupplierDto> getAlls() throws SQLException {
+    public ArrayList<Supplier> getAlls() throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM supplier";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
         */
         ResultSet resultSet=SQLUtil.test("SELECT * FROM supplier");
-        ArrayList<SupplierDto> list = new ArrayList<>();
+        ArrayList<Supplier> list = new ArrayList<>();
         while (resultSet.next()){
             list.add(
-                    new SupplierDto(
+                    new Supplier(
                             resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),

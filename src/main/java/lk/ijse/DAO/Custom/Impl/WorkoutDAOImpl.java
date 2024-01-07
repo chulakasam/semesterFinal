@@ -2,6 +2,8 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.WorkoutDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.TrainerClient;
+import lk.ijse.Entity.WorkOut;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.TrainerClientDto;
 import lk.ijse.dto.WorkOutDto;
@@ -12,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class WorkoutDAOImpl implements WorkoutDAO {
-    public  boolean setWorkOut(WorkOutDto dto, TrainerClientDto dto1) throws SQLException {
+    public  boolean setWorkOut(WorkOut dto, TrainerClient dto1) throws SQLException {
 
         String workOutId = dto.getWorkOutId();
 
@@ -52,12 +54,12 @@ public class WorkoutDAOImpl implements WorkoutDAO {
     }
 
     @Override
-    public List<WorkOutDto> getAlls() throws SQLException {
+    public List<WorkOut> getAlls() throws SQLException {
         return null;
     }
 
     @Override
-    public boolean save(WorkOutDto dto) throws SQLException {
+    public boolean save(WorkOut dto) throws SQLException {
         return false;
     }
 
@@ -72,7 +74,7 @@ public class WorkoutDAOImpl implements WorkoutDAO {
     }
 
     @Override
-    public boolean update(WorkOutDto dto) throws SQLException {
+    public boolean update(WorkOut dto) throws SQLException {
         return false;
     }
 

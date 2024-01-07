@@ -5,9 +5,11 @@ import lk.ijse.BO.Custom.TrainerBO;
 import lk.ijse.DAO.Custom.Impl.TrainerDAOImpl;
 import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.DAO.DAOFactory;
+import lk.ijse.Entity.Trainer;
 import lk.ijse.dto.TrainerDto;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrainerBOImpl implements TrainerBO {
@@ -19,12 +21,12 @@ public class TrainerBOImpl implements TrainerBO {
 
     @Override
     public boolean saveTrainer(TrainerDto dto) throws SQLException {
-        return trainerDAO.save(dto);
+        return trainerDAO.save(new Trainer(dto.getTrainerId(),dto.getName(),dto.getTel(),dto.getNic(),dto.getEmail(),dto.getGender(),dto.getDob(),dto.getDesc()));
     }
 
     @Override
     public boolean UpdateTrainer(TrainerDto dto) throws SQLException {
-        return trainerDAO.update(dto);
+        return trainerDAO.update(new Trainer(dto.getTrainerId(),dto.getName(),dto.getTel(),dto.getNic(),dto.getEmail(),dto.getGender(),dto.getDob(),dto.getDesc()));
     }
 
     @Override
@@ -39,7 +41,12 @@ public class TrainerBOImpl implements TrainerBO {
 
     @Override
     public List<TrainerDto> LoadAllTrainers() throws SQLException {
-        return trainerDAO.getAlls();
+        List<Trainer> all=trainerDAO.getAlls();
+        ArrayList<TrainerDto> trainerDto = new ArrayList<>();
+        for (Trainer trainer:all){
+            trainerDto.add(new TrainerDto(trainer.getTrainerId(),trainer.getName(),trainer.getTel(),trainer.getNic(),trainer.getEmail(),trainer.getGender(),trainer.getDob(),trainer.getDesc()));
+        }
+        return trainerDto;
     }
 
     @Override

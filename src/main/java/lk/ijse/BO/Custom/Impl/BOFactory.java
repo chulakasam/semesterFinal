@@ -15,7 +15,7 @@ public class BOFactory {
         return (boFactory==null) ? boFactory =new BOFactory() : boFactory;
     }
     public enum BOTypes{
-        CLIENT,CONFIRMORDER,DASHBOARD,ITEM,ORDER,PAYMENTS,SUPPLIER,TRAINER,TRAINERCLIENT,WORKOUT
+        CLIENT,CONFIRMORDER,DASHBOARD,ITEM,ORDER,PAYMENTS,SUPPLIER,TRAINER,TRAINERCLIENT,WORKOUT,USER
     }
     public SuperDAO getBO(BOFactory.BOTypes boTypes){
         switch (boTypes){
@@ -39,6 +39,8 @@ public class BOFactory {
                 return new TrainerClientBOImpl();
                 case WORKOUT:
                 return new WorkoutBOImpl();
+            case USER:
+                return new UserBOImpl();
                 default:
                      return null;
         }

@@ -4,9 +4,11 @@ import lk.ijse.BO.Custom.SupplierBO;
 import lk.ijse.DAO.Custom.Impl.SupplierDAOImpl;
 import lk.ijse.DAO.Custom.SupplierDAO;
 import lk.ijse.DAO.DAOFactory;
+import lk.ijse.Entity.Supplier;
 import lk.ijse.dto.SupplierDto;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierBOImpl implements SupplierBO {
@@ -28,12 +30,12 @@ public class SupplierBOImpl implements SupplierBO {
 
     @Override
     public boolean saveSupplier(SupplierDto dto) throws SQLException {
-        return supplierDAO.save(dto);
+        return supplierDAO.save(new Supplier(dto.getSupplierId(),dto.getName(),dto.getAddress(),dto.getContactNo()));
     }
 
     @Override
     public boolean updateSupplier(SupplierDto dto) throws SQLException {
-        return supplierDAO.update(dto);
+        return supplierDAO.update(new Supplier(dto.getSupplierId(),dto.getName(),dto.getAddress(),dto.getContactNo()));
     }
 
     @Override
@@ -48,6 +50,11 @@ public class SupplierBOImpl implements SupplierBO {
 
     @Override
     public List<SupplierDto> getAllSupplier() throws SQLException {
-        return supplierDAO.getAlls();
+      List<Supplier> all=supplierDAO.getAlls();
+        ArrayList<SupplierDto> supplierDto =new ArrayList<>();
+        for(Supplier supplier:all){
+            supplierDto.add(new SupplierDto(supplier.getSupplierId(),supplier.getName(),supplier.getAddress(),supplier.getContactNo()));
+        }
+        return supplierDto;
     }
 }

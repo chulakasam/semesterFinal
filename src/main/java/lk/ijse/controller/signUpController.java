@@ -8,6 +8,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.BO.Custom.Impl.BOFactory;
+import lk.ijse.BO.Custom.Impl.UserBOImpl;
+import lk.ijse.BO.Custom.UserBO;
 import lk.ijse.DAO.Custom.UserDAO;
 import lk.ijse.dto.UserDto;
 import lk.ijse.mail.Mail;
@@ -24,7 +27,8 @@ public class signUpController {
     public TextField txtEmail;
     public PasswordField pwPassword;
 
-    UserDAO userDAO = new UserDAOImpl();
+    //UserDAO userDAO = new UserDAOImpl();
+    UserBO userBO= (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
     public void btnSignInOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -41,7 +45,7 @@ public class signUpController {
         var dto = new UserDto(username,password,email);
         if(isValidated){
            try {
-               boolean isSaved=userDAO.save(dto);
+               boolean isSaved=userBO.saveUser(dto);
                if(isSaved){
                    new Alert(Alert.AlertType.CONFIRMATION,"User added successfully!!!").show();
                    sendAnEmail(email);

@@ -1,6 +1,7 @@
 package lk.ijse.DAO.Custom;
 
 import lk.ijse.DAO.CrudDAO;
+import lk.ijse.Entity.Item;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface ItemDAO extends CrudDAO<ItemDto> {
+public interface ItemDAO extends CrudDAO<Item> {
      //List<ItemDto> getAllItems() throws SQLException ;
      //boolean saveItem(ItemDto dto) throws SQLException ;
      //boolean updateItem(ItemDto dto) throws SQLException ;

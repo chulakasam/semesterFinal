@@ -1,6 +1,7 @@
 package lk.ijse.DAO.Custom;
 
 import lk.ijse.DAO.CrudDAO;
+import lk.ijse.Entity.Supplier;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.SupplierDto;
 
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface SupplierDAO  extends CrudDAO<SupplierDto> {
+public interface SupplierDAO  extends CrudDAO<Supplier> {
      //String generateSupplierId() throws SQLException ;
     // String changeId(String supplierId);
 

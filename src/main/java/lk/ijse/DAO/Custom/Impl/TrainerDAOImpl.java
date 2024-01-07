@@ -3,6 +3,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.TrainerDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Trainer;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.TrainerDto;
 
@@ -29,7 +30,7 @@ public class TrainerDAOImpl implements TrainerDAO {
         return count;
     }
     @Override
-    public boolean save(TrainerDto dto) throws SQLException {
+    public boolean save(Trainer dto) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO trainer VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -48,7 +49,7 @@ public class TrainerDAOImpl implements TrainerDAO {
         return SQLUtil.test("INSERT INTO trainer VALUES(?,?,?,?,?,?,?,?)",dto.getTrainerId(),dto.getName(),dto.getTel(),dto.getNic(),dto.getEmail(),dto.getGender(),dto.getDob(),dto.getDesc());
     }
     @Override
-    public boolean update(TrainerDto dto) throws SQLException {
+    public boolean update(Trainer dto) throws SQLException {
             /*Connection connection = DbConnection.getInstance().getConnection();
             String sql="UPDATE trainer SET name=?,telephone=?,nic=?,email=?,gender=?,dob=?,description=? WHERE trainerId=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
@@ -106,7 +107,7 @@ public class TrainerDAOImpl implements TrainerDAO {
          return dto;
     }
     @Override
-    public List<TrainerDto> getAlls() throws SQLException {
+    public List<Trainer> getAlls() throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="SELECT * FROM trainer";
 
@@ -116,10 +117,10 @@ public class TrainerDAOImpl implements TrainerDAO {
 
          */
         ResultSet resultSet=SQLUtil.test("SELECT * FROM trainer");
-        ArrayList<TrainerDto> dtoList = new ArrayList<>();
+        ArrayList<Trainer> dtoList = new ArrayList<>();
         while(resultSet.next()){
             dtoList.add(
-                    new TrainerDto(
+                    new Trainer(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getInt(3),

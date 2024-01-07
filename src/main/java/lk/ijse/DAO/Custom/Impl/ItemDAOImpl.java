@@ -2,6 +2,7 @@ package lk.ijse.DAO.Custom.Impl;
 
 import lk.ijse.DAO.Custom.ItemDAO;
 import lk.ijse.DAO.SQLUtil;
+import lk.ijse.Entity.Item;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.ItemDto;
 import lk.ijse.dto.Tm.CartTm;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
-    public  List<ItemDto> getAlls() throws SQLException {
+    public  List<Item> getAlls() throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql = "SELECT * FROM item";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -23,10 +24,10 @@ public class ItemDAOImpl implements ItemDAO {
          */
         ResultSet resultSet= SQLUtil.test("SELECT * FROM item");
 
-        ArrayList<ItemDto> list = new ArrayList<>();
+        ArrayList<Item> list = new ArrayList<>();
         while (resultSet.next()){
             list.add(
-                    new ItemDto(
+                    new Item(
                             resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getDouble(3),
@@ -36,7 +37,7 @@ public class ItemDAOImpl implements ItemDAO {
         }
         return list;
     }
-    public boolean save(ItemDto dto) throws SQLException {
+    public boolean save(Item dto) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="INSERT INTO item VALUES(?,?,?,?)";
 
@@ -52,7 +53,7 @@ public class ItemDAOImpl implements ItemDAO {
          */
         return SQLUtil.test("INSERT INTO item VALUES(?,?,?,?)",dto.getItemCode(),dto.getName(),dto.getUnitPrice(),dto.getQty());
     }
-    public boolean update(ItemDto dto) throws SQLException {
+    public boolean update(Item dto) throws SQLException {
         /*Connection connection = DbConnection.getInstance().getConnection();
         String sql="UPDATE item SET name=?,unitPrice=?,qtyOnHand=? WHERE itemCode=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
